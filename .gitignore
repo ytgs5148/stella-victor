@@ -72,3 +72,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 Library/
+Assets/Cainos/
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
