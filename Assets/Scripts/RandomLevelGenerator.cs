@@ -26,15 +26,15 @@ public class RandomLevelGenerator : MonoBehaviour
         tileMapVisualiser.PaintFloorTiles(floorPositions);
         WallGenerator.CreateWalls(floorPositions, tileMapVisualiser);
         
-        // if (player != null)
-        // {
-        //     player.SetActive(true);
-        //     Vector3 playerPosition = new Vector3(startPosition.x, startPosition.y, player.transform.position.z);
-        //     if (floorPositions.Contains(startPosition))
-        //     {
-        //         player.transform.position = playerPosition;
-        //     }
-        // }
+        if (player != null)
+        {
+            player.SetActive(true);
+            Vector3 playerPosition = new Vector3(startPosition.x, startPosition.y, player.transform.position.z);
+            if (floorPositions.Contains(startPosition))
+            {
+                player.transform.position = playerPosition;
+            }
+        }
     }
 
     protected HashSet<Vector2Int> RunRandomWalk()
