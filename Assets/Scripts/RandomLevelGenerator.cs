@@ -22,6 +22,7 @@ public class RandomLevelGenerator : MonoBehaviour
         HashSet<Vector2Int> floorPositions = RunRandomWalk();
         tileMapVisualiser.ClearTileMap();
         tileMapVisualiser.PaintFloorTiles(floorPositions);
+        Debug.Log("test");
         WallGenerator.CreateWalls(floorPositions, tileMapVisualiser);
     }
 
