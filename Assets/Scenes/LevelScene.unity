@@ -911,9 +911,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileMapVisualiser: {fileID: 1255666616}
   startPosition: {x: 0, y: 0}
-  iterations: 100
+  iterations: 10
   walkLength: 100
-  startRandomlyEachIteration: 0
+  startRandomlyEachIteration: 1
   player: {fileID: 1594579799}
 --- !u!4 &727140769
 Transform:
@@ -1275,8 +1275,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.10348736, y: 0.6902154}
-  m_Size: {x: 1.1666907, y: 1.6316507}
+  m_Offset: {x: 0.0033522844, y: 0.2757108}
+  m_Size: {x: 0.6681026, y: 0.80264133}
   m_Direction: 0
 --- !u!95 &1594579801
 Animator:
