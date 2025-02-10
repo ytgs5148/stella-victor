@@ -16,14 +16,25 @@ public class RandomLevelGenerator : MonoBehaviour
     public int walkLength = 10;
     [SerializeField]
     public bool startRandomlyEachIteration = true;
+    [SerializeField]
+    private GameObject player = null;
 
     public void RunProceduralGeneration()
     {
         HashSet<Vector2Int> floorPositions = RunRandomWalk();
         tileMapVisualiser.ClearTileMap();
         tileMapVisualiser.PaintFloorTiles(floorPositions);
-        Debug.Log("test");
         WallGenerator.CreateWalls(floorPositions, tileMapVisualiser);
+        
+        // if (player != null)
+        // {
+        //     player.SetActive(true);
+        //     Vector3 playerPosition = new Vector3(startPosition.x, startPosition.y, player.transform.position.z);
+        //     if (floorPositions.Contains(startPosition))
+        //     {
+        //         player.transform.position = playerPosition;
+        //     }
+        // }
     }
 
     protected HashSet<Vector2Int> RunRandomWalk()
