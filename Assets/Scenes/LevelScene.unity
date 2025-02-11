@@ -1187,11 +1187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorTilemap: {fileID: 435105203}
   wallTilemap: {fileID: 477632643}
-<<<<<<< Updated upstream
   floorTile: {fileID: 11400000, guid: 586b189b4d4824a429abd0ba9e08e4e7, type: 2}
-=======
-  floorTile: {fileID: 11400000, guid: 7b6e368fc0ee90b4ca09e0f71344589a, type: 2}
->>>>>>> Stashed changes
   wallTop: {fileID: 11400000, guid: d6788de662ff9414889348e6329fce9a, type: 2}
   wallSideRight: {fileID: 11400000, guid: d944fdde9638c304fa3e06e314588f12, type: 2}
   wallSideLeft: {fileID: 11400000, guid: 9cbde32c313b7c943865edb3516d2dac, type: 2}
@@ -1279,8 +1275,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0033522844, y: 0.2757108}
-  m_Size: {x: 0.6681026, y: 0.80264133}
+  m_Offset: {x: -0.10348736, y: 0.6902154}
+  m_Size: {x: 1.1666907, y: 1.6316507}
   m_Direction: 0
 --- !u!95 &1594579801
 Animator:
