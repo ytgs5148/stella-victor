@@ -5,27 +5,12 @@ public class CanvasManager : MonoBehaviour
 {
     [SerializeField]
     public Texture2D sourceTexture;
-
-    [SerializeField]
     public Image targetImage;
-
     public int cropWidth = 1920;
     public int cropHeight = 1080;
 
     void Start()
     {
-        if (sourceTexture == null || targetImage == null)
-        {
-            Debug.LogError("Source Texture or Target Image not assigned.");
-            return;
-        }
-
-        if (sourceTexture.width < cropWidth || sourceTexture.height < cropHeight)
-        {
-            Debug.LogError("Source texture is smaller than the desired crop size.");
-            return;
-        }
-
         int maxX = sourceTexture.width - cropWidth;
         int maxY = sourceTexture.height - cropHeight;
 
