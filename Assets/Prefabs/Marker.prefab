@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 854389706908175618}
   - component: {fileID: 8024974593081579957}
   - component: {fileID: 5982955948357482}
+  - component: {fileID: 2031374482528567464}
   m_Layer: 5
   m_Name: Marker
   m_TagString: Untagged
@@ -76,3 +77,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2031374482528567464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2581987987660579762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0877e873d20e1714d8ba1c3cddc73a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetName: 
+  planetDescription: 

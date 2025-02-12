@@ -29,6 +29,13 @@ public class PlanetSpawner : MonoBehaviour
 
                 RectTransform markerRect = marker.GetComponent<RectTransform>();
                 markerRect.anchoredPosition = candidatePosition;
+
+                MarkerManager markerController = marker.GetComponent<MarkerManager>();
+                if (markerController != null)
+                {
+                    markerController.planetName = "Planet " + i;
+                    markerController.planetDescription = "Information about Planet " + i;
+                }
             }
             else
             {
