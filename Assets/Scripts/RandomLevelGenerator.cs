@@ -19,6 +19,11 @@ public class RandomLevelGenerator : MonoBehaviour
     [SerializeField]
     private GameObject player = null;
 
+    void Start()
+    {
+        RunProceduralGeneration();
+    }
+
     public void RunProceduralGeneration()
     {
         Debug.Log("Planet Name: " + PlanetData.Instance.planetName);
