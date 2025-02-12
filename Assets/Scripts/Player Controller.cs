@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public bool FacingLeft
+    {
+        get { return facingLeft; }
+        set { facingLeft = value; }
+    }
     [SerializeField] private float moveSpeed = 1f;
 
     private PlayerControl playerControl;
@@ -12,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
+    private bool facingLeft = false;
     private void Awake()
     {
         playerControl = new PlayerControl();
@@ -32,7 +37,7 @@ public class PlayerController : MonoBehaviour
         AdjustPlayerFacingDirection();
         Move();
     }
-    private void PlayerInput() 
+    private void PlayerInput()
     {
         movement = playerControl.Movement.Move.ReadValue<Vector2>();
         myAnimator.SetFloat("moveX", movement.x);
@@ -42,15 +47,20 @@ public class PlayerController : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
     }
-    private void AdjustPlayerFacingDirection() 
+    private void AdjustPlayerFacingDirection()
     {
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
 
-        if(mousePos.x < playerScreenPoint.x) {
+        if (mousePos.x < playerScreenPoint.x)
+        {
             mySpriteRenderer.flipX = false;
-        } else {
+            facingLeft = true;
+        }
+        else
+        {
             mySpriteRenderer.flipX = true;
+            facingLeft = false;
         }
     }
 }
