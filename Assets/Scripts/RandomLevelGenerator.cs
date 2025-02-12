@@ -13,7 +13,7 @@ public class RandomLevelGenerator : MonoBehaviour
     [SerializeField]
     private int iterations = 10;
     [SerializeField]
-    public int walkLength = 10;
+    public int walkLength = 100;
     [SerializeField]
     public bool startRandomlyEachIteration = true;
     [SerializeField]
@@ -28,6 +28,9 @@ public class RandomLevelGenerator : MonoBehaviour
     {
         Debug.Log("Planet Name: " + PlanetData.Instance.planetName);
         Debug.Log("Planet Description: " + PlanetData.Instance.planetDesc);
+        Debug.Log("Planet Level: " + PlanetData.Instance.planetLevel);
+        Debug.Log("Planet Elemental Type: " + PlanetData.Instance.planetType);
+        Debug.Log("Planet Win XP: " + PlanetData.Instance.planetXP);
 
         HashSet<Vector2Int> floorPositions = RunRandomWalk();
         tileMapVisualiser.ClearTileMap();
@@ -38,11 +41,6 @@ public class RandomLevelGenerator : MonoBehaviour
         Vector3 playerPosition = new Vector3(startPosition.x, startPosition.y, player.transform.position.z);
         if (floorPositions.Contains(startPosition))
             player.transform.position = playerPosition;
-        // else
-        // {
-        //     Vector2Int closestFloor = floorPositions.OrderBy(p => Vector2Int.Distance(p, startPosition)).First();
-        //     player.transform.position = new Vector3(closestFloor.x, closestFloor.y, player.transform.position.z);
-        // }
     }
 
     protected HashSet<Vector2Int> RunRandomWalk()

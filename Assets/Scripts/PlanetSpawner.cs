@@ -33,8 +33,13 @@ public class PlanetSpawner : MonoBehaviour
                 MarkerManager markerController = marker.GetComponent<MarkerManager>();
                 if (markerController != null)
                 {
+                    string[] elements = new string[] { "Fire", "Water", "Earth", "Air" };
+
                     markerController.planetName = "Planet " + i;
                     markerController.planetDescription = "Information about Planet " + i;
+                    markerController.planetLevel = Random.Range(1, 10);
+                    markerController.planetElementalType = elements[Random.Range(0, 4)];
+                    markerController.planetWinXP = Random.Range(100, 1000).ToString();
                 }
             }
             else
