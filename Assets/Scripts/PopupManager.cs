@@ -63,6 +63,6 @@ public class PopupManager : MonoBehaviour
         PlanetData.Instance.planetName = popupText.text;
         PlanetData.Instance.planetDesc = popupDesc.text;
 
-        SceneManager.LoadScene("LevelScene");
+        SceneManager.LoadSceneAsync("LevelScene");
     }
 }
