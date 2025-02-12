@@ -21,20 +21,23 @@ public class RandomLevelGenerator : MonoBehaviour
 
     public void RunProceduralGeneration()
     {
+        Debug.Log("Planet Name: " + PlanetData.Instance.planetName);
+        Debug.Log("Planet Description: " + PlanetData.Instance.planetDesc);
+
         HashSet<Vector2Int> floorPositions = RunRandomWalk();
         tileMapVisualiser.ClearTileMap();
         tileMapVisualiser.PaintFloorTiles(floorPositions);
         WallGenerator.CreateWalls(floorPositions, tileMapVisualiser);
-        
-        if (player != null)
-        {
-            player.SetActive(true);
-            Vector3 playerPosition = new Vector3(startPosition.x, startPosition.y, player.transform.position.z);
-            if (floorPositions.Contains(startPosition))
-            {
-                player.transform.position = playerPosition;
-            }
-        }
+
+        player.SetActive(true);
+        Vector3 playerPosition = new Vector3(startPosition.x, startPosition.y, player.transform.position.z);
+        if (floorPositions.Contains(startPosition))
+            player.transform.position = playerPosition;
+        // else
+        // {
+        //     Vector2Int closestFloor = floorPositions.OrderBy(p => Vector2Int.Distance(p, startPosition)).First();
+        //     player.transform.position = new Vector3(closestFloor.x, closestFloor.y, player.transform.position.z);
+        // }
     }
 
     protected HashSet<Vector2Int> RunRandomWalk()

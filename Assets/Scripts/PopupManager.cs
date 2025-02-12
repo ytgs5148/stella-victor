@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PopupManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PopupManager : MonoBehaviour
     public TextMeshProUGUI popupDesc;
     public GameObject blurPanel;
     public Button closeButton;
+    public Button liberateButton;
 
     private void Awake()
     {
@@ -21,11 +23,13 @@ public class PopupManager : MonoBehaviour
 
         popupPanel.SetActive(false);
         blurPanel.SetActive(false);
-        
-        // closeButton.onClick.AddListener(HidePopup);
+
+        closeButton.onClick.AddListener(HidePopup);
+        liberateButton.onClick.AddListener(LiberatePlanet);
     }
 
-    public void ShowPopup(string title, string info) {
+    public void ShowPopup(string title, string info)
+    {
         popupText.text = title;
         popupDesc.text = info;
 
@@ -41,7 +45,8 @@ public class PopupManager : MonoBehaviour
         popupPanel.SetActive(true);
     }
 
-    public void HidePopup() {
+    public void HidePopup()
+    {
         popupPanel.SetActive(false);
 
         MarkerManager[] markers = FindObjectsOfType<MarkerManager>(true);
@@ -51,5 +56,13 @@ public class PopupManager : MonoBehaviour
         }
 
         blurPanel.SetActive(false);
+    }
+
+    public void LiberatePlanet()
+    {
+        PlanetData.Instance.planetName = popupText.text;
+        PlanetData.Instance.planetDesc = popupDesc.text;
+
+        SceneManager.LoadScene("LevelScene");
     }
 }
