@@ -10,9 +10,6 @@ public class PopupManager : MonoBehaviour
     public GameObject popupPanel;
     public TextMeshProUGUI popupText;
     public TextMeshProUGUI popupDesc;
-    public TextMeshProUGUI popupLevel;
-    public TextMeshProUGUI popupType;
-    public TextMeshProUGUI popupXP;
     public GameObject blurPanel;
     public Button closeButton;
     public Button liberateButton;
@@ -31,19 +28,14 @@ public class PopupManager : MonoBehaviour
         liberateButton.onClick.AddListener(LiberatePlanet);
     }
 
-    public void ShowPopup(string title, string info, int level, string type, string xp)
+    public void ShowPopup(string title, string info)
     {
         popupText.text = title;
         popupDesc.text = info;
-        popupLevel.text = "Level: " + level;
-        popupType.text = "Elemental Type: " + type;
-        popupXP.text = "Win XP: " + xp;
 
         blurPanel.SetActive(true);
 
-        #pragma warning disable CS0618 // Type or member is obsolete
         MarkerManager[] markers = FindObjectsOfType<MarkerManager>(true);
-        #pragma warning restore CS0618 // Type or member is obsolete
         foreach (MarkerManager marker in markers)
         {
             marker.gameObject.SetActive(false);
@@ -57,9 +49,7 @@ public class PopupManager : MonoBehaviour
     {
         popupPanel.SetActive(false);
 
-        #pragma warning disable CS0618 // Type or member is obsolete
         MarkerManager[] markers = FindObjectsOfType<MarkerManager>(true);
-        #pragma warning restore CS0618 // Type or member is obsolete
         foreach (MarkerManager marker in markers)
         {
             marker.gameObject.SetActive(true);
@@ -72,10 +62,7 @@ public class PopupManager : MonoBehaviour
     {
         PlanetData.Instance.planetName = popupText.text;
         PlanetData.Instance.planetDesc = popupDesc.text;
-        PlanetData.Instance.planetLevel = popupLevel.text;
-        PlanetData.Instance.planetType = popupType.text;
-        PlanetData.Instance.planetXP = popupXP.text;
 
-        SceneManager.LoadSceneAsync("LevelScene");
+        SceneManager.LoadScene("LevelScene");
     }
 }

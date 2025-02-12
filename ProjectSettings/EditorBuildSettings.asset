@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 3a96fa49d50f4694ba0b7c280289b7d5
-  - enabled: 1
     path: Assets/Scenes/GalacticAtlasScene.unity
     guid: d8fd8b14a93be904e80337d3c466ee15
   - enabled: 1
