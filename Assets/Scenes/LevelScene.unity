@@ -1196,6 +1196,39 @@ MonoBehaviour:
     type: 2}
   wallDiagonalCornerUpLeft: {fileID: 11400000, guid: d1ef49d7f7e15584088e2adad9b5d7c2,
     type: 2}
+  stoneGroundTiles:
+  - {fileID: 11400000, guid: 9ddec2508ba86d049ad1a5db035fccd9, type: 2}
+  - {fileID: 11400000, guid: 2bde7eb56ca3a194a9f9f0120251c1d2, type: 2}
+  flowerTiles:
+  - {fileID: 11400000, guid: e56ab868bb5669041b76d54fb9dcb143, type: 2}
+  - {fileID: 11400000, guid: 19b9d719140613d4c8039f5438888cd0, type: 2}
+  - {fileID: 11400000, guid: 276a700a0dcdbf445a3608b253f017f0, type: 2}
+  - {fileID: 11400000, guid: 132df4a54775c1f41b7f6f22b656df3f, type: 2}
+  - {fileID: 11400000, guid: 5ca12d0e2700e1e4e88f7f521bc3810c, type: 2}
+  - {fileID: 11400000, guid: b3d5280ab2f3a8d48b1aafa35b3a4cca, type: 2}
+  - {fileID: 11400000, guid: b2e56b61f6a10b34d9f34b93e324eabf, type: 2}
+  - {fileID: 11400000, guid: e4bf840687e433f478ac6c28585a9c07, type: 2}
+  - {fileID: 11400000, guid: 989b547852e299a4db8b80ff9e0eb70c, type: 2}
+  - {fileID: 11400000, guid: 06ec783ec19c97f4880ed4a00170e0b2, type: 2}
+  - {fileID: 11400000, guid: a3efe5947e8d3de4ab72970b2a1d99b5, type: 2}
+  - {fileID: 11400000, guid: 3f65ad74f4d4304488d1f8b0b8d7f025, type: 2}
+  - {fileID: 11400000, guid: 75d33a63a24a58f4da3a7bf69f667547, type: 2}
+  - {fileID: 11400000, guid: a6767e01f1aecdb428df09559117a67d, type: 2}
+  - {fileID: 11400000, guid: c38b37f9e014eea49bcf27778bcb09bd, type: 2}
+  - {fileID: 11400000, guid: 873dcc2594495ed40bac7e25ad6fab85, type: 2}
+  flowerProbability: 0.25
+  stoneTileProbability: 0.1
+  orderedTileSets:
+  - width: 2
+    height: 3
+    placementChance: 50
+    tiles:
+    - {fileID: 11400000, guid: 037e99f6f3d9a2f46b8166ef30aacdc8, type: 2}
+    - {fileID: 11400000, guid: 557f93d62ea600d418ddd8da39c32b8b, type: 2}
+    - {fileID: 11400000, guid: b9b484d0167d0a348938cc0da0829cb7, type: 2}
+    - {fileID: 11400000, guid: 05e698fe96994e246bd83b51e21f0a11, type: 2}
+    - {fileID: 11400000, guid: 60a9f8f577b512a4e9d5020a044df7cd, type: 2}
+    - {fileID: 11400000, guid: e1c3dbbabb72e7b4ca0874b895ba94a4, type: 2}
 --- !u!4 &1255666617
 Transform:
   m_ObjectHideFlags: 0

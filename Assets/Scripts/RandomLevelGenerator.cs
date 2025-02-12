@@ -26,15 +26,22 @@ public class RandomLevelGenerator : MonoBehaviour
 
     public void RunProceduralGeneration()
     {
-        Debug.Log("Planet Name: " + PlanetData.Instance.planetName);
-        Debug.Log("Planet Description: " + PlanetData.Instance.planetDesc);
-        Debug.Log("Planet Level: " + PlanetData.Instance.planetLevel);
-        Debug.Log("Planet Elemental Type: " + PlanetData.Instance.planetType);
-        Debug.Log("Planet Win XP: " + PlanetData.Instance.planetXP);
+        // Debug.Log("Planet Name: " + PlanetData.Instance.planetName);
+        // Debug.Log("Planet Description: " + PlanetData.Instance.planetDesc);
+        // Debug.Log("Planet Level: " + PlanetData.Instance.planetLevel);
+        // Debug.Log("Planet Elemental Type: " + PlanetData.Instance.planetType);
+        // Debug.Log("Planet Win XP: " + PlanetData.Instance.planetXP);
 
         HashSet<Vector2Int> floorPositions = RunRandomWalk();
         tileMapVisualiser.ClearTileMap();
         tileMapVisualiser.PaintFloorTiles(floorPositions);
+        tileMapVisualiser.PaintStoneGroundTiles(floorPositions);
+
+        // 3. Place random flower decorations.
+        tileMapVisualiser.PlaceFlowerTiles(floorPositions);
+
+        // 4. Place the ordered tile sets.
+        tileMapVisualiser.PlaceOrderedTileSetsRectangular(floorPositions);
         WallGenerator.CreateWalls(floorPositions, tileMapVisualiser);
 
         player.SetActive(true);
