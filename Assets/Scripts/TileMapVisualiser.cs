@@ -17,7 +17,7 @@ public class TileMapVisualiser : MonoBehaviour
     [SerializeField]
     private float flowerProbability = 0.1f;
     [SerializeField]
-    private float stoneTileProbability = 0.5f; // New probability field for stone tiles
+    private float stoneTileProbability = 0.5f;
     [SerializeField]
     private OrderedTileSet[] orderedTileSets;
 
@@ -95,7 +95,7 @@ public class TileMapVisualiser : MonoBehaviour
     {
         foreach (var pos in floorPositions)
         {
-            if (UnityEngine.Random.value < stoneTileProbability) // Use the stone tile probability
+            if (UnityEngine.Random.value < stoneTileProbability)
             {
                 TileBase tile = stoneGroundTiles[UnityEngine.Random.Range(0, stoneGroundTiles.Length)];
                 PaintSingleTile(floorTilemap, tile, pos);
@@ -103,17 +103,12 @@ public class TileMapVisualiser : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Randomly places flower tiles on the given floor positions.
-    /// Uses a probability check so not every cell gets a flower.
-    /// </summary>
     public void PlaceFlowerTiles(IEnumerable<Vector2Int> floorPositions)
     {
         foreach (var pos in floorPositions)
         {
             if (UnityEngine.Random.value < flowerProbability)
             {
-                // You might want to ensure that the position isn’t near a wall.
                 TileBase flowerTile = flowerTiles[UnityEngine.Random.Range(0, flowerTiles.Length)];
                 PaintSingleTile(floorTilemap, flowerTile, pos);
             }
@@ -122,21 +117,18 @@ public class TileMapVisualiser : MonoBehaviour
 
     public void PlaceOrderedTileSetsRectangular(HashSet<Vector2Int> floorPositions)
     {
-        // Convert the floorPositions HashSet to a list for random access.
         List<Vector2Int> floorList = new List<Vector2Int>(floorPositions);
         
         foreach (var orderedSet in orderedTileSets)
         {
             bool placed = false;
             int attempts = 0;
-            // Try up to 100 times to find a valid candidate.
+
             while (!placed && attempts < 100)
             {
                 attempts++;
-                // Pick a candidate cell randomly.
                 Vector2Int candidate = floorList[UnityEngine.Random.Range(0, floorList.Count)];
                 
-                // Verify that a rectangle starting at candidate with size (width x height) is completely on floor.
                 bool canPlace = true;
                 for (int x = 0; x < orderedSet.width; x++)
                 {
@@ -153,13 +145,10 @@ public class TileMapVisualiser : MonoBehaviour
                 
                 if (canPlace)
                 {
-                    // Roll the chance (placementChance is in percentage).
                     if (UnityEngine.Random.Range(0, 100) < orderedSet.placementChance)
                     {
-                        // Generate the list of offsets in clockwise (spiral) order.
                         List<Vector2Int> spiralOffsets = GetClockwiseSpiralPositions(orderedSet.width, orderedSet.height);
                         
-                        // Check that the number of spiral positions matches the number of tiles.
                         int expectedCount = orderedSet.width * orderedSet.height;
                         if (spiralOffsets.Count != expectedCount || spiralOffsets.Count != orderedSet.tiles.Length)
                         {
@@ -167,7 +156,6 @@ public class TileMapVisualiser : MonoBehaviour
                             return;
                         }
                         
-                        // Place each tile at the candidate offset plus the spiral offset.
                         for (int i = 0; i < spiralOffsets.Count; i++)
                         {
                             Vector2Int tilePos = candidate + spiralOffsets[i];
@@ -175,10 +163,9 @@ public class TileMapVisualiser : MonoBehaviour
                         }
                         placed = true;
                     }
-                    // If the chance roll failed, then exit (or you might try a new candidate).
                     else
                     {
-                        placed = true;  // Do nothing in this case.
+                        placed = true;
                     }
                 }
             }
@@ -194,22 +181,18 @@ public class TileMapVisualiser : MonoBehaviour
         
         while (left <= right && bottom <= top)
         {
-            // Top row: left to right.
             for (int x = left; x <= right; x++)
                 spiral.Add(new Vector2Int(x, top));
             
-            // Right column: top-1 to bottom.
             for (int y = top - 1; y >= bottom; y--)
                 spiral.Add(new Vector2Int(right, y));
             
-            // Bottom row: right-1 to left (if we are not on the same row).
             if (bottom != top)
             {
                 for (int x = right - 1; x >= left; x--)
                     spiral.Add(new Vector2Int(x, bottom));
             }
             
-            // Left column: bottom+1 to top-1 (if we are not on the same column).
             if (left != right)
             {
                 for (int y = bottom + 1; y <= top - 1; y++)

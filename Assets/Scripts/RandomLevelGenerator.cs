@@ -36,11 +36,7 @@ public class RandomLevelGenerator : MonoBehaviour
         tileMapVisualiser.ClearTileMap();
         tileMapVisualiser.PaintFloorTiles(floorPositions);
         tileMapVisualiser.PaintStoneGroundTiles(floorPositions);
-
-        // 3. Place random flower decorations.
         tileMapVisualiser.PlaceFlowerTiles(floorPositions);
-
-        // 4. Place the ordered tile sets.
         tileMapVisualiser.PlaceOrderedTileSetsRectangular(floorPositions);
         WallGenerator.CreateWalls(floorPositions, tileMapVisualiser);
 
