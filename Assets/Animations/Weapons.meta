@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animations/Weapons.meta
 guid: a489e79a31b71e94298680e798cd8385
 folderAsset: yes
+========
+guid: 3a96fa49d50f4694ba0b7c280289b7d5
+>>>>>>>> e805130dba20436df752c4129b758ebce7ccff18:Assets/Scenes/MainMenu.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
