@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] private float roamChangeDirFloat = 2f;
     private enum State
     {
         Roaming
@@ -33,15 +34,15 @@ public class EnemyAI : MonoBehaviour
                 Vector2 roamPosition = GetRoamingPosition();
                 FlipSprite(roamPosition.x - transform.position.x);
                 enemyPathFinding.MoveTo(roamPosition);
-                Debug.Log("Here");
+                // Debug.Log("Here");
             }
             else
             {
                 enemyPathFinding.Stop();
-                Debug.Log("There");
+                // Debug.Log("There");
             }
-            Debug.Log("Should move: " + moving);
-            yield return new WaitForSeconds(Random.Range(1f, 3f));
+            // Debug.Log("Should move: " + moving);
+            yield return new WaitForSeconds(Random.Range(1f, 1f + roamChangeDirFloat));
         }
     }
     private Vector2 GetRoamingPosition()
