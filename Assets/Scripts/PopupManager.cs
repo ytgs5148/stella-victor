@@ -10,6 +10,8 @@ public class PopupManager : MonoBehaviour
     public GameObject popupPanel;
     public TextMeshProUGUI popupText;
     public TextMeshProUGUI popupDesc;
+    public TextMeshProUGUI popupElement;
+    public TextMeshProUGUI popupDifficulty;
     public GameObject blurPanel;
     public Button closeButton;
     public Button liberateButton;
@@ -28,10 +30,31 @@ public class PopupManager : MonoBehaviour
         liberateButton.onClick.AddListener(LiberatePlanet);
     }
 
-    public void ShowPopup(string title, string info)
+    public void ShowPopup(string title, string info, string element, int difficulty)
     {
         popupText.text = title;
         popupDesc.text = info;
+        popupElement.text = "Element: " + element;
+        popupElement.color = element == "Grass" ? new Color32(41, 126, 84, 255) : Color.blue;
+        popupDifficulty.text = "Difficulty: " + difficulty;
+        switch (difficulty)
+        {
+            case 1:
+                popupDifficulty.color = new Color32(41, 126, 0, 255);
+                break;
+            case 2:
+                popupDifficulty.color = new Color32(98, 103, 10, 255);
+                break;
+            case 3:
+                popupDifficulty.color = new Color32(255, 108, 0, 255);
+                break;
+            case 4:
+                popupDifficulty.color = Color.red;
+                break;
+            default:
+                popupDifficulty.color = Color.white;
+                break;
+        }
 
         blurPanel.SetActive(true);
 
@@ -62,6 +85,8 @@ public class PopupManager : MonoBehaviour
     {
         PlanetData.Instance.planetName = popupText.text;
         PlanetData.Instance.planetDesc = popupDesc.text;
+        PlanetData.Instance.planetElement = "Element: " + popupElement.text;
+        PlanetData.Instance.planetDifficulty = int.Parse(popupDifficulty.text.Substring(12));
 
         SceneManager.LoadScene("LevelScene");
     }

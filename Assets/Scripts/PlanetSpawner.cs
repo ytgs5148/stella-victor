@@ -33,8 +33,10 @@ public class PlanetSpawner : MonoBehaviour
                 MarkerManager markerController = marker.GetComponent<MarkerManager>();
                 if (markerController != null)
                 {
-                    markerController.planetName = "Planet " + i;
-                    markerController.planetDescription = "Information about Planet " + i;
+                    markerController.planetName = Planets.planetNames[Random.Range(0, Planets.planetNames.Length)];
+                    markerController.planetDescription = Planets.planetDescriptions[Random.Range(0, Planets.planetDescriptions.Length)];
+                    markerController.planetElement = Planets.elementTypes[Random.Range(0, Planets.elementTypes.Length)];
+                    markerController.planetDifficultyLevel = Random.Range(1, 5);
                 }
             }
             else
