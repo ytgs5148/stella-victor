@@ -958,7 +958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 093bc6a8ae7c13f4199056f28cc815d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentActiveWeapon: {fileID: 0}
 --- !u!1 &526582004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,6 +2058,7 @@ MonoBehaviour:
   moveSpeed: 3
   dashSpeed: 3
   myTrailRenderer: {fileID: 1654244828}
+  weaponCollider: {fileID: 1381761577}
 --- !u!212 &1626679260
 SpriteRenderer:
   m_ObjectHideFlags: 0
