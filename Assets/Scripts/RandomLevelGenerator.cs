@@ -17,7 +17,6 @@ public class RandomLevelGenerator : MonoBehaviour
     [SerializeField]
     public bool startRandomlyEachIteration = true;
     [SerializeField]
-    private GameObject player = null;
 
     void Start()
     {
@@ -40,10 +39,10 @@ public class RandomLevelGenerator : MonoBehaviour
         tileMapVisualiser.PlaceOrderedTileSetsRectangular(floorPositions);
         WallGenerator.CreateWalls(floorPositions, tileMapVisualiser);
 
-        player.SetActive(true);
-        Vector3 playerPosition = new Vector3(startPosition.x, startPosition.y, player.transform.position.z);
+        PlayerController.Instance.gameObject.SetActive(true);
+        Vector3 playerPosition = new Vector3(startPosition.x, startPosition.y, PlayerController.Instance.transform.position.z);
         if (floorPositions.Contains(startPosition))
-            player.transform.position = playerPosition;
+            PlayerController.Instance.transform.position = playerPosition;
     }
 
     protected HashSet<Vector2Int> RunRandomWalk()
