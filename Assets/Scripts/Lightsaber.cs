@@ -23,6 +23,16 @@ public class Lightsaber : MonoBehaviour, IWeapon
     {
         MouseFollowWithOffset();
     }
+    private void OnEnable()
+    {
+        transform.rotation = Quaternion.Euler(0, 0, 180);
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
+        if (mousePos.x < playerScreenPoint.x)
+        {
+            transform.localScale = new Vector3(0.3f, -0.3f, 1f);
+        }
+    }
     public void Attack()
     {
         // isAttacking = true;

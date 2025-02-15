@@ -25,6 +25,11 @@ public class ActiveInventory : MonoBehaviour
     }
     private void ToggleActiveSlot(int numValue)
     {
+        int newSlotIndex = numValue - 1;
+        if (newSlotIndex == activeSlotIndexNum)
+        {
+            return;
+        }
         ToggleActiveHighlight(numValue - 1);
     }
     private void ToggleActiveHighlight(int indexNum)
@@ -53,9 +58,12 @@ public class ActiveInventory : MonoBehaviour
         }
         GameObject weaponToSpawn = transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>().GetWeaponInfo().weaponPrefab;
         GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity);
-        if(!isLeft) {
+        if (!isLeft)
+        {
             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
-        } else {
+        }
+        else
+        {
             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(180, 0, 0);
         }
         newWeapon.transform.parent = ActiveWeapon.Instance.transform;
