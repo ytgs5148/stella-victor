@@ -39,6 +39,9 @@ public class ActiveInventory : MonoBehaviour
     }
     private void ChangeActiveWeapon()
     {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 gunPos = ActiveWeapon.Instance.transform.position;
+        bool isLeft = mousePos.x < gunPos.x;
         if (ActiveWeapon.Instance.CurrentActiveWeapon != null)
         {
             Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
@@ -50,6 +53,11 @@ public class ActiveInventory : MonoBehaviour
         }
         GameObject weaponToSpawn = transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>().GetWeaponInfo().weaponPrefab;
         GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity);
+        if(!isLeft) {
+            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+        } else {
+            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(180, 0, 0);
+        }
         newWeapon.transform.parent = ActiveWeapon.Instance.transform;
         ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
     }
