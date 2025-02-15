@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float knockBackThrust = 5f;
     private Animator animator;
     private EnemyAI enemyAI;
-    private int currentHealth;
+    public int currentHealth;
     private KnockBack knockBack;
     private Flash flash;
     private void Awake()

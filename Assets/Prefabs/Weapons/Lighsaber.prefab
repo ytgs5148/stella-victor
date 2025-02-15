@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5897438644578640537}
   - component: {fileID: 4693683583202878676}
   - component: {fileID: 3977362616479502775}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lighsaber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
