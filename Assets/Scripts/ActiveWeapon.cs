@@ -24,6 +24,8 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     }
     public void NewWeapon(MonoBehaviour newWeapon) {
         CurrentActiveWeapon = newWeapon;
+        attackButtonDown = false;
+        isAttacking = false;
     }
     public void WeaponNull() {
         CurrentActiveWeapon = null;
