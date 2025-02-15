@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      futuristic-screen-blue-background-start-600nw-2061332705-update_0: 25245867047082240
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

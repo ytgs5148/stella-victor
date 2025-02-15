@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mosaic00000-compressed_0: 8924460431401595103
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
