@@ -1,12 +1,13 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class NewGameManager : MonoBehaviour
 {
+    public LoadingScreenManager LoadingScreenManager;
+
     public void NewGame()
     {
         TimerManager.Instance.StartTimer(300f);
-        SceneManager.LoadScene("GalacticAtlasScene");
+        LoadingScreenManager.LoadScene(1);
     }
 
     public void QuitGame()

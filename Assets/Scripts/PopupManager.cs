@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PopupManager : MonoBehaviour
 {
@@ -15,6 +14,7 @@ public class PopupManager : MonoBehaviour
     public GameObject blurPanel;
     public Button closeButton;
     public Button liberateButton;
+    public LoadingScreenManager LoadingScreenManager;
 
     private void Awake()
     {
@@ -27,7 +27,6 @@ public class PopupManager : MonoBehaviour
         blurPanel.SetActive(false);
 
         closeButton.onClick.AddListener(HidePopup);
-        liberateButton.onClick.AddListener(LiberatePlanet);
     }
 
     public void ShowPopup(string title, string info, string element, int difficulty)
@@ -58,7 +57,9 @@ public class PopupManager : MonoBehaviour
 
         blurPanel.SetActive(true);
 
+        #pragma warning disable CS0618 // Type or member is obsolete
         MarkerManager[] markers = FindObjectsOfType<MarkerManager>(true);
+        #pragma warning restore CS0618 // Type or member is obsolete
         foreach (MarkerManager marker in markers)
         {
             marker.gameObject.SetActive(false);
@@ -72,7 +73,9 @@ public class PopupManager : MonoBehaviour
     {
         popupPanel.SetActive(false);
 
+        #pragma warning disable CS0618 // Type or member is obsolete
         MarkerManager[] markers = FindObjectsOfType<MarkerManager>(true);
+        #pragma warning restore CS0618 // Type or member is obsolete
         foreach (MarkerManager marker in markers)
         {
             marker.gameObject.SetActive(true);
@@ -88,6 +91,7 @@ public class PopupManager : MonoBehaviour
         PlanetData.Instance.planetElement = "Element: " + popupElement.text;
         PlanetData.Instance.planetDifficulty = int.Parse(popupDifficulty.text.Substring(12));
 
-        SceneManager.LoadScene("LevelScene");
+        Debug.Log("Liberating planet: " + PlanetData.Instance.planetName);
+        LoadingScreenManager.LoadScene(2);
     }
 }

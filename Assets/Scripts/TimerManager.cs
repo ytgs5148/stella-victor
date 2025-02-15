@@ -3,10 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class TimerManager : MonoBehaviour
 {
-   public static TimerManager Instance { get; private set; }
+    public static TimerManager Instance { get; private set; }
 
-   public float timeRemaining = 300f;
-   public bool isTimerRunning = false;
+    public float timeRemaining = 300f;
+    public bool isTimerRunning = false;
+    public LoadingScreenManager LoadingScreenManager;
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public class TimerManager : MonoBehaviour
                 timeRemaining = 0f;
                 isTimerRunning = false;
 
-                SceneManager.LoadScene("GameOverScene");
+                LoadingScreenManager.LoadScene(3);
             }
         }
     }
