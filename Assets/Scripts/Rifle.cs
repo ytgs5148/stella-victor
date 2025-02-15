@@ -10,15 +10,6 @@ public class Rifle : MonoBehaviour, IWeapon
     public void Attack()
     {
         Debug.Log("Rifle Attack");
-        StartCoroutine(ResetAttack());
-    }
-
-    private IEnumerator ResetAttack()
-    {
-        yield return new WaitForSeconds(0.75f);
-    }
-    public WeaponInfo GetWeaponInfo() {
-        return weaponInfo;
     }
     private void MouseFollowWithOffset()
     {
@@ -34,5 +25,8 @@ public class Rifle : MonoBehaviour, IWeapon
 
         float smoothedAngle = Mathf.LerpAngle(ActiveWeapon.Instance.transform.eulerAngles.z, angle, Time.deltaTime * 10);
         ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 180, -smoothedAngle);
+    }
+    public WeaponInfo GetWeaponInfo() {
+        return weaponInfo;
     }
 }

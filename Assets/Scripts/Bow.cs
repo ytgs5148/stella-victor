@@ -3,22 +3,29 @@ using System.Collections;
 public class Bow : MonoBehaviour, IWeapon
 {
     [SerializeField] private WeaponInfo weaponInfo;
+    [SerializeField] private GameObject arrowPrefab;
+    [SerializeField] private Transform arrowSpawnPoint;
+    readonly int FIRE_HASH = Animator.StringToHash("Fire");
+    private Animator myAnimator;
+    private void Awake()
+    {
+        myAnimator = GetComponent<Animator>();
+    }
     private void Update()
     {
         MouseFollowWithOffset();
     }
     public void Attack()
     {
-        Debug.Log("Bow Attack");
+        myAnimator.SetTrigger(FIRE_HASH);
+        myAnimator.SetBool("IsFiring", true);
+        GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
         StartCoroutine(ResetAttack());
     }
-
     private IEnumerator ResetAttack()
     {
-        yield return new WaitForSeconds(1f);
-    }
-    public WeaponInfo GetWeaponInfo() {
-        return weaponInfo;
+        yield return new WaitForSeconds(0.2f);
+        myAnimator.SetBool("IsFiring", false);
     }
     private void MouseFollowWithOffset()
     {
@@ -34,5 +41,9 @@ public class Bow : MonoBehaviour, IWeapon
 
         float smoothedAngle = Mathf.LerpAngle(ActiveWeapon.Instance.transform.eulerAngles.z, angle, Time.deltaTime * 10);
         ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 180, -smoothedAngle);
+    }
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
     }
 }
