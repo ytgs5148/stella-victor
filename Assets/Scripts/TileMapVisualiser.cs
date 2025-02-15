@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class TileMapVisualiser : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap floorTilemap, wallTilemap;
+    private Tilemap floorTilemap, wallTilemap, cosmeticBelowTilemap, cosmeticAboveTilemap;
     [SerializeField]
     private TileBase floorTile, wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, wallInnerCornerDownLeft, wallInnerCornerDownRight, wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft, wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft;
 
@@ -118,53 +118,61 @@ public class TileMapVisualiser : MonoBehaviour
     public void PlaceOrderedTileSetsRectangular(HashSet<Vector2Int> floorPositions)
     {
         List<Vector2Int> floorList = new List<Vector2Int>(floorPositions);
-        
+        HashSet<Vector2Int> occupiedPositions = new HashSet<Vector2Int>();
+
         foreach (var orderedSet in orderedTileSets)
         {
-            bool placed = false;
-            int attempts = 0;
+            int setsToPlace = UnityEngine.Random.Range(orderedSet.minSetsToPlace, orderedSet.maxSetsToPlace + 1);
 
-            while (!placed && attempts < 100)
+            for (int setCount = 0; setCount < setsToPlace; setCount++)
             {
-                attempts++;
-                Vector2Int candidate = floorList[UnityEngine.Random.Range(0, floorList.Count)];
-                
-                bool canPlace = true;
-                for (int x = 0; x < orderedSet.width; x++)
+                bool placed = false;
+                int attempts = 0;
+
+                while (!placed && attempts < 100)
                 {
-                    for (int y = 0; y < orderedSet.height; y++)
+                    attempts++;
+                    Vector2Int candidate = floorList[UnityEngine.Random.Range(0, floorList.Count)];
+
+                    bool canPlace = true;
+                    List<Vector2Int> positionsToCheck = new List<Vector2Int>();
+
+                    for (int x = 0; x < orderedSet.width; x++)
                     {
-                        if (!floorPositions.Contains(candidate + new Vector2Int(x, y)))
+                        for (int y = 0; y < orderedSet.height; y++)
                         {
-                            canPlace = false;
-                            break;
+                            Vector2Int pos = candidate + new Vector2Int(x, y);
+                            if (!floorPositions.Contains(pos) || occupiedPositions.Contains(pos))
+                            {
+                                canPlace = false;
+                                break;
+                            }
+                            positionsToCheck.Add(pos);
                         }
+                        if (!canPlace) break;
                     }
-                    if (!canPlace) break;
-                }
-                
-                if (canPlace)
-                {
-                    if (UnityEngine.Random.Range(0, 100) < orderedSet.placementChance)
+
+                    if (canPlace)
                     {
                         List<Vector2Int> spiralOffsets = GetClockwiseSpiralPositions(orderedSet.width, orderedSet.height);
-                        
+
                         int expectedCount = orderedSet.width * orderedSet.height;
                         if (spiralOffsets.Count != expectedCount || spiralOffsets.Count != orderedSet.tiles.Length)
                         {
                             Debug.LogError("OrderedTileSet configuration mismatch: Expected " + expectedCount + " positions, but got " + spiralOffsets.Count);
                             return;
                         }
-                        
+
                         for (int i = 0; i < spiralOffsets.Count; i++)
                         {
                             Vector2Int tilePos = candidate + spiralOffsets[i];
-                            PaintSingleTile(floorTilemap, orderedSet.tiles[i], tilePos);
+
+                            if (orderedSet.belowPlayer == true)
+                                PaintSingleTile(cosmeticBelowTilemap, orderedSet.tiles[i], tilePos);
+                            else
+                                PaintSingleTile(cosmeticAboveTilemap, orderedSet.tiles[i], tilePos);
+                            occupiedPositions.Add(tilePos);
                         }
-                        placed = true;
-                    }
-                    else
-                    {
                         placed = true;
                     }
                 }
