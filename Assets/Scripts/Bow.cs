@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 public class Bow : MonoBehaviour, IWeapon
 {
+    [SerializeField] private WeaponInfo weaponInfo;
     private void Update()
     {
         MouseFollowWithOffset();
@@ -14,8 +15,10 @@ public class Bow : MonoBehaviour, IWeapon
 
     private IEnumerator ResetAttack()
     {
-        yield return new WaitForSeconds(1f); // Small delay before resetting
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
+        yield return new WaitForSeconds(1f);
+    }
+    public WeaponInfo GetWeaponInfo() {
+        return weaponInfo;
     }
     private void MouseFollowWithOffset()
     {
