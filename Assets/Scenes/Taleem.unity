@@ -1692,6 +1692,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3888749439153233095, guid: a68397557a91f6244a9ebfdd3f529d68,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4093559998683288631, guid: a68397557a91f6244a9ebfdd3f529d68,
         type: 3}
       propertyPath: m_Name
@@ -2041,7 +2046,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 65
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -2201,9 +2206,9 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0012996233, y: -0.029370312}
-  m_Size: {x: 1.3330609, y: 0.6391262}
-  m_Direction: 1
+  m_Offset: {x: -0.0012996296, y: 0.52815783}
+  m_Size: {x: 1.333061, y: 1.89059}
+  m_Direction: 0
 --- !u!210 &1626679264
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -2369,7 +2374,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Time: 0.15
-  m_PreviewTimeScale: 1
+  m_PreviewTimeScale: 0.1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1

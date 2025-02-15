@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 25f;
+    [SerializeField] private float moveSpeed;
     private WeaponInfo weaponInfo;
     private Vector3 startPosition;
     private void Start()
