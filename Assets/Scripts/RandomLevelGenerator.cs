@@ -34,15 +34,54 @@ public class RandomLevelGenerator : MonoBehaviour
         HashSet<Vector2Int> floorPositions = RunRandomWalk();
         tileMapVisualiser.ClearTileMap();
         tileMapVisualiser.PaintFloorTiles(floorPositions);
+
+        HashSet<Vector2Int> wallPositions = WallGenerator.CreateWalls(floorPositions, tileMapVisualiser);
+
+        tileMapVisualiser.PlaceOrderedTileSetsRectangular(floorPositions);
         tileMapVisualiser.PaintStoneGroundTiles(floorPositions);
         tileMapVisualiser.PlaceFlowerTiles(floorPositions);
-        tileMapVisualiser.PlaceOrderedTileSetsRectangular(floorPositions);
-        WallGenerator.CreateWalls(floorPositions, tileMapVisualiser);
 
         PlayerController.Instance.gameObject.SetActive(true);
         Vector3 playerPosition = new Vector3(startPosition.x, startPosition.y, PlayerController.Instance.transform.position.z);
-        if (floorPositions.Contains(startPosition))
-            PlayerController.Instance.transform.position = playerPosition;
+
+        Debug.Log("Player start position: " + startPosition);
+        Debug.Log("Player start position is inside a wall: " + wallPositions.Contains(startPosition));
+        Debug.Log("Wall positions:");
+        foreach (var wallPosition in wallPositions)
+        {
+            Debug.Log($"Wall position: {wallPosition.x}, {wallPosition.y}");
+        }
+
+        Vector2Int[] directions = {
+            new Vector2Int(1, 0), new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(0, -1),
+            new Vector2Int(1, 1), new Vector2Int(1, -1), new Vector2Int(-1, 1), new Vector2Int(-1, -1)
+        };
+
+        while (IsSurroundedByWalls(startPosition, wallPositions))
+        {
+            Debug.Log("Player start position is surrounded by walls, moving to a random floor position.");
+            startPosition = floorPositions.ElementAt(UnityEngine.Random.Range(0, floorPositions.Count));
+        }
+
+        PlayerController.Instance.transform.position = playerPosition;
+
+        bool IsSurroundedByWalls(Vector2Int position, HashSet<Vector2Int> walls)
+        {
+            bool hasAtLeastOneWall = false;
+
+            foreach (var direction in directions)
+            {
+                Vector2Int adjacentPosition = position + direction;
+                Debug.Log("Adjacent position: " + adjacentPosition);
+                if (walls.Contains(adjacentPosition))
+                {
+                    hasAtLeastOneWall = true;
+                    break;
+                }
+            }
+
+            return hasAtLeastOneWall;
+        }
     }
 
     protected HashSet<Vector2Int> RunRandomWalk()

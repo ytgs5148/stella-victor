@@ -4,13 +4,16 @@ using UnityEngine;
 
 public static class WallGenerator
 {
-    public static void CreateWalls(HashSet<Vector2Int> floorPositions, TileMapVisualiser tileMapVisualiser)
+    public static HashSet<Vector2Int> CreateWalls(HashSet<Vector2Int> floorPositions, TileMapVisualiser tileMapVisualiser)
     {
         var basicWallPositions = FindWallsInDirections(floorPositions, Direction2D.cardinalDirectionList);
         var cornerWallPositions = FindWallsInDirections(floorPositions, Direction2D.diagonalDirectionList);
         
         CreateBasicWalls(tileMapVisualiser, basicWallPositions, floorPositions);
         CreateCornerWalls(tileMapVisualiser, cornerWallPositions, floorPositions);
+
+        basicWallPositions.UnionWith(cornerWallPositions);
+        return basicWallPositions;
     }
 
     private static void CreateCornerWalls(TileMapVisualiser tileMapVisualiser, HashSet<Vector2Int> cornerWallPositions, HashSet<Vector2Int> floorPositions)
