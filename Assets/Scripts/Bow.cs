@@ -17,14 +17,14 @@ public class Bow : MonoBehaviour, IWeapon
     }
     public void Attack()
     {
-        myAnimator.SetTrigger(FIRE_HASH);
         myAnimator.SetBool("IsFiring", true);
         GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
+        newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
         StartCoroutine(ResetAttack());
     }
     private IEnumerator ResetAttack()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         myAnimator.SetBool("IsFiring", false);
     }
     private void MouseFollowWithOffset()

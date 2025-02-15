@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff9de2bee864cc45aad5fdc1bcedb2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 20
 --- !u!212 &4601977882997832687
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!96 &9104514984802744417
 TrailRenderer:
   serializedVersion: 3
