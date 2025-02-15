@@ -5,6 +5,7 @@ public class NewGameManager : MonoBehaviour
 {
     public void NewGame()
     {
+        TimerManager.Instance.StartTimer(300f);
         SceneManager.LoadScene("GalacticAtlasScene");
     }
 
