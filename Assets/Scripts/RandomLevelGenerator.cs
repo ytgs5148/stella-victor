@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -25,12 +23,6 @@ public class RandomLevelGenerator : MonoBehaviour
 
     public void RunProceduralGeneration()
     {
-        // Debug.Log("Planet Name: " + PlanetData.Instance.planetName);
-        // Debug.Log("Planet Description: " + PlanetData.Instance.planetDesc);
-        // Debug.Log("Planet Level: " + PlanetData.Instance.planetLevel);
-        // Debug.Log("Planet Elemental Type: " + PlanetData.Instance.planetType);
-        // Debug.Log("Planet Win XP: " + PlanetData.Instance.planetXP);
-
         HashSet<Vector2Int> floorPositions = RunRandomWalk();
         tileMapVisualiser.ClearTileMap();
         tileMapVisualiser.PaintFloorTiles(floorPositions);
@@ -41,47 +33,37 @@ public class RandomLevelGenerator : MonoBehaviour
         tileMapVisualiser.PaintStoneGroundTiles(floorPositions);
         tileMapVisualiser.PlaceFlowerTiles(floorPositions);
 
-        PlayerController.Instance.gameObject.SetActive(true);
         Vector3 playerPosition = new Vector3(startPosition.x, startPosition.y, PlayerController.Instance.transform.position.z);
-
-        Debug.Log("Player start position: " + startPosition);
-        Debug.Log("Player start position is inside a wall: " + wallPositions.Contains(startPosition));
-        Debug.Log("Wall positions:");
-        foreach (var wallPosition in wallPositions)
-        {
-            Debug.Log($"Wall position: {wallPosition.x}, {wallPosition.y}");
-        }
 
         Vector2Int[] directions = {
             new Vector2Int(1, 0), new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(0, -1),
             new Vector2Int(1, 1), new Vector2Int(1, -1), new Vector2Int(-1, 1), new Vector2Int(-1, -1)
         };
 
-        while (IsSurroundedByWalls(startPosition, wallPositions))
+        HashSet<Vector2Int> safePositions = new HashSet<Vector2Int>();
+
+        foreach (var position in floorPositions)
         {
-            Debug.Log("Player start position is surrounded by walls, moving to a random floor position.");
-            startPosition = floorPositions.ElementAt(UnityEngine.Random.Range(0, floorPositions.Count));
-        }
-
-        PlayerController.Instance.transform.position = playerPosition;
-
-        bool IsSurroundedByWalls(Vector2Int position, HashSet<Vector2Int> walls)
-        {
-            bool hasAtLeastOneWall = false;
-
+            bool isSafe = true;
             foreach (var direction in directions)
             {
                 Vector2Int adjacentPosition = position + direction;
-                Debug.Log("Adjacent position: " + adjacentPosition);
-                if (walls.Contains(adjacentPosition))
+                if (wallPositions.Contains(adjacentPosition))
                 {
-                    hasAtLeastOneWall = true;
+                    isSafe = false;
                     break;
                 }
             }
 
-            return hasAtLeastOneWall;
+            if (isSafe)
+                safePositions.Add(position);
         }
+
+        if (!safePositions.Contains(startPosition))
+            startPosition = safePositions.ElementAt(UnityEngine.Random.Range(0, safePositions.Count));
+
+        PlayerController.Instance.transform.position = playerPosition;
+        PlayerController.Instance.gameObject.SetActive(true);
     }
 
     protected HashSet<Vector2Int> RunRandomWalk()
