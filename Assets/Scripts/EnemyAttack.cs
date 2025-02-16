@@ -3,11 +3,11 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     public Transform target;
-    public float chaseRadius = 5f;
-    public float attackRadius = 1f;
-    public float speed = 2f;
-    public float attackCooldown = 1f;
-    public int attackDamage = 10;
+    [SerializeField] public float chaseRadius = 5f;
+    [SerializeField] public float attackRadius = 1f;
+    [SerializeField] public float speed = 2f;
+    [SerializeField] public float attackCooldown = 1f;
+    [SerializeField] public int attackDamage = 10;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -25,8 +25,8 @@ public class EnemyAttack : MonoBehaviour
 
         if (distanceToPlayer <= attackRadius)
         {
-            rb.linearVelocity = Vector2.zero; // Stop moving
-            animator.SetBool("isMoving", false); // Stop walk animation
+            rb.linearVelocity = Vector2.zero;
+            animator.SetBool("isMoving", false);
 
             if (canAttack)
             {
