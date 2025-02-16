@@ -31,6 +31,7 @@ public class PopupManager : MonoBehaviour
 
     public void ShowPopup(string title, string info, string element, int difficulty)
     {
+        FindFirstObjectByType<AudioManager>().Play("Button Click");
         popupText.text = title;
         popupDesc.text = info;
         popupElement.text = "Element: " + element;
@@ -86,6 +87,7 @@ public class PopupManager : MonoBehaviour
 
     public void LiberatePlanet()
     {
+        FindFirstObjectByType<AudioManager>().Play("Button Click");
         PlanetData.Instance.planetName = popupText.text;
         PlanetData.Instance.planetDesc = popupDesc.text;
         PlanetData.Instance.planetElement = "Element: " + popupElement.text;
