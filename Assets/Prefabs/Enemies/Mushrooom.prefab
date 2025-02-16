@@ -36,7 +36,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.08, y: -2.84, z: 0}
-  m_LocalScale: {x: 3.4117842, y: 2.5469687, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,10 +108,10 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 0.32071257
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_UseAutoMass: 0
+  m_Mass: 200
+  m_LinearDamping: 1
+  m_AngularDamping: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -123,7 +123,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &3540417720229891044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -158,17 +158,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0061263964, y: -0.16977021}
+  m_Offset: {x: -0.0020396188, y: 0.108920395}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.23, y: 0.37}
+    pivot: {x: 0.5, y: 0.215}
+    oldSize: {x: 1.4375, y: 2.3125}
     newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.21043105, y: 0.17538847}
+  m_Size: {x: 0.21587478, y: 0.3843602}
   m_EdgeRadius: 0
 --- !u!95 &7535853627238391049
 Animator:
@@ -217,8 +217,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70b1605919c3814db205bcc12618c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
-  knockBackThrust: 5
+  startingHealth: 200
+  knockBackThrust: 2.5
+  currentHealth: 0
 --- !u!114 &7717483960767664052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,8 +233,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 2
-  chaseRadius: 5
+  speed: 1
+  chaseRadius: 7.5
   returnSpeed: 2
 --- !u!114 &6176012238327523582
 MonoBehaviour:
@@ -248,11 +249,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  chaseRadius: 5
-  attackRadius: 1
+  chaseRadius: 7.5
+  attackRadius: 2
   speed: 2
-  attackCooldown: 1
-  attackDamage: 10
+  attackCooldown: 2
+  attackDamage: 25
 --- !u!114 &1354768950742437804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,8 +266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f1a8b5c21e27e46a458b603df8013e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whiteFlashMat: {fileID: 0}
-  restoreDefaultMatTime: 0.2
+  whiteFlashMat: {fileID: 2100000, guid: 7a5217c0bb439e44baca5459b70ba4cd, type: 2}
+  restoreDefaultMatTime: 0.4
 --- !u!114 &3793414801152121115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,4 +280,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2219e7d8c5f4f41af4752a9f83c113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockBackTime: 0.2
+  knockBackTime: 0.75

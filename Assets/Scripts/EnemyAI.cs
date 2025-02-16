@@ -26,7 +26,7 @@ public class EnemyAI : MonoBehaviour
     {
         while (state == State.Roaming)
         {
-            bool moving = Random.value > 0.3f;
+            bool moving = Random.value > 1.1f;
             animator.SetBool("IsMoving", moving);
             if (moving)
             {
