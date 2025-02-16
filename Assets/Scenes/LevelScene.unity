@@ -1220,7 +1220,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -2471,6 +2471,9 @@ MonoBehaviour:
     minSetsToPlace: 2
     maxSetsToPlace: 4
     belowPlayer: 0
+    applyCustomLighting: 1
+    lightPrefab: {fileID: 362638522120307024, guid: da72da22dbf6cc54682fdbcca14b8431,
+      type: 3}
   - width: 1
     height: 1
     tiles:
@@ -2478,6 +2481,9 @@ MonoBehaviour:
     minSetsToPlace: 15
     maxSetsToPlace: 20
     belowPlayer: 0
+    applyCustomLighting: 1
+    lightPrefab: {fileID: 3030077226157082050, guid: 69395e47229e6a748a27289dea69a1be,
+      type: 3}
   - width: 3
     height: 5
     tiles:
@@ -2499,6 +2505,9 @@ MonoBehaviour:
     minSetsToPlace: 10
     maxSetsToPlace: 15
     belowPlayer: 1
+    applyCustomLighting: 1
+    lightPrefab: {fileID: 1993853211761406139, guid: 5af56b1ff7c6b3742a059111055087ed,
+      type: 3}
   - width: 1
     height: 1
     tiles:
@@ -2506,6 +2515,8 @@ MonoBehaviour:
     minSetsToPlace: 5
     maxSetsToPlace: 7
     belowPlayer: 0
+    applyCustomLighting: 1
+    lightPrefab: {fileID: 0}
   - width: 1
     height: 1
     tiles:
@@ -2513,6 +2524,9 @@ MonoBehaviour:
     minSetsToPlace: 2
     maxSetsToPlace: 3
     belowPlayer: 0
+    applyCustomLighting: 1
+    lightPrefab: {fileID: 2319561065587884911, guid: 238709b4f71e8af4283d45b2cf25058a,
+      type: 3}
   - width: 1
     height: 1
     tiles:
@@ -2520,6 +2534,9 @@ MonoBehaviour:
     minSetsToPlace: 2
     maxSetsToPlace: 3
     belowPlayer: 0
+    applyCustomLighting: 1
+    lightPrefab: {fileID: 2319561065587884911, guid: 238709b4f71e8af4283d45b2cf25058a,
+      type: 3}
   - width: 1
     height: 1
     tiles:
@@ -2527,6 +2544,9 @@ MonoBehaviour:
     minSetsToPlace: 2
     maxSetsToPlace: 3
     belowPlayer: 0
+    applyCustomLighting: 1
+    lightPrefab: {fileID: 3968696016280124807, guid: 2fdfe673b005dfa41b39b5557e1d8002,
+      type: 3}
   - width: 1
     height: 2
     tiles:
@@ -2535,6 +2555,8 @@ MonoBehaviour:
     minSetsToPlace: 2
     maxSetsToPlace: 3
     belowPlayer: 0
+    applyCustomLighting: 0
+    lightPrefab: {fileID: 0}
 --- !u!4 &1255666617
 Transform:
   m_ObjectHideFlags: 0

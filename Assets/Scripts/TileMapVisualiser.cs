@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
 
 public class TileMapVisualiser : MonoBehaviour
@@ -40,7 +41,8 @@ public class TileMapVisualiser : MonoBehaviour
         tileMap.SetTile(tilePosition, tileBase);
     }
 
-    public void ClearTileMap() {
+    public void ClearTileMap()
+    {
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
     }
@@ -60,7 +62,7 @@ public class TileMapVisualiser : MonoBehaviour
             tile = wallBottom;
         else if (WallByteHelper.wallFull.Contains(typeAsInt))
             tile = wallFull;
-        
+
         if (tile != null)
             PaintSingleTile(wallTilemap, tile, position);
     }
@@ -173,6 +175,24 @@ public class TileMapVisualiser : MonoBehaviour
                                 PaintSingleTile(cosmeticAboveTilemap, orderedSet.tiles[i], tilePos);
                             occupiedPositions.Add(tilePos);
                         }
+
+                        if (orderedSet.applyCustomLighting && orderedSet.lightPrefab != null)
+                        {
+                            Tilemap targetTilemap = (orderedSet.belowPlayer == true) ? cosmeticBelowTilemap : cosmeticAboveTilemap;
+
+                            Vector3 bottomLeftWorld = targetTilemap.CellToWorld((Vector3Int)candidate);
+
+                            Vector3 propWorldSize = new Vector3(
+                                orderedSet.width * targetTilemap.cellSize.x,
+                                orderedSet.height * targetTilemap.cellSize.y,
+                                0f);
+
+                            Vector3 centerWorldPos = bottomLeftWorld + propWorldSize * 0.5f;
+
+                            Instantiate(orderedSet.lightPrefab, centerWorldPos, Quaternion.identity, transform);
+                        }
+
+
                         placed = true;
                     }
                 }
@@ -183,36 +203,36 @@ public class TileMapVisualiser : MonoBehaviour
     private List<Vector2Int> GetClockwiseSpiralPositions(int width, int height)
     {
         List<Vector2Int> spiral = new List<Vector2Int>();
-        
+
         int left = 0, right = width - 1;
         int bottom = 0, top = height - 1;
-        
+
         while (left <= right && bottom <= top)
         {
             for (int x = left; x <= right; x++)
                 spiral.Add(new Vector2Int(x, top));
-            
+
             for (int y = top - 1; y >= bottom; y--)
                 spiral.Add(new Vector2Int(right, y));
-            
+
             if (bottom != top)
             {
                 for (int x = right - 1; x >= left; x--)
                     spiral.Add(new Vector2Int(x, bottom));
             }
-            
+
             if (left != right)
             {
                 for (int y = bottom + 1; y <= top - 1; y++)
                     spiral.Add(new Vector2Int(left, y));
             }
-            
+
             left++;
             right--;
             bottom++;
             top--;
         }
-        
+
         return spiral;
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.Rendering.Universal;
 
 [Serializable]
 public class OrderedTileSet
@@ -22,4 +23,9 @@ public class OrderedTileSet
 
     [Tooltip("Will the tile set appear below player")]
     public bool belowPlayer;
+
+    [Tooltip("Should custom lighting be applied to this tile set?")]
+    public bool applyCustomLighting;
+    [Tooltip("The light prefab to use for custom lighting.")]
+    public Light2D lightPrefab;
 }
