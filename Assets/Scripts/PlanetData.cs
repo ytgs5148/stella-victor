@@ -7,6 +7,7 @@ public class PlanetData : MonoBehaviour
     public string planetDesc;
     public string planetElement;
     public int planetDifficulty;
+    public int planetObjectiveType;
 
     private void Awake()
     {

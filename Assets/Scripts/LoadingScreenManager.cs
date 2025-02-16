@@ -8,31 +8,37 @@ public class LoadingScreenManager : MonoBehaviour
     public GameObject LoadingScreen;
     public VideoPlayer videoPlayer;
 
+    private bool videoFinished = false;
+
     public void LoadScene(int sceneId)
     {
         LoadingScreen.SetActive(true);
-        StartCoroutine(LoadSceneAsync(sceneId));
+        StartCoroutine(PlayVideoAndLoadScene(sceneId));
     }
 
-    IEnumerator LoadSceneAsync(int sceneId)
+    IEnumerator PlayVideoAndLoadScene(int sceneId)
     {
-        yield return new WaitForSeconds(0.5f);
-        
-        videoPlayer.playbackSpeed = 0.5f;
-        if (!videoPlayer.isPlaying)
-            videoPlayer.Play();
+        videoPlayer.loopPointReached += OnVideoFinished;
 
-        yield return new WaitForSeconds(2f);
+        videoPlayer.playbackSpeed = 2.0f;
+        videoPlayer.Play();
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
-
-        while (!operation.isDone)
+        while (!videoFinished)
         {
-            float progress = Mathf.Clamp01(operation.progress / 0.9f);
-
-            videoPlayer.playbackSpeed = Mathf.Lerp(0.5f, 2.0f, progress);
-
             yield return null;
         }
+
+        videoPlayer.loopPointReached -= OnVideoFinished;
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
+    }
+
+    void OnVideoFinished(VideoPlayer vp)
+    {
+        videoFinished = true;
     }
 }

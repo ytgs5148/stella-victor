@@ -36,6 +36,7 @@ public class PlanetSpawner : MonoBehaviour
                     markerController.planetDescription = Planets.planetDescriptions[Random.Range(0, Planets.planetDescriptions.Length)];
                     markerController.planetElement = Planets.elementTypes[Random.Range(0, Planets.elementTypes.Length)];
                     markerController.planetDifficultyLevel = Random.Range(1, 5);
+                    markerController.planetObjectiveType = Random.Range(0, 2);
                 }
             }
             else

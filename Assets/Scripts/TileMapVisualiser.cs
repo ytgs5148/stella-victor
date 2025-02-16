@@ -169,6 +169,9 @@ public class TileMapVisualiser : MonoBehaviour
                         {
                             Vector2Int tilePos = candidate + spiralOffsets[i];
 
+                            if (orderedSet.isChest)
+                                PlayerData.Instance.chestPosition = tilePos;
+
                             if (orderedSet.belowPlayer == true)
                                 PaintSingleTile(cosmeticBelowTilemap, orderedSet.tiles[i], tilePos);
                             else
@@ -188,10 +191,9 @@ public class TileMapVisualiser : MonoBehaviour
                                 0f);
 
                             Vector3 centerWorldPos = bottomLeftWorld + propWorldSize * 0.5f;
-
+    
                             Instantiate(orderedSet.lightPrefab, centerWorldPos, Quaternion.identity, transform);
                         }
-
 
                         placed = true;
                     }

@@ -26,6 +26,10 @@ public class OrderedTileSet
 
     [Tooltip("Should custom lighting be applied to this tile set?")]
     public bool applyCustomLighting;
+
     [Tooltip("The light prefab to use for custom lighting.")]
     public Light2D lightPrefab;
+
+    [Tooltip("Is this a special chest item?")]
+    public bool isChest = false;
 }

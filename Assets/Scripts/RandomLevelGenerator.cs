@@ -20,6 +20,8 @@ public class RandomLevelGenerator : MonoBehaviour
     public int safeEnemyRadius = 5;
     [SerializeField]
     private GameObject enemyPrefab;
+    [SerializeField]
+    private int enemyCount = 5;
 
     void Start()
     {
@@ -70,12 +72,11 @@ public class RandomLevelGenerator : MonoBehaviour
         PlayerController.Instance.transform.position = playerPosition;
         PlayerController.Instance.gameObject.SetActive(true);
 
-        GenerateEnemies(playerPosition, floorPositions, safeEnemyRadius, enemyPrefab);
+        GenerateEnemies(playerPosition, floorPositions, safeEnemyRadius, enemyPrefab, enemyCount);
     }
 
-    private void GenerateEnemies(Vector3 playerPosition, HashSet<Vector2Int> floorPositions, int safeEnemyRadius, GameObject enemyPrefab)
+    private void GenerateEnemies(Vector3 playerPosition, HashSet<Vector2Int> floorPositions, int safeEnemyRadius, GameObject enemyPrefab, int enemyCount)
     {
-        int enemyCount = 10;
         for (int i = 0; i < enemyCount; i++)
         {
             Vector2Int enemyPosition = floorPositions.ElementAt(UnityEngine.Random.Range(0, floorPositions.Count));
