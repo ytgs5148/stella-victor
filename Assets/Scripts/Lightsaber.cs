@@ -6,7 +6,7 @@ public class Lightsaber : MonoBehaviour, IWeapon
 {
     [SerializeField] private GameObject slashAnimPrefab;
     [SerializeField] private Transform slashAnimSpawnPoint;
-    [SerializeField] private float swordAttackCD = 0.5f;
+    // [SerializeField] private float swordAttackCD = 0.5f;
     [SerializeField] private WeaponInfo weaponInfo;
     private Transform weaponCollider;
     private Animator myAnimator;

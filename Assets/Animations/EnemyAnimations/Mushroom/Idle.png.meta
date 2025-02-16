@@ -1,38 +1,19 @@
 fileFormatVersion: 2
-guid: 6d7cd4f7505dc674c891ca8946cfd98b
-AssetOrigin:
-  serializedVersion: 1
-  productId: 167949
-  packageName: Monsters_Creatures_Fantasy
-  packageVersion: 1.0
-  assetPath: Assets/Monsters Creatures Fantasy/Sprites/Flying eye/Flight.png
-  uploadId: 365724
+guid: 6e63676370c9dda47aed7d037028a1f2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4795363162621231457
-    second: Flight_0
+      213: 4723107735738678597
+    second: Idle_0
   - first:
-      213: -3652676412848291748
-    second: Flight_1
+      213: -7385789195546760866
+    second: Idle_1
   - first:
-      213: -596950462376016933
-    second: Flight_2
+      213: 3234629978573100161
+    second: Idle_2
   - first:
-      213: -4538786591655478766
-    second: Flight_3
-  - first:
-      213: 8639066506597270619
-    second: Flight_4
-  - first:
-      213: -4262185617143388622
-    second: Flight_5
-  - first:
-      213: 5066340549283584134
-    second: Flight_6
-  - first:
-      213: 7784096630628774620
-    second: Flight_7
+      213: 6373048116405451881
+    second: Idle_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -79,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -167,177 +148,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flight_0
+      name: Idle_0
       rect:
         serializedVersion: 2
-        x: 57
-        y: 58
-        width: 41
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 64
+        y: 49
+        width: 23
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5, y: 0.215}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b60f3b428266f641882fff33b3d5e5a
-      internalID: -4795363162621231457
+      spriteID: a6d675e2bec382b49939789ac442ef07
+      internalID: 4723107735738678597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flight_1
+      name: Idle_1
       rect:
         serializedVersion: 2
-        x: 207
-        y: 58
-        width: 41
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 214
+        y: 49
+        width: 23
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.215}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10226d6044353eb4fa948bd574ea736f
-      internalID: -3652676412848291748
+      spriteID: 7783950422e08a54da2d0eec1b7c4e42
+      internalID: -7385789195546760866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flight_2
+      name: Idle_2
       rect:
         serializedVersion: 2
-        x: 357
-        y: 61
-        width: 40
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 364
+        y: 49
+        width: 23
+        height: 35
+      alignment: 9
+      pivot: {x: 0.5, y: 0.215}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ad4b872376ed3e4486247ba89b9be8d
-      internalID: -596950462376016933
+      spriteID: 7d07a2bfa7d34474ca8d6b9fbf48e946
+      internalID: 3234629978573100161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flight_3
+      name: Idle_3
       rect:
         serializedVersion: 2
-        x: 508
-        y: 60
-        width: 39
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 514
+        y: 49
+        width: 23
+        height: 36
+      alignment: 9
+      pivot: {x: 0.5, y: 0.215}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6175273388504464690a5ffdb4b6e945
-      internalID: -4538786591655478766
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flight_4
-      rect:
-        serializedVersion: 2
-        x: 657
-        y: 60
-        width: 40
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b82a24c2d9256047b65475093a49a14
-      internalID: 8639066506597270619
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flight_5
-      rect:
-        serializedVersion: 2
-        x: 806
-        y: 59
-        width: 42
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b03cc7e3212354449903d7c9f940e356
-      internalID: -4262185617143388622
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flight_6
-      rect:
-        serializedVersion: 2
-        x: 958
-        y: 58
-        width: 40
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d78b014b5797f54bb5585f62835f8ab
-      internalID: 5066340549283584134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flight_7
-      rect:
-        serializedVersion: 2
-        x: 1108
-        y: 57
-        width: 40
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33f8db84057f2e143a48f74752555df2
-      internalID: 7784096630628774620
+      spriteID: 996a875c14f82334cbb937dea20b6223
+      internalID: 6373048116405451881
       vertices: []
       indices: 
       edges: []
@@ -356,14 +249,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Flight_0: -4795363162621231457
-      Flight_1: -3652676412848291748
-      Flight_2: -596950462376016933
-      Flight_3: -4538786591655478766
-      Flight_4: 8639066506597270619
-      Flight_5: -4262185617143388622
-      Flight_6: 5066340549283584134
-      Flight_7: 7784096630628774620
+      Idle_0: 4723107735738678597
+      Idle_1: -7385789195546760866
+      Idle_2: 3234629978573100161
+      Idle_3: 6373048116405451881
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

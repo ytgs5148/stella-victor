@@ -9,18 +9,23 @@ public class KnockBack : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private void Awake() {
+    private void Awake()
+    {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void GetKnockedBack(Transform damageSource, float knockBackThrust) {
+    public void GetKnockedBack(Transform damageSource, float knockBackThrust)
+    {
+        // Debug.Log("KnockBack Applied");
         gettingKnockedBack = true;
-        Vector2 difference = (transform.position - damageSource.position).normalized * knockBackThrust * rb.mass;
-        rb.AddForce(difference, ForceMode2D.Impulse); 
+        Vector2 direction = (transform.position - damageSource.position).normalized;
+        rb.linearVelocity = direction * knockBackThrust;
         StartCoroutine(KnockRoutine());
+        // Debug.Log("KnockBack Done");
     }
 
-    private IEnumerator KnockRoutine() {
+    private IEnumerator KnockRoutine()
+    {
         yield return new WaitForSeconds(knockBackTime);
         rb.linearVelocity = Vector2.zero;
         gettingKnockedBack = false;

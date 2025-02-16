@@ -1,20 +1,18 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
     public Transform target;
-    [SerializeField] public float chaseRadius = 5f;
-    [SerializeField] public float attackRadius = 1f;
-    [SerializeField] public float speed = 2f;
-    [SerializeField] public float attackCooldown = 1f;
-    [SerializeField] public int attackDamage = 10;
-
+    [SerializeField] public float attackRadius;
+    [SerializeField] public float attackCooldown;
+    [SerializeField] public int attackDamage;
     private Rigidbody2D rb;
     private Animator animator;
     private bool canAttack = true;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -29,68 +27,43 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (target == null) return;
-        
+
         float distanceToPlayer = Vector2.Distance(transform.position, target.position);
 
-        if (distanceToPlayer <= attackRadius)
+        if (distanceToPlayer <= attackRadius && canAttack)
         {
-            rb.linearVelocity = Vector2.zero;
-            animator.SetBool("IsMoving", false);
-
-            if (canAttack)
-            {
-                Attack();
-            }
-        }
-        else if (distanceToPlayer <= chaseRadius)
-        {
-            ChasePlayer();
-        }
-        else
-        {
-            rb.linearVelocity = Vector2.zero;
-            animator.SetBool("IsMoving", false);
+            Attack();
         }
     }
-
-    void ChasePlayer()
-    {
-        Vector2 direction = (target.position - transform.position).normalized;
-        rb.linearVelocity = direction * speed;
-        animator.SetBool("IsMoving", true);
-
-    }
-
-    void Attack()
+    private void Attack()
     {
         canAttack = false;
-        animator.SetBool("attack", true);
-        Debug.Log("Enemy Attacked!");
-
+        rb.linearVelocity = Vector2.zero;
+        animator.SetBool("IsMoving", false);
+        animator.SetTrigger("Attack");
         PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
-            playerHealth.TakeDamage(attackDamage);
+            playerHealth.TakeDamage(attackDamage, transform);
         }
-
         StartCoroutine(ResetAttack());
     }
 
     private IEnumerator ResetAttack()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
         canAttack = true;
-        animator.SetBool("attack", false);
+        animator.ResetTrigger("Attack");
+        animator.SetTrigger("Idle");
+        yield return new WaitForSeconds(attackCooldown - 0.3f);
     }
 
-    void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRadius);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, chaseRadius);
     }
 }

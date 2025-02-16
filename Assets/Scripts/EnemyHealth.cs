@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private int startingHealth = 100;
-    [SerializeField] private float knockBackThrust = 5f;
+    [SerializeField] private int startingHealth;
+    [SerializeField] private float knockBackThrust;
     private Animator animator;
-    private EnemyAI enemyAI;
     public int currentHealth;
     private KnockBack knockBack;
     private Flash flash;
@@ -23,26 +22,31 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        animator.SetBool("Hurt", true);
+        Debug.Log("Enemy took damage: " + damage + ", current health: " + currentHealth);
+        Debug.Log("KnockBack");
         knockBack.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
+        Debug.Log("Knockback called on enemy with thrust: " + knockBackThrust);
+        StartCoroutine(flash.FlashRoutine());
         DetectDeath();
-        // StartCoroutine(flash.FlashRoutine());
-        StartCoroutine(ResetHurtTrigger());
+        animator.SetTrigger("Hurt");
+        StartCoroutine(ResetHurtBool());
     }
-    private IEnumerator ResetHurtTrigger()
+    private IEnumerator ResetHurtBool()
     {
-        yield return new WaitForSeconds(0.3f);
-        animator.SetBool("Hurt", false);
+        yield return new WaitForSeconds(0.1f);
+        animator.ResetTrigger("Hurt");
+        animator.SetTrigger("Idle");
     }
     public void DetectDeath()
     {
         if (currentHealth <= 0)
         {
-            animator.SetBool("Death", true);
+            animator.SetTrigger("Death");
             StartCoroutine(DeathAnimation());
         }
     }
-    private IEnumerator DeathAnimation(){
+    private IEnumerator DeathAnimation()
+    {
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
 

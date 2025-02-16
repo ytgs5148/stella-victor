@@ -10,37 +10,39 @@ public class PlayerHealth : MonoBehaviour
     private bool canTakeDamage = true;
     private KnockBack knockBack;
     private Flash flash;
+    private HealthManager HealthManager;
     private void Awake()
     {
         flash = GetComponent<Flash>();
-        knockBack = GetComponent<KnockBack>();   
+        knockBack = GetComponent<KnockBack>();
     }
     private void Start()
     {
         currentHealth = maxHealth;
+        HealthManager = FindAnyObjectByType<HealthManager>();
+        HealthManager.UpdateHealthBar(currentHealth, maxHealth);
     }
-    private void OnCollisionStay2D(Collision2D other)
+    public void TakeDamage(int damageAmount, Transform enemyPosition)
     {
-        EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
-        if(enemy && canTakeDamage) {
-            TakeDamage(10);
-            knockBack.GetKnockedBack(other.gameObject.transform, knockBackThrustAmount);
-            StartCoroutine(flash.FlashRoutine());
-        }
-        Debug.Log("current Health = " + currentHealth);
-    }
-    public void TakeDamage(int damageAmount)
-    {
+        if (!canTakeDamage) return;
         canTakeDamage = false;
         currentHealth -= damageAmount;
-        StartCoroutine(damageRecoveryRoutine());
+        HealthManager.UpdateHealthBar(currentHealth, maxHealth);
+        if (knockBack != null)
+        {
+            Debug.Log("KnockBack");
+            knockBack.GetKnockedBack(enemyPosition, knockBackThrustAmount);
+        }
+        if (flash != null)
+        {
+            StartCoroutine(flash.FlashRoutine());
+        }
+        StartCoroutine(DamageRecoveryRoutine());
+        Debug.Log("Current Health = " + currentHealth);
     }
-    private IEnumerator damageRecoveryRoutine() {
+    private IEnumerator DamageRecoveryRoutine()
+    {
         yield return new WaitForSeconds(damageRecoveryTime);
         canTakeDamage = true;
     }
-    // void Die()
-    // {
-    //     Debug.Log("Player Died!");
-    // }
 }

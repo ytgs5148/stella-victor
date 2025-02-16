@@ -15,12 +15,11 @@ GameObject:
   - component: {fileID: 3746213510263740091}
   - component: {fileID: 7236909887781086060}
   - component: {fileID: 5367418958322876135}
+  - component: {fileID: 2431433274537378459}
   - component: {fileID: 6050680875239326688}
-  - component: {fileID: 4945328944253896529}
   - component: {fileID: 3671337917648623599}
   - component: {fileID: 8933008287722063554}
-  - component: {fileID: 2431433274537378459}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Goblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,9 +109,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
-  m_LinearDamping: 1
-  m_AngularDamping: 1
+  m_Mass: 0.5
+  m_LinearDamping: 0
+  m_AngularDamping: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -197,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  knockBackThrust: 5
+  knockBackThrust: 15
   currentHealth: 0
 --- !u!114 &5367418958322876135
 MonoBehaviour:
@@ -212,11 +211,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  chaseRadius: 5
   attackRadius: 1.5
-  speed: 2
   attackCooldown: 0.75
   attackDamage: 10
+--- !u!114 &2431433274537378459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8910124892176808266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfb488e0edb48343a335d1c74563755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  chaseRadius: 5
+  returnSpeed: 3
 --- !u!114 &6050680875239326688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,19 +242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockBackTime: 0.5
---- !u!114 &4945328944253896529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8910124892176808266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6793f3a81bf5e949bc897ffb2a9c537, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roamChangeDirFloat: 2
 --- !u!114 &3671337917648623599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,19 +324,3 @@ MonoBehaviour:
   - {x: -1.0448478, y: 0.54789853, z: 0}
   - {x: -1.0321465, y: 0.064763084, z: 0}
   - {x: -0.82857716, y: -0.34836334, z: 0}
---- !u!114 &2431433274537378459
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8910124892176808266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bfb488e0edb48343a335d1c74563755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 2
-  chaseRadius: 5
-  returnSpeed: 2
