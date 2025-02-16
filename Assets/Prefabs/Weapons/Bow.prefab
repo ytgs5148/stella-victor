@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 4022236124557010047}
   - component: {fileID: 4507691403820470712}
   - component: {fileID: 9147615167912948871}
+  - component: {fileID: 3436431886131327714}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -159,3 +160,59 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3436431886131327714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6481797364201957073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 0.90196085, g: 0.7019608, b: 0.30980393, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: -0.21690011, y: -0.038350105, z: 0}
+    m_Extent: {x: 4.3313, y: 5.25105, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: 0.4955651, y: -4.7885833, z: 0}
+  - {x: 3.614327, y: 0.06160047, z: 0}
+  - {x: 0.5000014, y: 4.712, z: 0}
+  - {x: -1.9805808, y: 3.7674909, z: 0}
+  - {x: -3.052665, y: 2.3480787, z: 0}
+  - {x: -4.048229, y: -0.00043042004, z: 0}
+  - {x: -3.154775, y: -2.1702483, z: 0}
+  - {x: -1.7763014, y: -3.9061017, z: 0}

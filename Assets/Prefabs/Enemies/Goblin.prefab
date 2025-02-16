@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4945328944253896529}
   - component: {fileID: 897120858641713641}
   - component: {fileID: 3671337917648623599}
+  - component: {fileID: 8933008287722063554}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -108,7 +109,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
+  m_Mass: 1.4606079
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -250,3 +251,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whiteFlashMat: {fileID: 2100000, guid: 7a5217c0bb439e44baca5459b70ba4cd, type: 2}
   restoreDefaultMatTime: 0.2
+--- !u!114 &8933008287722063554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8910124892176808266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.504
+  m_Color: {r: 0.3254902, g: 0.45098042, b: 0.16862746, a: 1}
+  m_Intensity: 3
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 0000000003819490c93960fdb391b5f9
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: -0.07169998, y: 0.56455, z: 0}
+    m_Extent: {x: 1.4732, y: 1.7593501, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.49401274, y: -0.5778354, z: 0}
+  - {x: 0.06952373, y: -0.69562906, z: 0}
+  - {x: 0.6023972, y: -0.43817344, z: 0}
+  - {x: 0.770043, y: -0.21664166, z: 0}
+  - {x: 0.8957772, y: 0.064763084, z: 0}
+  - {x: 0.9017643, y: 0.25635782, z: 0}
+  - {x: 0.8957772, y: 0.40005416, z: 0}
+  - {x: 0.8897901, y: 0.59164894, z: 0}
+  - {x: 0.87781537, y: 0.84311754, z: 0}
+  - {x: 0.877203, y: 1.1225693, z: 0}
+  - {x: 0.7640553, y: 1.3340791, z: 0}
+  - {x: 0.6436964, y: 1.5298228, z: 0}
+  - {x: 0.40481535, y: 1.7412183, z: 0}
+  - {x: 0.05156207, y: 1.8250409, z: 0}
+  - {x: -0.3855136, y: 1.7951043, z: 0}
+  - {x: -0.7806785, y: 1.5196867, z: 0}
+  - {x: -1.044121, y: 1.0227375, z: 0}
+  - {x: -1.0448478, y: 0.54789853, z: 0}
+  - {x: -1.0321465, y: 0.064763084, z: 0}
+  - {x: -0.82857716, y: -0.34836334, z: 0}
