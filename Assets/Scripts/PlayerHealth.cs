@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
+    private int baseHealth = 100;
     [SerializeField] private float knockBackThrustAmount = 5f;
     [SerializeField] private float damageRecoveryTime = 1f;
     private int currentHealth;
     private bool canTakeDamage = true;
+    private int maxHealth;
     private KnockBack knockBack;
     private Flash flash;
     private HealthManager HealthManager;
@@ -18,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Start()
     {
+        maxHealth = baseHealth;
         currentHealth = maxHealth;
         HealthManager = FindAnyObjectByType<HealthManager>();
         HealthManager.UpdateHealthBar(currentHealth, maxHealth);

@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int startingHealth;
     [SerializeField] private float knockBackThrust;
+    public EnemyHealthManager healthBar;
     private Animator animator;
     public int currentHealth;
     private KnockBack knockBack;
@@ -18,14 +19,16 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         currentHealth = startingHealth;
+        healthBar.SetHealth(currentHealth, startingHealth);
     }
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("Enemy took damage: " + damage + ", current health: " + currentHealth);
-        Debug.Log("KnockBack");
+        healthBar.SetHealth(currentHealth, startingHealth);
+        // Debug.Log("Enemy took damage: " + damage + ", current health: " + currentHealth);
+        // Debug.Log("KnockBack");
         knockBack.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
-        Debug.Log("Knockback called on enemy with thrust: " + knockBackThrust);
+        // Debug.Log("Knockback called on enemy with thrust: " + knockBackThrust);
         StartCoroutine(flash.FlashRoutine());
         DetectDeath();
         animator.SetTrigger("Hurt");
@@ -33,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
     }
     private IEnumerator ResetHurtBool()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         animator.ResetTrigger("Hurt");
         animator.SetTrigger("Idle");
     }
