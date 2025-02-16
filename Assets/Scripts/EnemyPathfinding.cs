@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class EnemyPathfinding : MonoBehaviour
 {
-    public Transform target;
     public float speed = 2f;
     public float chaseRadius = 5f;
     public float returnSpeed = 2f;
 
+    private Transform target = GameObject.Find("Player").transform;
     private Vector2 startPosition;
     private Rigidbody2D rb;
 
@@ -18,6 +18,8 @@ public class EnemyPathfinding : MonoBehaviour
 
     void Update()
     {
+        if (target == null) return;
+
         float distanceToPlayer = Vector2.Distance(transform.position, target.position);
 
         if (distanceToPlayer <= chaseRadius)

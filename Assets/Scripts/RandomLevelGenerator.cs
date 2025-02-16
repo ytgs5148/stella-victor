@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class RandomLevelGenerator : MonoBehaviour
@@ -15,6 +17,9 @@ public class RandomLevelGenerator : MonoBehaviour
     [SerializeField]
     public bool startRandomlyEachIteration = true;
     [SerializeField]
+    public int safeEnemyRadius = 5;
+    [SerializeField]
+    private GameObject enemyPrefab;
 
     void Start()
     {
@@ -64,6 +69,22 @@ public class RandomLevelGenerator : MonoBehaviour
 
         PlayerController.Instance.transform.position = playerPosition;
         PlayerController.Instance.gameObject.SetActive(true);
+
+        GenerateEnemies(playerPosition, floorPositions, safeEnemyRadius, enemyPrefab);
+    }
+
+    private void GenerateEnemies(Vector3 playerPosition, HashSet<Vector2Int> floorPositions, int safeEnemyRadius, GameObject enemyPrefab)
+    {
+        int enemyCount = 10;
+        for (int i = 0; i < enemyCount; i++)
+        {
+            Vector2Int enemyPosition = floorPositions.ElementAt(UnityEngine.Random.Range(0, floorPositions.Count));
+            while (Vector2.Distance(enemyPosition, startPosition) < safeEnemyRadius)
+                enemyPosition = floorPositions.ElementAt(UnityEngine.Random.Range(0, floorPositions.Count));
+
+            Vector3 enemyPosition3D = new Vector3(enemyPosition.x, enemyPosition.y, playerPosition.z);
+            Instantiate(enemyPrefab, enemyPosition3D, Quaternion.identity);
+        }
     }
 
     protected HashSet<Vector2Int> RunRandomWalk()

@@ -1851,6 +1851,9 @@ MonoBehaviour:
   iterations: 10
   walkLength: 100
   startRandomlyEachIteration: 1
+  safeEnemyRadius: 5
+  enemyPrefab: {fileID: 8910124892176808266, guid: 87f5bf04acb043c46a1b42b13358d678,
+    type: 3}
 --- !u!4 &727140769
 Transform:
   m_ObjectHideFlags: 0

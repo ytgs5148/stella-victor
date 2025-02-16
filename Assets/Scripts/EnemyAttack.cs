@@ -17,10 +17,21 @@ public class EnemyAttack : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        GameObject player = GameObject.Find("Player");
+        if (player != null)
+        {
+            target = player.transform;
+        }
+        else
+        {
+            Debug.LogError("Player GameObject not found in the hierarchy.");
+        }
     }
 
     void Update()
     {
+        if (target == null) return;
+
         float distanceToPlayer = Vector2.Distance(transform.position, target.position);
 
         if (distanceToPlayer <= attackRadius)
