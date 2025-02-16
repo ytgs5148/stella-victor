@@ -8,31 +8,44 @@ public class LoadingScreenManager : MonoBehaviour
     public GameObject LoadingScreen;
     public VideoPlayer videoPlayer;
 
+    // A flag to indicate that the video has finished.
+    private bool videoFinished = false;
+
     public void LoadScene(int sceneId)
     {
         LoadingScreen.SetActive(true);
-        StartCoroutine(LoadSceneAsync(sceneId));
+        StartCoroutine(PlayVideoAndLoadScene(sceneId));
     }
 
-    IEnumerator LoadSceneAsync(int sceneId)
+    IEnumerator PlayVideoAndLoadScene(int sceneId)
     {
-        yield return new WaitForSeconds(0.5f);
-        
-        videoPlayer.playbackSpeed = 0.5f;
-        if (!videoPlayer.isPlaying)
-            videoPlayer.Play();
+        // Subscribe to the loopPointReached event. This event fires when the video finishes playing.
+        videoPlayer.loopPointReached += OnVideoFinished;
 
-        yield return new WaitForSeconds(2f);
+        // Set playbackSpeed if desired.
+        videoPlayer.playbackSpeed = 2.0f;
+        videoPlayer.Play();
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
-
-        while (!operation.isDone)
+        // Wait until the video has finished.
+        while (!videoFinished)
         {
-            float progress = Mathf.Clamp01(operation.progress / 0.9f);
-
-            videoPlayer.playbackSpeed = Mathf.Lerp(0.5f, 2.0f, progress);
-
             yield return null;
         }
+
+        // Optionally, unsubscribe to avoid memory leaks.
+        videoPlayer.loopPointReached -= OnVideoFinished;
+
+        // Load the scene once the video is done.
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
+    }
+
+    // This method is called when the video finishes playing.
+    void OnVideoFinished(VideoPlayer vp)
+    {
+        videoFinished = true;
     }
 }
