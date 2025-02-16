@@ -7,9 +7,10 @@ public class MarkerManager : MonoBehaviour, IPointerClickHandler
     public string planetDescription;
     public string planetElement;
     public int planetDifficultyLevel;
+    public int planetObjectiveType;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        PopupManager.Instance.ShowPopup(planetName, planetDescription, planetElement, planetDifficultyLevel);
+        PopupManager.Instance.ShowPopup(planetName, planetDescription, planetElement, planetDifficultyLevel, planetObjectiveType);
     }
 }
