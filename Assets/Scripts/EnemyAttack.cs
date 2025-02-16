@@ -26,7 +26,7 @@ public class EnemyAttack : MonoBehaviour
         else
         {
             Debug.LogError("Player GameObject not found in the hierarchy.");
-        }
+        }
     }
 
     void Update()
