@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 65a7a13409920f04f875541582069cf3
+guid: 74baed6096c6e2f4fb64e99e22b5e7be
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5426148249641812472
-    second: cartoon-planet-illustration_23-2151114742-removebg_0
+      213: 117157720051623186
+    second: planets_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cartoon-planet-illustration_23-2151114742-removebg_0
+      name: planets_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 17
-        width: 596
-        height: 585
+        x: 0
+        y: 0
+        width: 27
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8f10286851d8d4b40800000000000000
-      internalID: 5426148249641812472
+      spriteID: 2152f5e535a30a100800000000000000
+      internalID: 117157720051623186
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      cartoon-planet-illustration_23-2151114742-removebg_0: 5426148249641812472
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
