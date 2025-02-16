@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2850794352421114961}
   - component: {fileID: 3746213510263740091}
   - component: {fileID: 7236909887781086060}
+  - component: {fileID: 5367418958322876135}
   - component: {fileID: 6050680875239326688}
   - component: {fileID: 4945328944253896529}
   - component: {fileID: 897120858641713641}
@@ -198,6 +199,24 @@ MonoBehaviour:
   startingHealth: 100
   knockBackThrust: 5
   currentHealth: 0
+--- !u!114 &5367418958322876135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8910124892176808266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ae5c47c98e9294b9244ba57bab6024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  chaseRadius: 5
+  attackRadius: 1.5
+  speed: 2
+  attackCooldown: 0.75
+  attackDamage: 10
 --- !u!114 &6050680875239326688
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6176012238327523582}
   - component: {fileID: 1354768950742437804}
   - component: {fileID: 3793414801152121115}
+  - component: {fileID: 6431260139429616948}
   m_Layer: 0
   m_Name: Mushrooom
   m_TagString: Untagged
@@ -158,7 +159,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0020396188, y: 0.108920395}
+  m_Offset: {x: -0.01315093, y: 0.658942}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.215}
@@ -168,7 +169,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.21587478, y: 0.3843602}
+  m_Size: {x: 1.4603672, y: 2.3733268}
   m_EdgeRadius: 0
 --- !u!95 &7535853627238391049
 Animator:
@@ -281,3 +282,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockBackTime: 0.75
+--- !u!114 &6431260139429616948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6989699301866915221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 0000000003819490c93960fdb391b5f9
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: -0.022400022, y: 0.67429996, z: 0}
+    m_Extent: {x: 1.2478, y: 1.6817, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0.6961817
+  m_PointLightOuterRadius: 1.5031128
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.55819964, y: -0.491686, z: 0}
+  - {x: 0.43348575, y: -0.508314, z: 0}
+  - {x: 0.45091605, y: 0.050575078, z: 0}
+  - {x: 0.6837156, y: 0.18360299, z: 0}
+  - {x: 0.7252867, y: 1.2893999, z: 0}
+  - {x: 0.69122744, y: 1.7055682, z: 0}
+  - {x: 0.015483618, y: 1.8552245, z: 0}
+  - {x: -0.7297087, y: 1.6385988, z: 0}
+  - {x: -0.7130799, y: 1.3392854, z: 0}
+  - {x: -0.72139406, y: 1.0898576, z: 0}
+  - {x: -0.77128005, y: 0.3249457, z: 0}
+  - {x: -0.51353765, y: 0.025632262, z: 0}
