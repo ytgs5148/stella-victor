@@ -34,7 +34,7 @@ public class PopupManager : MonoBehaviour
         popupText.text = title;
         popupDesc.text = info;
         popupElement.text = "Element: " + element;
-        popupElement.color = element == "Grass" ? new Color32(41, 126, 84, 255) : Color.blue;
+        popupElement.color = element == "Forest" ? new Color32(41, 126, 84, 255) : Color.blue;
         popupDifficulty.text = "Difficulty: " + difficulty;
         switch (difficulty)
         {

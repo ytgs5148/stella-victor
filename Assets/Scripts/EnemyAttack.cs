@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
@@ -17,16 +18,27 @@ public class EnemyAttack : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        GameObject player = GameObject.Find("Player");
+        if (player != null)
+        {
+            target = player.transform;
+        }
+        else
+        {
+            Debug.LogError("Player GameObject not found in the hierarchy.");
+        }
     }
 
     void Update()
     {
+        if (target == null) return;
+        
         float distanceToPlayer = Vector2.Distance(transform.position, target.position);
 
         if (distanceToPlayer <= attackRadius)
         {
             rb.linearVelocity = Vector2.zero;
-            animator.SetBool("isMoving", false);
+            animator.SetBool("IsMoving", false);
 
             if (canAttack)
             {
@@ -39,8 +51,8 @@ public class EnemyAttack : MonoBehaviour
         }
         else
         {
-            rb.linearVelocity = Vector2.zero; // Stop moving
-            animator.SetBool("isMoving", false);
+            rb.linearVelocity = Vector2.zero;
+            animator.SetBool("IsMoving", false);
         }
     }
 
@@ -48,32 +60,32 @@ public class EnemyAttack : MonoBehaviour
     {
         Vector2 direction = (target.position - transform.position).normalized;
         rb.linearVelocity = direction * speed;
-        animator.SetBool("isMoving", true); // Play walk animation
+        animator.SetBool("IsMoving", true);
+
     }
 
     void Attack()
     {
         canAttack = false;
-        animator.SetTrigger("attack"); // Play attack animation
+        animator.SetBool("attack", true);
         Debug.Log("Enemy Attacked!");
 
-        // Example: Dealing damage to the player
         PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(attackDamage);
         }
 
-        // Attack cooldown
-        Invoke(nameof(ResetAttack), attackCooldown);
+        StartCoroutine(ResetAttack());
     }
 
-    void ResetAttack()
+    private IEnumerator ResetAttack()
     {
+        yield return new WaitForSeconds(0.4f);
         canAttack = true;
+        animator.SetBool("attack", false);
     }
 
-    // Draw attack & chase radius in Unity Editor
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

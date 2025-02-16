@@ -23,7 +23,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        animator.SetTrigger("Hurt");
+        animator.SetBool("Hurt", true);
         knockBack.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
         DetectDeath();
         // StartCoroutine(flash.FlashRoutine());
@@ -32,13 +32,13 @@ public class EnemyHealth : MonoBehaviour
     private IEnumerator ResetHurtTrigger()
     {
         yield return new WaitForSeconds(0.3f);
-        animator.ResetTrigger("Hurt");
+        animator.SetBool("Hurt", false);
     }
     public void DetectDeath()
     {
         if (currentHealth <= 0)
         {
-            animator.SetTrigger("Death");
+            animator.SetBool("Death", true);
             StartCoroutine(DeathAnimation());
         }
     }
