@@ -26,10 +26,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damage;
         Debug.Log("Current health" + currentHealth);
         healthBar.SetHealth(currentHealth, startingHealth);
-        // Debug.Log("Enemy took damage: " + damage + ", current health: " + currentHealth);
-        // Debug.Log("KnockBack");
         knockBack.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
-        // Debug.Log("Knockback called on enemy with thrust: " + knockBackThrust);
         StartCoroutine(flash.FlashRoutine());
         DetectDeath();
         animator.SetTrigger("Hurt");
@@ -55,7 +52,8 @@ public class EnemyHealth : MonoBehaviour
         this.enabled = false;
 
         yield return new WaitForSeconds(0.3f);
-
+        // PlayerData.Instance.kills++;
+        // PlayerData.Instance.xp += 100;
         Destroy(gameObject);
     }
 }

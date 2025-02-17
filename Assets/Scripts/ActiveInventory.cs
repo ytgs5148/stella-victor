@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class ActiveInventory : MonoBehaviour
 {
-    private int activeSlotIndexNum = 1;
+    private int activeSlotIndexNum = 0;
     private PlayerControl playerControl;
     private void Awake()
     {
@@ -44,9 +44,9 @@ public class ActiveInventory : MonoBehaviour
     }
     private void ChangeActiveWeapon()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 gunPos = ActiveWeapon.Instance.transform.position;
-        bool isLeft = mousePos.x < gunPos.x;
+        // Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // Vector3 gunPos = ActiveWeapon.Instance.transform.position;
+        // bool isLeft = mousePos.x < gunPos.x;
         if (ActiveWeapon.Instance.CurrentActiveWeapon != null)
         {
             Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
@@ -58,14 +58,15 @@ public class ActiveInventory : MonoBehaviour
         }
         GameObject weaponToSpawn = transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>().GetWeaponInfo().weaponPrefab;
         GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity);
-        if (!isLeft)
-        {
-            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else
-        {
-            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(180, 0, 0);
-        }
+        ActiveWeapon.Instance.transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
+        // if (!isLeft)
+        // {
+        //     ActiveWeapon.Instance.transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
+        // }
+        // else
+        // {
+        //     ActiveWeapon.Instance.transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
+        // }
         newWeapon.transform.parent = ActiveWeapon.Instance.transform;
         ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
     }

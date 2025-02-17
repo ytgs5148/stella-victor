@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3435746783415045021}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SlashSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -1.07, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8967276830486978002}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 502179549064635592}
   - component: {fileID: 3435961887731518268}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TrailRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Time: 0.15
-  m_PreviewTimeScale: 0.1
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -206,7 +206,8 @@ GameObject:
   - component: {fileID: 53617042603588509}
   - component: {fileID: 7387620626504647172}
   - component: {fileID: 8720906248851208553}
-  m_Layer: 0
+  - component: {fileID: 4571455037087793722}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +224,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.16, y: -2.27, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8967276830486978002}
@@ -254,7 +255,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1a624625115d7d241af711c6f46962ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -298,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb771af99f113f84c90829529e6a5eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2
   dashSpeed: 4
   myTrailRenderer: {fileID: 3435961887731518268}
   weaponCollider: {fileID: 8034663220911459375}
@@ -314,9 +315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177cb1218d3370c4d84888baf550aa16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  knockBackThrustAmount: 15
-  damageRecoveryTime: 1
+  knockBackThrustAmount: 5
+  damageRecoveryTime: 0.25
 --- !u!114 &8899085367865098600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whiteFlashMat: {fileID: 2100000, guid: 7a5217c0bb439e44baca5459b70ba4cd, type: 2}
-  restoreDefaultMatTime: 0.2
+  restoreDefaultMatTime: 0.15
 --- !u!114 &7907331401936922696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e2219e7d8c5f4f41af4752a9f83c113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockBackTime: 0.2
+  knockBackTime: 0.25
 --- !u!50 &7021580312206136784
 Rigidbody2D:
   serializedVersion: 5
@@ -442,6 +442,66 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &4571455037087793722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048375973033362083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 1
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 0000000003819490c93960fdb391b5f9
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0.01335001, y: 0.58645, z: 0}
+    m_Extent: {x: 1.15845, y: 1.38175, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 0.78786904
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.31044543, y: -0.27032864, z: 0}
+  - {x: 0.3361994, y: -0.29654393, z: 0}
+  - {x: 0.6640851, y: 0.014507793, z: 0}
+  - {x: 0.6726241, y: 0.59090567, z: 0}
+  - {x: 0.5473668, y: 0.92894274, z: 0}
+  - {x: 0.3981289, y: 1.3264505, z: 0}
+  - {x: -0.13162169, y: 1.4684495, z: 0}
+  - {x: -0.5514004, y: 1.2363513, z: 0}
+  - {x: -0.64586693, y: 0.8556682, z: 0}
+  - {x: -0.47495946, y: 0.48635417, z: 0}
+  - {x: -0.53720164, y: 0.12920617, z: 0}
+  - {x: -0.42094472, y: 0.001256671, z: 0}
 --- !u!1 &7513570001949518136
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,8 +512,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8034663220911459375}
   - component: {fileID: 59472542788457085}
-  - component: {fileID: 287967965748303538}
-  m_Layer: 0
+  - component: {fileID: 1303127527358718590}
+  m_Layer: 6
   m_Name: WeaponCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +612,7 @@ PolygonCollider2D:
       - {x: -0.04166779, y: -0.5718027}
       - {x: -0.111750275, y: -0.08848823}
   m_UseDelaunayMesh: 0
---- !u!114 &287967965748303538
+--- !u!114 &1303127527358718590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -561,7 +621,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7513570001949518136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0bccc67bfc8cec4ca993c1f4458ec40, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fafa04c70ac4ec4baa7cb501d71e4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 20
@@ -576,7 +636,7 @@ GameObject:
   - component: {fileID: 8967276830486978002}
   - component: {fileID: 6641771125818911999}
   - component: {fileID: 6064313560922798231}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ActiveWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

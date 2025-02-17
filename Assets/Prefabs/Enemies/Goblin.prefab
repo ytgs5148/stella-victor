@@ -390,6 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac6cd51fb997144192a18dbec5ce3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHeight: 0.6
   Slider: {fileID: 7638414663020004776}
   Low: {r: 0.7529412, g: 0, b: 0, a: 1}
   High: {r: 0, g: 0.7529412, b: 0, a: 1}
@@ -430,7 +431,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.59, y: -2.36, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8644568480409513504}
@@ -591,7 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  knockBackThrust: 15
+  knockBackThrust: 5
   healthBar: {fileID: 5255320324991131319}
   currentHealth: 0
 --- !u!114 &5367418958322876135
@@ -607,8 +608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  attackRadius: 1.5
-  attackCooldown: 0.75
+  attackRadius: 0.75
+  attackCooldown: 1
   attackDamage: 10
 --- !u!114 &2431433274537378459
 MonoBehaviour:
@@ -622,9 +623,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bfb488e0edb48343a335d1c74563755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  chaseRadius: 5
-  returnSpeed: 3
+  speed: 2
+  chaseRadius: 3
+  returnSpeed: 2
 --- !u!114 &6050680875239326688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -651,7 +652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whiteFlashMat: {fileID: 2100000, guid: 7a5217c0bb439e44baca5459b70ba4cd, type: 2}
-  restoreDefaultMatTime: 0.2
+  restoreDefaultMatTime: 0.15
 --- !u!114 &8933008287722063554
 MonoBehaviour:
   m_ObjectHideFlags: 0

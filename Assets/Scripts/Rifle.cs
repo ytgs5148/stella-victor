@@ -19,9 +19,28 @@ public class Rifle : MonoBehaviour, IWeapon
     {
         MouseFollowWithOffset();
     }
+    public WeaponInfo GetWeaponInfo() {
+        return weaponInfo;
+    }
+    private void OnEnable()
+    {
+        ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+        // Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // Vector3 gunPos = ActiveWeapon.Instance.transform.position;
+        // bool isLeft = mousePos.x < gunPos.x;
+        // if (!isLeft)
+        // {
+        //     ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+        // }
+        // else
+        // {
+        //     ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+        // }
+    }
     public void Attack()
     {
         myAnimator.SetBool("IsFiring", true);
+        // FindFirstObjectByType<AudioManager>().Play("LaserGun Hit");
         float inaccuracyAngle = Random.Range(-3f, 3f);
         Quaternion bulletRotation = muzzlePoint.rotation * Quaternion.Euler(0, 0, inaccuracyAngle);
         StartCoroutine(DoFlash());
@@ -53,8 +72,5 @@ public class Rifle : MonoBehaviour, IWeapon
 
         float smoothedAngle = Mathf.LerpAngle(ActiveWeapon.Instance.transform.eulerAngles.z, angle, Time.deltaTime * 10);
         ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 180, -smoothedAngle);
-    }
-    public WeaponInfo GetWeaponInfo() {
-        return weaponInfo;
     }
 }

@@ -27,7 +27,7 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (target == null) return;
 
@@ -40,29 +40,26 @@ public class EnemyAttack : MonoBehaviour
     }
     private void Attack()
     {
-        if(canAttack == false) return;
+        if (!canAttack) return;
         canAttack = false;
         rb.linearVelocity = Vector2.zero;
         animator.SetBool("IsMoving", false);
         animator.SetTrigger("Attack");
-        
-        StartCoroutine(ResetAttack());
-    }
-
-    private IEnumerator ResetAttack()
-    {
-        yield return new WaitForSeconds(0.3f);
         PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(attackDamage, transform);
         }
-        canAttack = true;
-        animator.ResetTrigger("Attack");
-        animator.SetTrigger("Idle");
-        yield return new WaitForSeconds(attackCooldown - 0.3f);
+        StartCoroutine(ResetAttack());
     }
 
+    private IEnumerator ResetAttack()
+    {
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
+        animator.SetTrigger("Idle");
+        animator.ResetTrigger("Attack");
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

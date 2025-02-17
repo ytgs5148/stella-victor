@@ -16,4 +16,4 @@ MonoBehaviour:
     type: 3}
   weaponCooldown: 0.8
   weaponDamage: 15
-  weaponRange: 20
+  weaponRange: 5

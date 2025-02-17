@@ -6,7 +6,6 @@ public class Lightsaber : MonoBehaviour, IWeapon
 {
     [SerializeField] private GameObject slashAnimPrefab;
     [SerializeField] private Transform slashAnimSpawnPoint;
-    // [SerializeField] private float swordAttackCD = 0.5f;
     [SerializeField] private WeaponInfo weaponInfo;
     private Transform weaponCollider;
     private Animator myAnimator;
@@ -24,22 +23,24 @@ public class Lightsaber : MonoBehaviour, IWeapon
     {
         MouseFollowWithOffset();
     }
-    public WeaponInfo GetWeaponInfo() {
+    public WeaponInfo GetWeaponInfo()
+    {
         return weaponInfo;
     }
     private void OnEnable()
     {
-        transform.rotation = Quaternion.Euler(0, 0, 180);
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
-        if (mousePos.x < playerScreenPoint.x)
+        bool isLeft = mousePos.x < playerScreenPoint.x;
+        if (isLeft)
         {
-            transform.localScale = new Vector3(0.3f, -0.3f, 1f);
+            transform.localScale = new Vector3(transform.localScale.x, Mathf.Abs(transform.localScale.y), transform.localScale.z);
         }
     }
     public void Attack()
     {
         myAnimator.SetTrigger("Attack");
+        // FindFirstObjectByType<AudioManager>().Play("LightSaber Hit");
         weaponCollider.gameObject.SetActive(true);
         slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
         slashAnim.transform.parent = this.transform.parent;
