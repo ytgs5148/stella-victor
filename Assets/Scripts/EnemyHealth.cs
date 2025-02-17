@@ -29,10 +29,13 @@ public class EnemyHealth : MonoBehaviour
         knockBack.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
         StartCoroutine(flash.FlashRoutine());
         DetectDeath();
-        animator.SetTrigger("Hurt");
-        StartCoroutine(ResetHurtBool());
+        if (currentHealth > 0)
+        {
+            animator.SetTrigger("Hurt");
+            StartCoroutine(ResetHurt());
+        }
     }
-    private IEnumerator ResetHurtBool()
+    private IEnumerator ResetHurt()
     {
         yield return new WaitForSeconds(0.3f);
         animator.ResetTrigger("Hurt");
