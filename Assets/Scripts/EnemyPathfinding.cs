@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class EnemyPathfinding : MonoBehaviour
 {
     [SerializeField] public float speed;
@@ -10,7 +9,6 @@ public class EnemyPathfinding : MonoBehaviour
     private Vector2 startPosition;
     private Transform target;
     private Rigidbody2D rb;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,14 +18,12 @@ public class EnemyPathfinding : MonoBehaviour
         if (player != null)
         {
             target = player.transform;
-            Debug.Log("Player Found");
         }
         else
         {
             Debug.LogError("Player GameObject not found in the hierarchy.");
         }
     }
-
     private void FixedUpdate()
     {
         if (target == null) return;
@@ -63,7 +59,6 @@ public class EnemyPathfinding : MonoBehaviour
             transform.localScale = new Vector3(-scaleX, transform.localScale.y, transform.localScale.z); // Facing Left
         }
     }
-
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;

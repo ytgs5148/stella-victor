@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int startingHealth;
@@ -24,7 +23,6 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("Current health" + currentHealth);
         healthBar.SetHealth(currentHealth, startingHealth);
         knockBack.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
         StartCoroutine(flash.FlashRoutine());
@@ -53,10 +51,9 @@ public class EnemyHealth : MonoBehaviour
     {
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
-
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         PlayerData.Instance.kills++;
-        PlayerData.Instance.xp += 100;
+        PlayerData.Instance.xp += 10;
         Destroy(gameObject);
     }
 }

@@ -2,12 +2,9 @@ using System.Collections;
 using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
-    private int baseHealth = 100;
     [SerializeField] private float knockBackThrustAmount = 5f;
     [SerializeField] private float damageRecoveryTime = 1f;
-    public int currentHealth;
     private bool canTakeDamage = true;
-    private int maxHealth;
     private KnockBack knockBack;
     private Flash flash;
     private HealthManager HealthManager;
@@ -18,20 +15,43 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Start()
     {
-        maxHealth = baseHealth;
-        currentHealth = maxHealth;
+        PlayerData.Instance.currentHealth = PlayerData.Instance.maxHealth;
         HealthManager = FindAnyObjectByType<HealthManager>();
-        HealthManager.UpdateHealthBar(currentHealth, maxHealth);
+        HealthManager.UpdateHealthBar(PlayerData.Instance.currentHealth, PlayerData.Instance.maxHealth);
+        if (PlayerData.Instance.armourHealth <= 0)
+        {
+            PlayerData.Instance.isArmourAvailable = false;
+        }
+        Debug.Log("Armor Available? => " + PlayerData.Instance.isArmourAvailable);
+        HealthManager.UpdateVisibility(PlayerData.Instance.isArmourAvailable);
+        if (PlayerData.Instance.isArmourAvailable)
+        {
+            PlayerData.Instance.armourHealth = PlayerData.Instance.armourMaxHealth;
+            HealthManager.UpdateArmourBar(PlayerData.Instance.armourHealth, PlayerData.Instance.armourMaxHealth);
+        }
     }
     public void TakeDamage(int damageAmount, Transform enemyPosition)
     {
         if (!canTakeDamage) return;
         canTakeDamage = false;
-        currentHealth -= damageAmount;
-        HealthManager.UpdateHealthBar(currentHealth, maxHealth);
+        if (PlayerData.Instance.isArmourAvailable)
+        {
+            PlayerData.Instance.armourHealth -= damageAmount;
+            if (PlayerData.Instance.armourHealth <= 0)
+            {
+                PlayerData.Instance.armourHealth = 0;
+                PlayerData.Instance.isArmourAvailable = false;
+                HealthManager.UpdateVisibility(PlayerData.Instance.isArmourAvailable);
+            }
+            HealthManager.UpdateArmourBar(PlayerData.Instance.armourHealth, PlayerData.Instance.armourMaxHealth);
+        }
+        else
+        {
+            PlayerData.Instance.currentHealth -= damageAmount;
+        }
+        HealthManager.UpdateHealthBar(PlayerData.Instance.currentHealth, PlayerData.Instance.maxHealth);
         if (knockBack != null)
         {
-            Debug.Log("KnockBack");
             knockBack.GetKnockedBack(enemyPosition, knockBackThrustAmount);
         }
         if (flash != null)
@@ -39,7 +59,7 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(flash.FlashRoutine());
         }
         StartCoroutine(DamageRecoveryRoutine());
-        Debug.Log("Current Health = " + currentHealth);
+        Debug.Log($"Player Health: {PlayerData.Instance.currentHealth}, Armor: {PlayerData.Instance.armourHealth}");
     }
     private IEnumerator DamageRecoveryRoutine()
     {
