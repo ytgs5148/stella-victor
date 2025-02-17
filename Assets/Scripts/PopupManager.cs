@@ -33,6 +33,7 @@ public class PopupManager : MonoBehaviour
     public void ShowPopup(string title, string info, string element, int difficulty, int objectiveType)
     {
         FindFirstObjectByType<AudioManager>().Play("Button Click");
+
         popupText.text = title;
         popupDesc.text = info;
         popupElement.text = "Element: " + element;
@@ -78,10 +79,7 @@ public class PopupManager : MonoBehaviour
         #pragma warning restore CS0618 // Type or member is obsolete
 
         foreach (MarkerManager marker in markers)
-        {
             marker.gameObject.SetActive(false);
-        }
-
 
         popupPanel.SetActive(true);
     }
@@ -93,10 +91,9 @@ public class PopupManager : MonoBehaviour
         #pragma warning disable CS0618 // Type or member is obsolete
         MarkerManager[] markers = FindObjectsOfType<MarkerManager>(true);
         #pragma warning restore CS0618 // Type or member is obsolete
+
         foreach (MarkerManager marker in markers)
-        {
             marker.gameObject.SetActive(true);
-        }
 
         blurPanel.SetActive(false);
     }

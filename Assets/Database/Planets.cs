@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public static class Planets
 {
     public static string[] planetNames = new string[]

@@ -17,31 +17,64 @@ public class PlanetSpawner : MonoBehaviour
 
         List<Vector2> markerPositions = new List<Vector2>();
 
-        for (int i = 0; i < numberOfMarkers; i++)
+        if (AllMarkersDataHolder.Instance.allMarkersData != null && AllMarkersDataHolder.Instance.allMarkersData.Count > 0)
         {
-            Vector2 candidatePosition;
-            if (TryGetRandomValidPosition(markerPositions, out candidatePosition))
+            foreach (var markerData in AllMarkersDataHolder.Instance.allMarkersData)
             {
-                markerPositions.Add(candidatePosition);
-
                 GameObject marker = Instantiate(markerPrefab, transform);
-
                 RectTransform markerRect = marker.GetComponent<RectTransform>();
-                markerRect.anchoredPosition = candidatePosition;
+                markerRect.anchoredPosition = markerData.position;
 
                 MarkerManager markerController = marker.GetComponent<MarkerManager>();
                 if (markerController != null)
                 {
-                    markerController.planetName = Planets.planetNames[Random.Range(0, Planets.planetNames.Length)];
-                    markerController.planetDescription = Planets.planetDescriptions[Random.Range(0, Planets.planetDescriptions.Length)];
-                    markerController.planetElement = Planets.elementTypes[Random.Range(0, Planets.elementTypes.Length)];
-                    markerController.planetDifficultyLevel = Random.Range(1, 5);
-                    markerController.planetObjectiveType = Random.Range(0, 2);
+                    markerController.planetName = markerData.planetName;
+                    markerController.planetDescription = markerData.description;
+                    markerController.planetElement = markerData.element;
+                    markerController.planetDifficultyLevel = markerData.difficultyLevel;
+                    markerController.planetObjectiveType = markerData.objectiveType == "Eliminate Planet" ? 0 : 1;
                 }
             }
-            else
+        }
+        else
+        {
+            for (int i = 0; i < numberOfMarkers; i++)
             {
-                Debug.LogWarning("Could not find a valid position for marker #" + i);
+                Vector2 candidatePosition;
+                if (TryGetRandomValidPosition(markerPositions, out candidatePosition))
+                {
+                    markerPositions.Add(candidatePosition);
+
+                    GameObject marker = Instantiate(markerPrefab, transform);
+
+                    AllMarkersDataHolder.Instance.allMarkersData.Add(new AllMarkersDataHolder.MarkerData
+                    {
+                        planetName = Planets.planetNames[Random.Range(0, Planets.planetNames.Length)],
+                        description = Planets.planetDescriptions[Random.Range(0, Planets.planetDescriptions.Length)],
+                        element = Planets.elementTypes[Random.Range(0, Planets.elementTypes.Length)],
+                        difficultyLevel = Random.Range(1, 5),
+                        objectiveType = Random.Range(0, 2) == 0 ? "Eliminate Planet" : "Save Weaponry",
+                        position = candidatePosition,
+                        markerColor = "#FFFFFF"
+                    });
+
+                    RectTransform markerRect = marker.GetComponent<RectTransform>();
+                    markerRect.anchoredPosition = candidatePosition;
+
+                    MarkerManager markerController = marker.GetComponent<MarkerManager>();
+                    if (markerController != null)
+                    {
+                        markerController.planetName = Planets.planetNames[Random.Range(0, Planets.planetNames.Length)];
+                        markerController.planetDescription = Planets.planetDescriptions[Random.Range(0, Planets.planetDescriptions.Length)];
+                        markerController.planetElement = Planets.elementTypes[Random.Range(0, Planets.elementTypes.Length)];
+                        markerController.planetDifficultyLevel = Random.Range(1, 5);
+                        markerController.planetObjectiveType = Random.Range(0, 2);
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Could not find a valid position for marker #" + i);
+                }
             }
         }
     }
