@@ -7,7 +7,7 @@ public class PlanetSpawner : MonoBehaviour
     [SerializeField]
     public GameObject markerPrefab;
     public int numberOfMarkers = 10;
-    public float safeMargin = 50f;
+    public float safeMargin = 100f;
     public float minDistanceBetweenMarkers = 100f;
 
     private RectTransform canvasRectTransform;
