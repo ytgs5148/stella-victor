@@ -1,26 +1,38 @@
 fileFormatVersion: 2
-guid: 244d2b7af82202d4daae9b898fd596d1
+guid: ce3326307819d6e4497038e63e070108
 AssetOrigin:
   serializedVersion: 1
   productId: 167949
   packageName: Monsters_Creatures_Fantasy
   packageVersion: 1.0
-  assetPath: Assets/Monsters Creatures Fantasy/Sprites/Flying eye/Take Hit.png
+  assetPath: Assets/Monsters Creatures Fantasy/Sprites/Flying eye/Attack1.png
   uploadId: 365724
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7500690451134026123
-    second: Take Hit_0
+      213: -7008412969330441016
+    second: Attack_0
   - first:
-      213: -889859373511162655
-    second: Take Hit_1
+      213: -7763475090823894447
+    second: Attack_1
   - first:
-      213: -3088938797480143695
-    second: Take Hit_2
+      213: 302641331129538988
+    second: Attack_2
   - first:
-      213: -9206091644520726168
-    second: Take Hit_3
+      213: -6329420634031446844
+    second: Attack_3
+  - first:
+      213: -910092549403018386
+    second: Attack_4
+  - first:
+      213: 221524225039350300
+    second: Attack_5
+  - first:
+      213: 1290532464073988732
+    second: Attack_6
+  - first:
+      213: 4780903288873104255
+    second: Attack_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -67,7 +79,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -91,7 +103,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -155,7 +167,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Take Hit_0
+      name: Attack1_0
       rect:
         serializedVersion: 2
         x: 57
@@ -170,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1eec2a111c37fe846a8c6e392ef59cca
-      internalID: -7500690451134026123
+      spriteID: 94b8cc903ff90af41b87ae69fee3266b
+      internalID: -1050218276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Take Hit_1
+      name: Attack1_1
       rect:
         serializedVersion: 2
         x: 207
-        y: 56
+        y: 58
         width: 41
-        height: 33
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,19 +204,63 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b4e64a43a7b91c4181d84edfbf76180
-      internalID: -889859373511162655
+      spriteID: efe650b29c846a34f96cadd9194c9b14
+      internalID: -1256098339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Take Hit_2
+      name: Attack1_2
       rect:
         serializedVersion: 2
-        x: 367
+        x: 353
         y: 62
-        width: 26
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58056d1e0e6e300428df05712573c2c8
+      internalID: 1724691377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack1_3
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 62
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ef2214e72c8c742b9c8a398c312b0f
+      internalID: -671230842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack1_4
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 63
+        width: 41
         height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -214,20 +270,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 887b250ef492594448b9fbff97ecd241
-      internalID: -3088938797480143695
+      spriteID: 3d75d7a27a342c1468c6103a42fb7de1
+      internalID: -1904524038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Take Hit_3
+      name: Attack1_5
       rect:
         serializedVersion: 2
-        x: 518
-        y: 63
-        width: 20
-        height: 21
+        x: 805
+        y: 62
+        width: 37
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +292,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a65645fc3294384586b56cf813b0814
-      internalID: -9206091644520726168
+      spriteID: 270b02ddb5eb49f46894f55978e45986
+      internalID: 299450008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack1_6
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 59
+        width: 35
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19356d399bc761e409aa7f9674cc5e9c
+      internalID: 120332531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack1_7
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 59
+        width: 33
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34bd69c94457a5d43ab5ede499ac915a
+      internalID: -1623733875
       vertices: []
       indices: 
       edges: []
@@ -256,10 +356,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Take Hit_0: -7500690451134026123
-      Take Hit_1: -889859373511162655
-      Take Hit_2: -3088938797480143695
-      Take Hit_3: -9206091644520726168
+      Attack1_0: -1050218276
+      Attack1_1: -1256098339
+      Attack1_2: 1724691377
+      Attack1_3: -671230842
+      Attack1_4: -1904524038
+      Attack1_5: 299450008
+      Attack1_6: 120332531
+      Attack1_7: -1623733875
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

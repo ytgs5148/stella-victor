@@ -27,7 +27,7 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (target == null) return;
 
@@ -40,21 +40,23 @@ public class EnemyAttack : MonoBehaviour
     }
     private void Attack()
     {
+        if(canAttack == false) return;
         canAttack = false;
         rb.linearVelocity = Vector2.zero;
         animator.SetBool("IsMoving", false);
         animator.SetTrigger("Attack");
-        PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage(attackDamage, transform);
-        }
+        
         StartCoroutine(ResetAttack());
     }
 
     private IEnumerator ResetAttack()
     {
         yield return new WaitForSeconds(0.3f);
+        PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(attackDamage, transform);
+        }
         canAttack = true;
         animator.ResetTrigger("Attack");
         animator.SetTrigger("Idle");
