@@ -4143,8 +4143,8 @@ MonoBehaviour:
   dialogPopupPanel: {fileID: 1115206072}
   blurPanel: {fileID: 1050462107}
   closeButton: {fileID: 1859620744}
-  stealBtn: {fileID: 0}
-  reportBtn: {fileID: 0}
+  stealBtn: {fileID: 958965276}
+  reportBtn: {fileID: 1069301159}
   LoadingScreenManager: {fileID: 773571103}
 --- !u!4 &1712008757
 Transform:

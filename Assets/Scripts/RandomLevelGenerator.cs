@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 public class RandomLevelGenerator : MonoBehaviour
@@ -70,7 +68,6 @@ public class RandomLevelGenerator : MonoBehaviour
             startPosition = safePositions.ElementAt(UnityEngine.Random.Range(0, safePositions.Count));
 
         PlayerController.Instance.transform.position = playerPosition;
-        PlayerController.Instance.gameObject.SetActive(true);
 
         GenerateEnemies(playerPosition, floorPositions, safeEnemyRadius, enemyPrefab, enemyCount);
     }
