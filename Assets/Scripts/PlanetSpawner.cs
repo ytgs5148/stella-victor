@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PlanetSpawner : MonoBehaviour
 {
@@ -33,11 +34,24 @@ public class PlanetSpawner : MonoBehaviour
                     markerController.planetElement = markerData.element;
                     markerController.planetDifficultyLevel = markerData.difficultyLevel;
                     markerController.planetObjectiveType = markerData.objectiveType == "Eliminate Planet" ? 0 : 1;
+
+                    if (PlayerData.Instance.planetsExplored.Contains(markerData.planetName))
+                    {
+                        Image markerImage = marker.GetComponent<Image>();
+                        if (markerImage != null)
+                        {
+                            Color customColor;
+                            ColorUtility.TryParseHtmlString("#604F4F", out customColor);
+                            markerImage.color = customColor;
+                            markerData.markerColor = "#604F4F";
+                        }
+                    }
                 }
             }
         }
         else
         {
+            Debug.LogWarning("No markers data found. Generating random markers.");
             for (int i = 0; i < numberOfMarkers; i++)
             {
                 Vector2 candidatePosition;
@@ -47,13 +61,19 @@ public class PlanetSpawner : MonoBehaviour
 
                     GameObject marker = Instantiate(markerPrefab, transform);
 
+                    string randomPlanetName = Planets.planetNames[Random.Range(0, Planets.planetNames.Length)];
+                    string randomDescription = Planets.planetDescriptions[Random.Range(0, Planets.planetDescriptions.Length)];
+                    string randomElement = Planets.elementTypes[Random.Range(0, Planets.elementTypes.Length)];
+                    int randomDifficultyLevel = Random.Range(1, 5);
+                    int randomObjectiveType = Random.Range(0, 2);
+
                     AllMarkersDataHolder.Instance.allMarkersData.Add(new AllMarkersDataHolder.MarkerData
                     {
-                        planetName = Planets.planetNames[Random.Range(0, Planets.planetNames.Length)],
-                        description = Planets.planetDescriptions[Random.Range(0, Planets.planetDescriptions.Length)],
-                        element = Planets.elementTypes[Random.Range(0, Planets.elementTypes.Length)],
-                        difficultyLevel = Random.Range(1, 5),
-                        objectiveType = Random.Range(0, 2) == 0 ? "Eliminate Planet" : "Save Weaponry",
+                        planetName = randomPlanetName,
+                        description = randomDescription,
+                        element = randomElement,
+                        difficultyLevel = randomDifficultyLevel,
+                        objectiveType = randomObjectiveType == 0 ? "Eliminate Planet" : "Save Weaponry",
                         position = candidatePosition,
                         markerColor = "#FFFFFF"
                     });
@@ -64,11 +84,11 @@ public class PlanetSpawner : MonoBehaviour
                     MarkerManager markerController = marker.GetComponent<MarkerManager>();
                     if (markerController != null)
                     {
-                        markerController.planetName = Planets.planetNames[Random.Range(0, Planets.planetNames.Length)];
-                        markerController.planetDescription = Planets.planetDescriptions[Random.Range(0, Planets.planetDescriptions.Length)];
-                        markerController.planetElement = Planets.elementTypes[Random.Range(0, Planets.elementTypes.Length)];
-                        markerController.planetDifficultyLevel = Random.Range(1, 5);
-                        markerController.planetObjectiveType = Random.Range(0, 2);
+                        markerController.planetName = randomPlanetName;
+                        markerController.planetDescription = randomDescription;
+                        markerController.planetElement = randomElement;
+                        markerController.planetDifficultyLevel = randomDifficultyLevel;
+                        markerController.planetObjectiveType = randomObjectiveType;
                     }
                 }
                 else
@@ -83,13 +103,13 @@ public class PlanetSpawner : MonoBehaviour
     {
         int attempts = 0;
         const int maxAttempts = 100;
-        
+
         Rect rect = canvasRectTransform.rect;
         float minX = rect.xMin + safeMargin;
         float maxX = rect.xMax - safeMargin;
         float minY = rect.yMin + safeMargin;
         float maxY = rect.yMax - safeMargin;
-        
+
         while (attempts < maxAttempts)
         {
             float randomX = Random.Range(minX, maxX);

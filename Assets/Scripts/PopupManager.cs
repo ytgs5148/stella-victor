@@ -32,6 +32,12 @@ public class PopupManager : MonoBehaviour
 
     public void ShowPopup(string title, string info, string element, int difficulty, int objectiveType)
     {
+        if (PlayerData.Instance.planetsExplored.Contains(title))
+        {
+            Debug.Log("Planet already explored: " + title);
+            return;
+        }
+
         FindFirstObjectByType<AudioManager>().Play("Button Click");
 
         popupText.text = title;
