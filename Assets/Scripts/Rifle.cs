@@ -40,7 +40,7 @@ public class Rifle : MonoBehaviour, IWeapon
     public void Attack()
     {
         myAnimator.SetBool("IsFiring", true);
-        // FindFirstObjectByType<AudioManager>().Play("LaserGun Hit");
+        FindFirstObjectByType<AudioManager>().Play("LaserGun Hit");
         float inaccuracyAngle = Random.Range(-3f, 3f);
         Quaternion bulletRotation = muzzlePoint.rotation * Quaternion.Euler(0, 0, inaccuracyAngle);
         StartCoroutine(DoFlash());

@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
     private int baseHealth = 100;
     [SerializeField] private float knockBackThrustAmount = 5f;
     [SerializeField] private float damageRecoveryTime = 1f;
-    private int currentHealth;
+    public int currentHealth;
     private bool canTakeDamage = true;
     private int maxHealth;
     private KnockBack knockBack;

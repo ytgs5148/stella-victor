@@ -888,6 +888,11 @@ MonoBehaviour:
     volume: 0.5
     loop: 0
     source: {fileID: 0}
+  - name: Steal Sound
+    clip: {fileID: 8300000, guid: 17fae098fca345b489c0d98b8411d086, type: 3}
+    volume: 0.5
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1115708118
 Transform:
   m_ObjectHideFlags: 0

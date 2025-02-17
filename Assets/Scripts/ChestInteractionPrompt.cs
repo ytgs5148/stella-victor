@@ -10,6 +10,8 @@ public class ChestInteractionPrompt : MonoBehaviour
     [Header("Detection Settings")]
     public float detectionRadius = 3.0f;
 
+    public DialogPopupManager dialogPopupManager;
+
     private void Update()
     {
         if (playerTransform == null || PlayerData.Instance == null)
@@ -42,5 +44,6 @@ public class ChestInteractionPrompt : MonoBehaviour
         FindFirstObjectByType<AudioManager>().Play("Chest Open");
 
         promptUI.SetActive(false);
+        dialogPopupManager.ShowPopup();
     }
 }

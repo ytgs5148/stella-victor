@@ -36,7 +36,7 @@ public class Bow : MonoBehaviour, IWeapon
     public void Attack()
     {
         myAnimator.SetBool("IsFiring", true);
-        // FindFirstObjectByType<AudioManager>().Play("Bow Hit");
+        FindFirstObjectByType<AudioManager>().Play("Bow Hit");
         GameObject newArrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, ActiveWeapon.Instance.transform.rotation);
         newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
         StartCoroutine(ResetAttack());

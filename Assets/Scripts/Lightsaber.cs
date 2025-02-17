@@ -40,7 +40,7 @@ public class Lightsaber : MonoBehaviour, IWeapon
     public void Attack()
     {
         myAnimator.SetTrigger("Attack");
-        // FindFirstObjectByType<AudioManager>().Play("LightSaber Hit");
+        FindFirstObjectByType<AudioManager>().Play("LightSaber Hit");
         weaponCollider.gameObject.SetActive(true);
         slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
         slashAnim.transform.parent = this.transform.parent;

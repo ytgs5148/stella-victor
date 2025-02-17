@@ -52,8 +52,8 @@ public class EnemyHealth : MonoBehaviour
         this.enabled = false;
 
         yield return new WaitForSeconds(0.3f);
-        // PlayerData.Instance.kills++;
-        // PlayerData.Instance.xp += 100;
+        PlayerData.Instance.kills++;
+        PlayerData.Instance.xp += 100;
         Destroy(gameObject);
     }
 }

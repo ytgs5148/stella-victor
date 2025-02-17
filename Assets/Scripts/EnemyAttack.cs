@@ -41,10 +41,14 @@ public class EnemyAttack : MonoBehaviour
     private void Attack()
     {
         if (!canAttack) return;
+
         canAttack = false;
         rb.linearVelocity = Vector2.zero;
         animator.SetBool("IsMoving", false);
         animator.SetTrigger("Attack");
+
+        FindFirstObjectByType<AudioManager>().Play("Goblin Hit");
+
         PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
