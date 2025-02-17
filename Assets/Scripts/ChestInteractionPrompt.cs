@@ -39,6 +39,7 @@ public class ChestInteractionPrompt : MonoBehaviour
     private void OpenChest()
     {
         Debug.Log("Chest opened!");
+        FindFirstObjectByType<AudioManager>().Play("Chest Open");
 
         promptUI.SetActive(false);
     }
