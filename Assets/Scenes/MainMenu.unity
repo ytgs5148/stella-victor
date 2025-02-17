@@ -863,6 +863,31 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: LightSaber Hit
+    clip: {fileID: 8300000, guid: 7dbde94dc8190544f96be3734c480200, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LaserGun Hit
+    clip: {fileID: 8300000, guid: bfda6c029e512cf4f90e74929621e7c9, type: 3}
+    volume: 0.7
+    loop: 0
+    source: {fileID: 0}
+  - name: Bow Hit
+    clip: {fileID: 8300000, guid: 3d1c982198704d145b0c31e4e78301bc, type: 3}
+    volume: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - name: Gobin Hit
+    clip: {fileID: 8300000, guid: 55f8da5e2b07b454b85fdae9844950b7, type: 3}
+    volume: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - name: Chest Open
+    clip: {fileID: 8300000, guid: 635e25b625903fc4dad003aee3d299e1, type: 3}
+    volume: 0.5
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1115708118
 Transform:
   m_ObjectHideFlags: 0
