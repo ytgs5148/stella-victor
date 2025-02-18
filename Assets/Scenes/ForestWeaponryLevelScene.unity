@@ -1952,7 +1952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -308.1598, y: 344.00754}
+  m_AnchoredPosition: {x: -308.15985, y: 344.00754}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050462109
@@ -4464,7 +4464,7 @@ MonoBehaviour:
   iterations: 10
   walkLength: 50
   startRandomlyEachIteration: 1
-  safeEnemyRadius: 10
+  safeEnemyRadius: 5
   enemyPrefab: {fileID: 8910124892176808266, guid: 87f5bf04acb043c46a1b42b13358d678,
     type: 3}
   enemyCount: 8
