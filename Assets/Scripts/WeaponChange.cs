@@ -40,7 +40,7 @@ public class WeaponChange : MonoBehaviour
             }
             int level = xp / 100 + 1;
             weaponInfoText.enabled = true;
-            weaponInfoText.text = $"Weapon: {weaponName}  Level: {level}";
+            weaponInfoText.text = $"{weaponName}  Level: {level}";
             StartCoroutine(EndText());
         }
     }
