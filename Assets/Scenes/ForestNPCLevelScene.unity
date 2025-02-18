@@ -913,7 +913,7 @@ GameObject:
   - component: {fileID: 485302575}
   - component: {fileID: 485302576}
   m_Layer: 0
-  m_Name: Chest Manager
+  m_Name: Boss Fight Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -943,13 +943,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 485302574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512abc2dd7762f944a914391d69161c8, type: 3}
+  m_Script: {fileID: 11500000, guid: d35109e6cee07094a83227ca0489aad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   promptUI: {fileID: 1273446787}
   playerTransform: {fileID: 895992044}
-  detectionRadius: 2
-  dialogPopupManager: {fileID: 1712008756}
+  bossPrefab: {fileID: 8910124892176808266, guid: 87f5bf04acb043c46a1b42b13358d678,
+    type: 3}
+  bossBarText: {fileID: 2038627001}
+  screenFadeImage: {fileID: 1722971023}
+  dialogPopupPanel: {fileID: 1115206072}
+  detectionRadius: 3
 --- !u!1001 &572144186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1560,7 +1564,7 @@ GameObject:
   - component: {fileID: 958965277}
   - component: {fileID: 958965276}
   m_Layer: 5
-  m_Name: Steal Button
+  m_Name: Kill Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1630,7 +1634,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1712008756}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DialogPopupManager, Assembly-CSharp
         m_MethodName: StealBtn
         m_Mode: 1
@@ -1787,6 +1791,7 @@ RectTransform:
   - {fileID: 1115206073}
   - {fileID: 793013284}
   - {fileID: 1133657064}
+  - {fileID: 1722971022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2328,7 +2333,7 @@ GameObject:
   - component: {fileID: 1069301160}
   - component: {fileID: 1069301159}
   m_Layer: 5
-  m_Name: Report Button
+  m_Name: Pardon Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2398,7 +2403,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1712008756}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DialogPopupManager, Assembly-CSharp
         m_MethodName: ReportBtn
         m_Mode: 1
@@ -2931,7 +2936,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: REPORT
+  m_text: PARDON
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3203,10 +3208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "I spy the Emperor's armory, sealed tight. Yet whispers tell of relics
-    inside\u2014treasures worth thousands of gold. The risk is high, but the reward
-    could change everything. Do I dare break in and claim these riches, or do I let
-    caution prevail?"
+  m_text: I SURRENDER... PLEASE SAVE ME... DON'T KILL ME...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19382f9aea0c9494bb81a9f19e80f602, type: 2}
   m_sharedMaterial: {fileID: 7661782026490353949, guid: 19382f9aea0c9494bb81a9f19e80f602,
@@ -3450,7 +3452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: STEAL
+  m_text: KILL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4054,32 +4056,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1712008757}
-  - component: {fileID: 1712008756}
+  - component: {fileID: 1712008758}
   m_Layer: 0
-  m_Name: Dialog Manager
+  m_Name: NPC Dialog Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1712008756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1712008755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d127f5f94cda2847aff07f3a2551d68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogPopupPanel: {fileID: 1115206072}
-  blurPanel: {fileID: 1050462107}
-  closeButton: {fileID: 1859620744}
-  stealBtn: {fileID: 958965276}
-  reportBtn: {fileID: 1069301159}
-  LoadingScreenManager: {fileID: 773571103}
 --- !u!4 &1712008757
 Transform:
   m_ObjectHideFlags: 0
@@ -4095,6 +4079,96 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1712008758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712008755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc33c6f792f775146946724a94871a29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogPopupPanel: {fileID: 1115206072}
+  blurPanel: {fileID: 1050462107}
+  closeButton: {fileID: 1859620744}
+  killBtn: {fileID: 958965276}
+  pardonBtn: {fileID: 1069301159}
+  LoadingScreenManager: {fileID: 773571103}
+--- !u!1 &1722971021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1722971022}
+  - component: {fileID: 1722971024}
+  - component: {fileID: 1722971023}
+  m_Layer: 5
+  m_Name: Screen Fade Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1722971022
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722971021}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 962554035}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1722971023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722971021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1722971024
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722971021}
+  m_CullTransparentMesh: 1
 --- !u!1 &1834229624
 GameObject:
   m_ObjectHideFlags: 0

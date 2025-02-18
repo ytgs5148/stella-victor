@@ -54,8 +54,11 @@ public class EnemyHealth : MonoBehaviour
         this.enabled = false;
         
         PlayerData.Instance.kills++;
+        PlayerData.Instance.totalKills++;
         PlayerData.Instance.xp += 10;
+
         int xpReward = 10;
+        
         if (ActiveWeapon.Instance != null && ActiveWeapon.Instance.CurrentActiveWeapon != null)
         {
             MonoBehaviour currentWeapon = ActiveWeapon.Instance.CurrentActiveWeapon;
