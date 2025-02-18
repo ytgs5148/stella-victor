@@ -22,7 +22,16 @@ public class Projectile : MonoBehaviour
         EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
         Indestructible indestructible = other.gameObject.GetComponent<Indestructible>();
         if(!other.isTrigger && (enemyHealth || indestructible)) {
-            enemyHealth.TakeDamage(weaponInfo.weaponDamage);
+            float damage = weaponInfo.weaponDamage;
+            MonoBehaviour currentWeapon = ActiveWeapon.Instance.CurrentActiveWeapon;
+            if(currentWeapon is Bow) {
+                damage *= 1 + PlayerData.Instance.bowXP/100;
+            } else if(currentWeapon is Rifle) {
+                damage *= 1 + PlayerData.Instance.laserGunXP/100;
+            } else {
+                damage *= 1;
+            }
+            enemyHealth.TakeDamage(damage);
             Destroy(gameObject);
         }
     }

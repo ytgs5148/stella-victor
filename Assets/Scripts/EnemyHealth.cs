@@ -2,11 +2,11 @@ using System.Collections;
 using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private int startingHealth;
+    [SerializeField] private float startingHealth;
     [SerializeField] private float knockBackThrust;
     public EnemyHealthManager healthBar;
     private Animator animator;
-    public int currentHealth;
+    public float currentHealth;
     private KnockBack knockBack;
     private Flash flash;
     private void Awake()
@@ -17,10 +17,11 @@ public class EnemyHealth : MonoBehaviour
     }
     private void Start()
     {
+        startingHealth = startingHealth * (PlanetData.Instance.planetDifficulty + 1) / 2;
         currentHealth = startingHealth;
         healthBar.SetHealth(currentHealth, startingHealth);
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth, startingHealth);
@@ -51,9 +52,46 @@ public class EnemyHealth : MonoBehaviour
     {
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
-        yield return new WaitForSeconds(0.1f);
+        
         PlayerData.Instance.kills++;
         PlayerData.Instance.xp += 10;
+        int xpReward = 10;
+        if (ActiveWeapon.Instance != null && ActiveWeapon.Instance.CurrentActiveWeapon != null)
+        {
+            MonoBehaviour currentWeapon = ActiveWeapon.Instance.CurrentActiveWeapon;
+            if (currentWeapon is Lightsaber)
+            {
+                PlayerData.Instance.lightSaberXP += xpReward;
+                PlayerData.Instance.lightSaberKills++;
+                Debug.Log("Added " + xpReward + " XP to Lightsaber. Total: " + PlayerData.Instance.lightSaberXP);
+            }
+            else if (currentWeapon is Bow)
+            {
+                PlayerData.Instance.bowXP += xpReward;
+                PlayerData.Instance.bowKills++;
+                Debug.Log("Added " + xpReward + " XP to Bow. Total: " + PlayerData.Instance.bowXP);
+            }
+            else if (currentWeapon is Rifle)
+            {
+                PlayerData.Instance.laserGunXP += xpReward;
+                PlayerData.Instance.laserGunKills++;
+                Debug.Log("Added " + xpReward + " XP to Rifle. Total: " + PlayerData.Instance.laserGunXP);
+            }
+            else
+            {
+                PlayerData.Instance.xp += xpReward;
+                Debug.Log("Added " + xpReward + " XP to general XP. Total: " + PlayerData.Instance.xp);
+            }
+        }
+        else
+        {
+            PlayerData.Instance.xp += xpReward;
+            Debug.Log("No active weapon found. Added " + xpReward + " XP to general XP. Total: " + PlayerData.Instance.xp);
+        }
+        if(PlayerData.Instance.isArmourAvailable) {
+            PlayerData.Instance.armourXP += 10;
+        }
+        yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
     }
 }

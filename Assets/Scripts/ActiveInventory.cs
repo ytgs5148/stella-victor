@@ -77,5 +77,6 @@ public class ActiveInventory : MonoBehaviour
         ActiveWeapon.Instance.transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
         newWeapon.transform.parent = ActiveWeapon.Instance.transform;
         ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
+        WeaponChange.Instance.UpdateWeaponInfo();
     }
 }

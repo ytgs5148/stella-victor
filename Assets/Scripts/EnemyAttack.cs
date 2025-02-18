@@ -7,13 +7,14 @@ public class EnemyAttack : MonoBehaviour
     public Transform target;
     [SerializeField] public float attackRadius;
     [SerializeField] public float attackCooldown;
-    [SerializeField] public int attackDamage;
+    [SerializeField] public float attackDamage;
     private Rigidbody2D rb;
     private Animator animator;
     private bool canAttack = true;
 
     private void Start()
     {
+        attackDamage = attackDamage * (PlanetData.Instance.planetDifficulty + 1) / 2;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         GameObject player = GameObject.Find("Player");

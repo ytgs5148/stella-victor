@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
             HealthManager.UpdateArmourBar(PlayerData.Instance.armourHealth, PlayerData.Instance.armourMaxHealth);
         }
     }
-    public void TakeDamage(int damageAmount, Transform enemyPosition)
+    public void TakeDamage(float damageAmount, Transform enemyPosition)
     {
         if (!canTakeDamage) return;
         canTakeDamage = false;

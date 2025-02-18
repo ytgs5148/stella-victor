@@ -5,10 +5,10 @@ public class PlayerData : MonoBehaviour
 {
     public static PlayerData Instance { get; private set; }
     public int xp = 0;
-    public int currentHealth = 100;
-    public int maxHealth = 100;
-    public int armourHealth = 100;
-    public int armourMaxHealth = 100;
+    public float currentHealth = 100;
+    public float maxHealth = 100;
+    public float armourHealth = 100;
+    public float armourMaxHealth = 100;
     public int lightSaberXP = 0;
     public int bowXP = 0;
     public bool isBowPurchased = false;
@@ -19,6 +19,10 @@ public class PlayerData : MonoBehaviour
     public List<string> planetsExplored;
     public float endingBar = 0f;
     public int kills = 0;
+    public int totalKills = 0;
+    public int lightSaberKills = 0;
+    public int bowKills = 0;
+    public int laserGunKills = 0;
     public Vector2Int chestPosition = Vector2Int.zero;
 
     private void Awake()
@@ -34,12 +38,12 @@ public class PlayerData : MonoBehaviour
 
     public void UpdateMaxHealth()
     {
-        maxHealth = Mathf.Clamp(100 * ((xp / 100) + 1), 100, 10000);
+        maxHealth = 100 + 10 * (xp / 100);
     }
 
     public void UpdateArmourMaxHealth()
     {
-        armourMaxHealth = Mathf.Clamp(100 * ((armourXP / 100) + 1), 100, 10000);
+        armourMaxHealth = 100 + 10 * (armourXP / 100);
     }
 
     public void UnlockUniqueWeapon()
@@ -48,8 +52,6 @@ public class PlayerData : MonoBehaviour
         {
             if (isArmourAvailable)
             {
-                bowXP += 100;
-                laserGunXP += 100;
                 armourXP += 100;
                 Debug.Log("You obtained XPs");
             }

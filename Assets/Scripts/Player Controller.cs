@@ -7,8 +7,8 @@ public class PlayerController : Singleton<PlayerController>
     {
         get { return facingLeft; }
     }
-    [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float dashSpeed = 4f;
+    private float moveSpeed = 2f;
+    private float dashSpeed = 4f;
     [SerializeField] private TrailRenderer myTrailRenderer;
     [SerializeField] private Transform weaponCollider;
 
@@ -32,8 +32,8 @@ public class PlayerController : Singleton<PlayerController>
     }
     private void Start()
     {
+        moveSpeed *= 1 + (float) PlayerData.Instance.xp / 300;
         playerControl.Combat.Dash.performed += _ => Dash();
-
         startingMoveSpeed = moveSpeed;
     }
     private void OnEnable()
