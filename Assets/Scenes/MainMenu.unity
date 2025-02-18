@@ -1655,7 +1655,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeRemaining: 600
   isTimerRunning: 0
-  LoadingScreenManager: {fileID: 1901478794}
 --- !u!4 &2056303672
 Transform:
   m_ObjectHideFlags: 0

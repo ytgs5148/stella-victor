@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class TimerManager : MonoBehaviour
 {
@@ -7,7 +6,6 @@ public class TimerManager : MonoBehaviour
 
     public float timeRemaining = 600f;
     public bool isTimerRunning = false;
-    public LoadingScreenManager LoadingScreenManager;
 
     private void Awake()
     {
@@ -30,7 +28,7 @@ public class TimerManager : MonoBehaviour
                 timeRemaining = 0f;
                 isTimerRunning = false;
 
-                LoadingScreenManager.LoadScene(3);
+                FindFirstObjectByType<LoadingScreenManager>().LoadScene(3);
             }
         }
     }

@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestWeaponryLevelScene.unity
     guid: 5361abce2c6567a4394478e8402fef19
+  - enabled: 1
+    path: Assets/Scenes/AncientWeaponryLevelScene.unity
+    guid: c2dd2d2ad276b8e4bbed65544d856262
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

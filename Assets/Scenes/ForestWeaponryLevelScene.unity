@@ -1952,7 +1952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -308.1598, y: 344.00754}
+  m_AnchoredPosition: {x: -308.15985, y: 344.00754}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050462109
@@ -3360,7 +3360,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 3
+    OrthographicSize: 2.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -3387,7 +3387,7 @@ Transform:
   m_GameObject: {fileID: 1386673541}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3390872, y: -2.4773645, z: -10}
+  m_LocalPosition: {x: 2.3092945, y: -2.4428036, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4464,7 +4464,7 @@ MonoBehaviour:
   iterations: 10
   walkLength: 50
   startRandomlyEachIteration: 1
-  safeEnemyRadius: 10
+  safeEnemyRadius: 5
   enemyPrefab: {fileID: 8910124892176808266, guid: 87f5bf04acb043c46a1b42b13358d678,
     type: 3}
   enemyCount: 8
@@ -4719,7 +4719,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 2.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4744,7 +4744,7 @@ Transform:
   m_GameObject: {fileID: 1964747517}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3390872, y: -2.4773645, z: -10}
+  m_LocalPosition: {x: 2.3092945, y: -2.4428036, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
