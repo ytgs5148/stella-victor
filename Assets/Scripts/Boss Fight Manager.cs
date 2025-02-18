@@ -21,15 +21,12 @@ public class BossFightManager : MonoBehaviour
         if (playerTransform == null || PlayerData.Instance == null)
             return;
 
-        Debug.Log("Player kills: " + PlayerData.Instance.kills);
-
         Vector3 cavePos = new Vector3(PlayerData.Instance.chestPosition.x, PlayerData.Instance.chestPosition.y, 0);
 
         float distance = Vector3.Distance(playerTransform.position, cavePos);
 
         if (distance <= detectionRadius && PlayerData.Instance.kills == 8)
         {
-            Debug.Log("Player is close to the cave!");
             if (!promptUI.activeSelf)
                 promptUI.SetActive(true);
 

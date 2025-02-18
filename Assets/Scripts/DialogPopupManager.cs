@@ -46,6 +46,7 @@ public class DialogPopupManager : MonoBehaviour
         PlayerData.Instance.xp += 200;
         PlayerData.Instance.UpdateMaxHealth();
         PlayerData.Instance.UnlockUniqueWeapon();
+        PlayerData.Instance.kills = 0;
         PlayerData.Instance.planetsExplored.Add(FindFirstObjectByType<PlanetData>().planetName);
 
         FindFirstObjectByType<AudioManager>().Play("Steal Sound");
@@ -62,6 +63,7 @@ public class DialogPopupManager : MonoBehaviour
         PlayerData.Instance.UpdateMaxHealth();
         PlayerData.Instance.armourXP += 200;
         PlayerData.Instance.UpdateArmourMaxHealth();
+        PlayerData.Instance.kills = 0;
         PlayerData.Instance.planetsExplored.Add(FindFirstObjectByType<PlanetData>().planetName);
 
         FindFirstObjectByType<AudioManager>().Play("Steal Sound");
