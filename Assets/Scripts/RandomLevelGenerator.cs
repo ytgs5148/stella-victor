@@ -28,6 +28,7 @@ public class RandomLevelGenerator : MonoBehaviour
 
     public void RunProceduralGeneration()
     {
+        Debug.Log("Running procedural generation");
         HashSet<Vector2Int> floorPositions = RunRandomWalk();
         tileMapVisualiser.ClearTileMap();
         tileMapVisualiser.PaintFloorTiles(floorPositions);
@@ -40,45 +41,54 @@ public class RandomLevelGenerator : MonoBehaviour
 
         Vector3 playerPosition = new Vector3(startPosition.x, startPosition.y, PlayerController.Instance.transform.position.z);
 
-        Vector2Int[] directions = {
-            new Vector2Int(1, 0), new Vector2Int(-1, 0), new Vector2Int(0, 1), new Vector2Int(0, -1),
-            new Vector2Int(1, 1), new Vector2Int(1, -1), new Vector2Int(-1, 1), new Vector2Int(-1, -1)
-        };
+        HashSet<Vector2Int> safePositions = new HashSet<Vector2Int>(floorPositions);
+        Debug.Log("Safe positions count: " + safePositions.Count);
+        Debug.Log("Wall positions count: " + wallPositions.Count);
 
-        HashSet<Vector2Int> safePositions = new HashSet<Vector2Int>();
-
-        foreach (var position in floorPositions)
+        foreach (var wallPosition in wallPositions)
         {
-            bool isSafe = true;
-            foreach (var direction in directions)
-            {
-                Vector2Int adjacentPosition = position + direction;
-                if (wallPositions.Contains(adjacentPosition))
-                {
-                    isSafe = false;
-                    break;
-                }
-            }
-
-            if (isSafe)
-                safePositions.Add(position);
+            safePositions.Remove(wallPosition);
+            safePositions.Remove(wallPosition + Vector2Int.up);
+            safePositions.Remove(wallPosition + Vector2Int.down);
+            safePositions.Remove(wallPosition + Vector2Int.left);
+            safePositions.Remove(wallPosition + Vector2Int.right);
         }
 
-        if (!safePositions.Contains(startPosition))
-            startPosition = safePositions.ElementAt(UnityEngine.Random.Range(0, safePositions.Count));
+        Debug.Log("Safe positions count final: " + safePositions.Count);
 
+        if (safePositions.Count == 0)
+        {
+            Debug.LogError("No safe positions found, retrying generation");
+            RunProceduralGeneration();
+            return;
+        }
+
+        foreach (var safePosition in safePositions)
+        {
+            Debug.Log("Safe position: " + safePosition);
+        }
+
+        if (!safePositions.Contains(new Vector2Int((int)playerPosition.x, (int)playerPosition.y)))
+        {
+            Debug.Log("Player position not in safe positions, changing player position");
+            Vector2Int randomSafePosition = safePositions.ElementAt(Random.Range(0, safePositions.Count));
+            playerPosition = new Vector3(randomSafePosition.x, randomSafePosition.y, playerPosition.z);
+        }
+
+        Debug.Log("Player position: " + playerPosition);
         PlayerController.Instance.transform.position = playerPosition;
 
-        GenerateEnemies(playerPosition, floorPositions, safeEnemyRadius, enemyPrefab, enemyCount);
+        GenerateEnemies(playerPosition, safePositions, safeEnemyRadius, enemyPrefab, enemyCount);
     }
 
     private void GenerateEnemies(Vector3 playerPosition, HashSet<Vector2Int> floorPositions, int safeEnemyRadius, GameObject enemyPrefab, int enemyCount)
     {
         for (int i = 0; i < enemyCount; i++)
         {
-            Vector2Int enemyPosition = floorPositions.ElementAt(UnityEngine.Random.Range(0, floorPositions.Count));
+            Vector2Int enemyPosition = floorPositions.ElementAt(Random.Range(0, floorPositions.Count));
+
             while (Vector2.Distance(enemyPosition, startPosition) < safeEnemyRadius)
-                enemyPosition = floorPositions.ElementAt(UnityEngine.Random.Range(0, floorPositions.Count));
+                enemyPosition = floorPositions.ElementAt(Random.Range(0, floorPositions.Count));
 
             Vector3 enemyPosition3D = new Vector3(enemyPosition.x, enemyPosition.y, playerPosition.z);
             Instantiate(enemyPrefab, enemyPosition3D, Quaternion.identity);

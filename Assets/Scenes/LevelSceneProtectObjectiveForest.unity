@@ -329,6 +329,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 962554035}
     m_Modifications:
+    - target: {fileID: 2420615519109469904, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420615519109469904, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420615519109469904, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420615519109469904, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420615519109469904, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420615519109469904, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5517406464952912046, guid: c3795d98116d7e149b4e492ca5bf59e0,
         type: 3}
       propertyPath: m_Pivot.x
@@ -429,10 +459,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6474998122353388507, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474998122353388507, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474998122353388507, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474998122353388507, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474998122353388507, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6474998122353388507, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6575124584454729216, guid: c3795d98116d7e149b4e492ca5bf59e0,
         type: 3}
       propertyPath: m_Name
       value: ActiveInventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507469772058314890, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507469772058314890, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507469772058314890, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507469772058314890, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507469772058314890, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507469772058314890, guid: c3795d98116d7e149b4e492ca5bf59e0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4323,16 +4413,6 @@ MonoBehaviour:
     applyCustomLighting: 1
     lightPrefab: {fileID: 1993853211761406139, guid: 5af56b1ff7c6b3742a059111055087ed,
       type: 3}
-    isChest: 0
-  - width: 1
-    height: 1
-    tiles:
-    - {fileID: 11400000, guid: 29c5019d6d0b02a409245fb8e893a706, type: 2}
-    minSetsToPlace: 5
-    maxSetsToPlace: 7
-    belowPlayer: 0
-    applyCustomLighting: 1
-    lightPrefab: {fileID: 0}
     isChest: 0
   - width: 1
     height: 1
