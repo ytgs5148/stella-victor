@@ -55,9 +55,9 @@ public class EnemyHealth : MonoBehaviour
         
         PlayerData.Instance.kills++;
         PlayerData.Instance.totalKills++;
-        PlayerData.Instance.xp += 10;
+        PlayerData.Instance.xp += 10 * (PlanetData.Instance.planetDifficulty + 1) / 2;
 
-        int xpReward = 10;
+        int xpReward = 10 * (PlanetData.Instance.planetDifficulty + 1) / 2;
         
         if (ActiveWeapon.Instance != null && ActiveWeapon.Instance.CurrentActiveWeapon != null)
         {
@@ -92,7 +92,7 @@ public class EnemyHealth : MonoBehaviour
             Debug.Log("No active weapon found. Added " + xpReward + " XP to general XP. Total: " + PlayerData.Instance.xp);
         }
         if(PlayerData.Instance.isArmourAvailable) {
-            PlayerData.Instance.armourXP += 10;
+            PlayerData.Instance.armourXP += 10 * (PlanetData.Instance.planetDifficulty + 1) / 2;
         }
         yield return new WaitForSeconds(0.1f);
         Destroy(gameObject);
