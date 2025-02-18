@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
-    [SerializeField]
     public Texture2D sourceTexture;
     public Image targetImage;
     public int cropWidth = 1920;

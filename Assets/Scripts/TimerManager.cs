@@ -5,7 +5,7 @@ public class TimerManager : MonoBehaviour
 {
     public static TimerManager Instance { get; private set; }
 
-    public float timeRemaining = 300f;
+    public float timeRemaining = 600f;
     public bool isTimerRunning = false;
     public LoadingScreenManager LoadingScreenManager;
 

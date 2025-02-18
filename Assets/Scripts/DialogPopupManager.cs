@@ -50,9 +50,6 @@ public class DialogPopupManager : MonoBehaviour
 
         FindFirstObjectByType<AudioManager>().Play("Steal Sound");
 
-        PlayerData.Instance.currentHealth = PlayerData.Instance.maxHealth;
-        PlayerData.Instance.armourHealth = PlayerData.Instance.armourMaxHealth;
-
         LoadingScreenManager.LoadScene(1);
     }
 
@@ -61,14 +58,13 @@ public class DialogPopupManager : MonoBehaviour
         blurPanel.SetActive(false);
         dialogPopupPanel.SetActive(false);
         PlayerData.Instance.endingBar -= 0.5f;
-        PlayerData.Instance.xp += 150;
+        PlayerData.Instance.xp += 200;
         PlayerData.Instance.UpdateMaxHealth();
+        PlayerData.Instance.armourXP += 200;
+        PlayerData.Instance.UpdateArmourMaxHealth();
         PlayerData.Instance.planetsExplored.Add(FindFirstObjectByType<PlanetData>().planetName);
 
         FindFirstObjectByType<AudioManager>().Play("Steal Sound");
-
-        PlayerData.Instance.currentHealth = PlayerData.Instance.maxHealth;
-        PlayerData.Instance.armourHealth = PlayerData.Instance.armourMaxHealth;
 
         LoadingScreenManager.LoadScene(1);
     }

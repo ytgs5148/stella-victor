@@ -21,17 +21,6 @@ public class Bow : MonoBehaviour, IWeapon
     private void OnEnable()
     {
         ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
-        // Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // Vector3 gunPos = ActiveWeapon.Instance.transform.position;
-        // bool isLeft = mousePos.x < gunPos.x;
-        // if (!isLeft)
-        // {
-        //     ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
-        // }
-        // else
-        // {
-        //     ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
-        // }
     }
     public void Attack()
     {

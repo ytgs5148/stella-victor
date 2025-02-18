@@ -18,10 +18,6 @@ public class PlayerHealth : MonoBehaviour
         PlayerData.Instance.currentHealth = PlayerData.Instance.maxHealth;
         HealthManager = FindAnyObjectByType<HealthManager>();
         HealthManager.UpdateHealthBar(PlayerData.Instance.currentHealth, PlayerData.Instance.maxHealth);
-        if (PlayerData.Instance.armourHealth <= 0)
-        {
-            PlayerData.Instance.isArmourAvailable = false;
-        }
         Debug.Log("Armor Available? => " + PlayerData.Instance.isArmourAvailable);
         HealthManager.UpdateVisibility(PlayerData.Instance.isArmourAvailable);
         if (PlayerData.Instance.isArmourAvailable)

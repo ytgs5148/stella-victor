@@ -6,7 +6,7 @@ public class NewGameManager : MonoBehaviour
 
     public void NewGame()
     {
-        TimerManager.Instance.StartTimer(300f);
+        TimerManager.Instance.StartTimer(600f);
         FindFirstObjectByType<AudioManager>().Play("Button Click");
         LoadingScreenManager.LoadScene(1);
     }

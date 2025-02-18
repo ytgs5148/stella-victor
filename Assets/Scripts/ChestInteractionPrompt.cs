@@ -21,7 +21,7 @@ public class ChestInteractionPrompt : MonoBehaviour
 
         float distance = Vector3.Distance(playerTransform.position, chestPos);
 
-        if (distance <= detectionRadius && PlayerData.Instance.kills >= 15)
+        if (distance <= detectionRadius && PlayerData.Instance.kills >= 8)
         {
             if (!promptUI.activeSelf)
                 promptUI.SetActive(true);

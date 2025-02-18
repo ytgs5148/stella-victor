@@ -21,13 +21,11 @@ public class HealthManager : MonoBehaviour
         {
             armourIcon.SetActive(true);
             armourBar.SetActive(true);
-            Debug.Log("(1) Armour icon and Armour bar available");
         }
         else
         {
             armourIcon.SetActive(false);
             armourBar.SetActive(false);
-            Debug.Log("(X) Armour icon and Armour bar NOT available");
         }
     }
 }

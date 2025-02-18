@@ -51,18 +51,25 @@ public class PlayerData : MonoBehaviour
                 bowXP += 100;
                 laserGunXP += 100;
                 armourXP += 100;
+                Debug.Log("You obtained XPs");
             }
-            isArmourAvailable = true;
+            else
+            {
+                isArmourAvailable = true;
+                Debug.Log("You obtained Armour");
+            }
         }
         else if (isBowPurchased && !isLaserGunPurchased)
         {
             isLaserGunPurchased = true;
-            Debug.Log("Laser gun is now obtained.");
+            Debug.Log("You obtained Rifle");
+            Availability.Instance.UpdateRifleAvailability();
         }
         else
         {
             isBowPurchased = true;
-            Debug.Log("Bow is now obtained.");
+            Debug.Log("You obtained Bow");
+            Availability.Instance.UpdateBowAvailability();
         }
     }
 }

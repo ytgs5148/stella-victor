@@ -9,11 +9,14 @@ public class ActiveInventory : MonoBehaviour
     private void Awake()
     {
         playerControl = new PlayerControl();
+
     }
     private void Start()
     {
         playerControl.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
-        ToggleActiveHighlight(0);
+        ChangeActiveWeapon();
+        Availability.Instance.UpdateRifleAvailability();
+        Availability.Instance.UpdateBowAvailability();
     }
     private void OnEnable()
     {
@@ -26,6 +29,22 @@ public class ActiveInventory : MonoBehaviour
     private void ToggleActiveSlot(int numValue)
     {
         int newSlotIndex = numValue - 1;
+        if (newSlotIndex >= transform.childCount)
+        {
+            Debug.Log("Slot " + newSlotIndex + " does not exist.");
+            Debug.Log("Total Weapon count = " + transform.childCount);
+            return;
+        }
+        if (newSlotIndex == 1 && !PlayerData.Instance.isBowPurchased)
+        {
+            Debug.Log("Bow is not purchased. Staying with current weapon.");
+            return;
+        }
+        if (newSlotIndex == 2 && !PlayerData.Instance.isLaserGunPurchased)
+        {
+            Debug.Log("Rifle is not purchased. Staying with current weapon.");
+            return;
+        }
         if (newSlotIndex == activeSlotIndexNum)
         {
             return;
@@ -44,9 +63,6 @@ public class ActiveInventory : MonoBehaviour
     }
     private void ChangeActiveWeapon()
     {
-        // Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // Vector3 gunPos = ActiveWeapon.Instance.transform.position;
-        // bool isLeft = mousePos.x < gunPos.x;
         if (ActiveWeapon.Instance.CurrentActiveWeapon != null)
         {
             Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
@@ -59,14 +75,6 @@ public class ActiveInventory : MonoBehaviour
         GameObject weaponToSpawn = transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>().GetWeaponInfo().weaponPrefab;
         GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity);
         ActiveWeapon.Instance.transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
-        // if (!isLeft)
-        // {
-        //     ActiveWeapon.Instance.transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
-        // }
-        // else
-        // {
-        //     ActiveWeapon.Instance.transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), Mathf.Abs(transform.localScale.y), Mathf.Abs(transform.localScale.z));
-        // }
         newWeapon.transform.parent = ActiveWeapon.Instance.transform;
         ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
     }

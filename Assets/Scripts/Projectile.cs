@@ -22,8 +22,7 @@ public class Projectile : MonoBehaviour
         EnemyHealth enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
         Indestructible indestructible = other.gameObject.GetComponent<Indestructible>();
         if(!other.isTrigger && (enemyHealth || indestructible)) {
-            enemyHealth?.TakeDamage(weaponInfo.weaponDamage);
-            //Instantiate( ,transform.position, transform.rotation);
+            enemyHealth.TakeDamage(weaponInfo.weaponDamage);
             Destroy(gameObject);
         }
     }

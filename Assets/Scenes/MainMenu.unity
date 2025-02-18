@@ -1653,7 +1653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486ae72986e6e1c469b2fd336222eb9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 300
+  timeRemaining: 600
   isTimerRunning: 0
   LoadingScreenManager: {fileID: 1901478794}
 --- !u!4 &2056303672
