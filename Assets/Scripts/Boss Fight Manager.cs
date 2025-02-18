@@ -16,9 +16,11 @@ public class BossFightManager : MonoBehaviour
     [Header("Detection Settings")]
     public float detectionRadius = 3.0f;
 
+    private bool bossSpawned = false;
+
     private void Update()
     {
-        if (playerTransform == null || PlayerData.Instance == null)
+        if (playerTransform == null || PlayerData.Instance == null || bossSpawned)
             return;
 
         Vector3 cavePos = new Vector3(PlayerData.Instance.chestPosition.x, PlayerData.Instance.chestPosition.y, 0);
@@ -54,6 +56,7 @@ public class BossFightManager : MonoBehaviour
         FindFirstObjectByType<AudioManager>().Play("Chest Open");
 
         promptUI.SetActive(false);
+        bossSpawned = true;
 
         yield return StartCoroutine(FadeScreen(true));
 
