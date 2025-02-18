@@ -117,11 +117,22 @@ public class PopupManager : MonoBehaviour
         Debug.Log("Liberating planet: " + PlanetData.Instance.planetName);
 
         if (PlanetData.Instance.planetObjectiveType == 0)
-            LoadingScreenManager.LoadScene(2);
+        {
+            PlayerData.Instance.kills = 0;
+
+            if (PlanetData.Instance.planetElement == "Element: Element: Forest")
+                LoadingScreenManager.LoadScene(2);
+            else
+                LoadingScreenManager.LoadScene(6);
+        }
         else
         {
             PlayerData.Instance.kills = 0;
-            LoadingScreenManager.LoadScene(4);
+
+            if (PlanetData.Instance.planetElement == "Element: Element: Forest")
+                LoadingScreenManager.LoadScene(4);
+            else
+                LoadingScreenManager.LoadScene(5);
         }
     }
 }
