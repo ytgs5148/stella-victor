@@ -8,7 +8,7 @@ public class PlayerController : Singleton<PlayerController>
         get { return facingLeft; }
     }
     private float moveSpeed = 2f;
-    private float dashSpeed = 4f;
+    private float dashSpeed = 2f;
     [SerializeField] private TrailRenderer myTrailRenderer;
     [SerializeField] private Transform weaponCollider;
 
@@ -97,7 +97,7 @@ public class PlayerController : Singleton<PlayerController>
     }
     private IEnumerator EndDashRoutine()
     {
-        float dashTime = .2f;
+        float dashTime = .25f;
         float dashCD = .25f;
         yield return new WaitForSeconds(dashTime);
         moveSpeed = startingMoveSpeed;
