@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOverScene.unity
     guid: 708065a41472a8d4e92aa77b3275837e
   - enabled: 1
-    path: Assets/Scenes/LevelSceneProtectObjectiveForest.unity
+    path: Assets/Scenes/ForestWeaponryLevelScene.unity
     guid: 5361abce2c6567a4394478e8402fef19
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

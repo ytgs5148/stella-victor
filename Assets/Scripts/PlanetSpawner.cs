@@ -46,6 +46,16 @@ public class PlanetSpawner : MonoBehaviour
                             markerData.markerColor = "#604F4F";
                         }
                     }
+                    else
+                    {
+                        Image markerImage = marker.GetComponent<Image>();
+                        if (markerImage != null)
+                        {
+                            Color customColor;
+                            ColorUtility.TryParseHtmlString(markerData.markerColor, out customColor);
+                            markerImage.color = customColor;
+                        }
+                    }
                 }
             }
         }
@@ -75,7 +85,7 @@ public class PlanetSpawner : MonoBehaviour
                         difficultyLevel = randomDifficultyLevel,
                         objectiveType = randomObjectiveType == 0 ? "Eliminate Planet" : "Save Weaponry",
                         position = candidatePosition,
-                        markerColor = "#FFFFFF"
+                        markerColor = randomObjectiveType == 0 ? "#D72A24" : "#CF955C"
                     });
 
                     RectTransform markerRect = marker.GetComponent<RectTransform>();
@@ -89,6 +99,14 @@ public class PlanetSpawner : MonoBehaviour
                         markerController.planetElement = randomElement;
                         markerController.planetDifficultyLevel = randomDifficultyLevel;
                         markerController.planetObjectiveType = randomObjectiveType;
+                    }
+
+                    Image markerImage = marker.GetComponent<Image>();
+                    if (markerImage != null)
+                    {
+                        Color customColor;
+                        ColorUtility.TryParseHtmlString(randomObjectiveType == 0 ? "#D72A24" : "#CF955C", out customColor);
+                        markerImage.color = customColor;
                     }
                 }
                 else
