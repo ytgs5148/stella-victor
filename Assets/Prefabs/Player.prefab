@@ -232,14 +232,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59d82785e8752747bade140f8440652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarFill: {fileID: 202881092631212987, guid: b1441ed40cc4c874fb689bcf8ef2d6cf,
-    type: 3}
-  ArmourBarFill: {fileID: 7891398734469298549, guid: 76758ec802aca9849b39c40778740734,
-    type: 3}
-  armourIcon: {fileID: 2448839010216921473, guid: 04da91ae5762d1348b251d4781586388,
-    type: 3}
-  armourBar: {fileID: 1552795509541343658, guid: 76758ec802aca9849b39c40778740734,
-    type: 3}
+  healthBarFill: {fileID: 0}
+  ArmourBarFill: {fileID: 0}
+  armourIcon: {fileID: 0}
+  armourBar: {fileID: 0}
 --- !u!1 &6048375973033362083
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,8 +347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb771af99f113f84c90829529e6a5eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  dashSpeed: 4
   myTrailRenderer: {fileID: 3435961887731518268}
   weaponCollider: {fileID: 8034663220911459375}
 --- !u!114 &4363443730654060668
@@ -479,8 +473,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0012996296, y: 0.52815783}
-  m_Size: {x: 1.333061, y: 1.89059}
+  m_Offset: {x: -0.0012996296, y: 0.35116392}
+  m_Size: {x: 1.333061, y: 1.5366021}
   m_Direction: 0
 --- !u!210 &8720906248851208553
 SortingGroup:
