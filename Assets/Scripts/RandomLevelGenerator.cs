@@ -85,6 +85,7 @@ public class RandomLevelGenerator : MonoBehaviour
     {
         for (int i = 0; i < enemyCount; i++)
         {
+            Debug.Log("Generating enemy " + i);
             Vector2Int enemyPosition = floorPositions.ElementAt(Random.Range(0, floorPositions.Count));
 
             while (Vector2.Distance(enemyPosition, startPosition) < safeEnemyRadius)

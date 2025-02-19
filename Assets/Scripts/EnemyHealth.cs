@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
-    public static EnemyHealth Instance { get; private set; }
     [SerializeField] public float startingHealth;
     [SerializeField] private float knockBackThrust;
     public EnemyHealthManager healthBar;
@@ -10,27 +9,21 @@ public class EnemyHealth : MonoBehaviour
     public float currentHealth;
     private KnockBack knockBack;
     private Flash flash;
+    
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
         animator = GetComponent<Animator>();
         flash = GetComponent<Flash>();
         knockBack = GetComponent<KnockBack>();
     }
+
     private void Start()
     {
         startingHealth = startingHealth * (PlanetData.Instance.planetDifficulty + 1) / 2;
         currentHealth = startingHealth;
         healthBar.SetHealth(currentHealth, startingHealth);
     }
+    
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
@@ -60,7 +53,6 @@ public class EnemyHealth : MonoBehaviour
     }
     private IEnumerator DeathAnimation()
     {
-        // GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
 
         PlayerData.Instance.kills++;

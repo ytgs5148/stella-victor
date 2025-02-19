@@ -6,7 +6,11 @@ public class CriticalHeallth : MonoBehaviour
     private void Update()
     {
         if (bossDialogueDone) return;
-        if (EnemyHealth.Instance.currentHealth / EnemyHealth.Instance.startingHealth <= 0.1)
+
+        EnemyHealth enemyHealth = FindFirstObjectByType<EnemyHealth>();
+        if (enemyHealth == null) return;
+
+        if (enemyHealth.currentHealth / enemyHealth.startingHealth <= 0.1)
         {
             bossDialogueDone = true;
             // bossFightManager.StartBossDialog();
