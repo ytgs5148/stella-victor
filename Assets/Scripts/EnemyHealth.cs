@@ -2,7 +2,8 @@ using System.Collections;
 using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private float startingHealth;
+    public static EnemyHealth Instance { get; private set; }
+    [SerializeField] public float startingHealth;
     [SerializeField] private float knockBackThrust;
     public EnemyHealthManager healthBar;
     private Animator animator;
@@ -11,6 +12,15 @@ public class EnemyHealth : MonoBehaviour
     private Flash flash;
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         animator = GetComponent<Animator>();
         flash = GetComponent<Flash>();
         knockBack = GetComponent<KnockBack>();
@@ -50,15 +60,15 @@ public class EnemyHealth : MonoBehaviour
     }
     private IEnumerator DeathAnimation()
     {
-        GetComponent<Collider2D>().enabled = false;
+        // GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
-        
+
         PlayerData.Instance.kills++;
         PlayerData.Instance.totalKills++;
         PlayerData.Instance.xp += 10 * (PlanetData.Instance.planetDifficulty + 1) / 2;
 
         int xpReward = 10 * (PlanetData.Instance.planetDifficulty + 1) / 2;
-        
+
         if (ActiveWeapon.Instance != null && ActiveWeapon.Instance.CurrentActiveWeapon != null)
         {
             MonoBehaviour currentWeapon = ActiveWeapon.Instance.CurrentActiveWeapon;
@@ -91,10 +101,11 @@ public class EnemyHealth : MonoBehaviour
             PlayerData.Instance.xp += xpReward;
             Debug.Log("No active weapon found. Added " + xpReward + " XP to general XP. Total: " + PlayerData.Instance.xp);
         }
-        if(PlayerData.Instance.isArmourAvailable) {
+        if (PlayerData.Instance.isArmourAvailable)
+        {
             PlayerData.Instance.armourXP += 10 * (PlanetData.Instance.planetDifficulty + 1) / 2;
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);
     }
 }

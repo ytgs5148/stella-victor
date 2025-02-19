@@ -948,7 +948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   promptUI: {fileID: 1273446787}
   playerTransform: {fileID: 895992044}
-  bossPrefab: {fileID: 8910124892176808266, guid: 87f5bf04acb043c46a1b42b13358d678,
+  bossPrefab: {fileID: 5987967049165281604, guid: d41e6cd3f2087b64bba9a7ddc0b22478,
     type: 3}
   bossBarText: {fileID: 2038627001}
   screenFadeImage: {fileID: 1722971023}

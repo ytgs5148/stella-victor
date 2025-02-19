@@ -4441,7 +4441,7 @@ GameObject:
   - component: {fileID: 1925417964}
   - component: {fileID: 1925417963}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4462,7 +4462,7 @@ MonoBehaviour:
   tileMapVisualiser: {fileID: 1958549152}
   startPosition: {x: 0, y: 0}
   iterations: 10
-  walkLength: 50
+  walkLength: 100
   startRandomlyEachIteration: 1
   safeEnemyRadius: 5
   enemyPrefab: {fileID: 8910124892176808266, guid: 87f5bf04acb043c46a1b42b13358d678,
