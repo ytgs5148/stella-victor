@@ -5,7 +5,7 @@ public class DamageSource : MonoBehaviour
     [SerializeField] private float damageAmount = 25;
     private void Start()
     {
-        damageAmount *= 1 + PlayerData.Instance.lightSaberXP/100;
+        damageAmount *= 1 + (float) PlayerData.Instance.lightSaberXP/1000;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

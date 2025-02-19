@@ -25,9 +25,9 @@ public class Projectile : MonoBehaviour
             float damage = weaponInfo.weaponDamage;
             MonoBehaviour currentWeapon = ActiveWeapon.Instance.CurrentActiveWeapon;
             if(currentWeapon is Bow) {
-                damage *= 1 + PlayerData.Instance.bowXP/100;
+                damage *= 1 + (float) PlayerData.Instance.bowXP/1000;
             } else if(currentWeapon is Rifle) {
-                damage *= 1 + PlayerData.Instance.laserGunXP/100;
+                damage *= 1 + (float) PlayerData.Instance.laserGunXP/1000;
             } else {
                 damage *= 1;
             }
