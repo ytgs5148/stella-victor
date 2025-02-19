@@ -591,8 +591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70b1605919c3814db205bcc12618c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
-  knockBackThrust: 5
+  startingHealth: 75
+  knockBackThrust: 10
   healthBar: {fileID: 5255320324991131319}
   currentHealth: 0
 --- !u!114 &5367418958322876135
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   attackRadius: 0.75
-  attackCooldown: 1
+  attackCooldown: 2
   attackDamage: 10
 --- !u!114 &2431433274537378459
 MonoBehaviour:

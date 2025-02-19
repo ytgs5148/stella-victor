@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70b1605919c3814db205bcc12618c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 500
+  startingHealth: 100
   knockBackThrust: 10
   healthBar: {fileID: 5038105611072133920}
   currentHealth: 0
@@ -573,8 +573,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  attackRadius: 2.5
-  attackCooldown: 2
+  attackRadius: 1.5
+  attackCooldown: 5
   attackDamage: 50
 --- !u!114 &6624586449363409082
 MonoBehaviour:
@@ -635,7 +635,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.34871128, g: 0.14887144, b: 0.3886792, a: 1}
-  m_Intensity: 10
+  m_Intensity: 5
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 0000000003819490c93960fdb391b5f9
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1.5
+  m_PointLightOuterRadius: 1.25
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -682,7 +682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9daaa4acbf19e444a403844b1464d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossFightManager: {fileID: 0}
 --- !u!1 &9055830943668173215
 GameObject:
   m_ObjectHideFlags: 0
