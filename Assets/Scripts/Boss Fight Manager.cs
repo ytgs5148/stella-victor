@@ -11,7 +11,6 @@ public class BossFightManager : MonoBehaviour
     public GameObject bossPrefab;
     public TextMeshProUGUI bossBarText;
     public RawImage screenFadeImage;
-    public GameObject dialogPopupPanel;
 
     [Header("Detection Settings")]
     public float detectionRadius = 3.0f;
@@ -47,7 +46,12 @@ public class BossFightManager : MonoBehaviour
     public void StartBossDialog()
     {
         Debug.Log("Starting boss dialog!");
-        dialogPopupPanel.SetActive(true);
+        NPCDialogPopupManager npcDialogPopupPanel = FindFirstObjectByType<NPCDialogPopupManager>();
+
+        if (npcDialogPopupPanel != null)
+        {
+            npcDialogPopupPanel.ShowPopup();
+        }
     }
 
     private IEnumerator SpawnBoss(Vector3 cavePos)

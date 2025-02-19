@@ -4380,8 +4380,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PopupManager, Assembly-CSharp
+      - m_Target: {fileID: 1712008756}
+        m_TargetAssemblyTypeName: DialogPopupManager, Assembly-CSharp
         m_MethodName: HidePopup
         m_Mode: 1
         m_Arguments:

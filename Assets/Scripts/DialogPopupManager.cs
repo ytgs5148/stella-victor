@@ -23,6 +23,8 @@ public class DialogPopupManager : MonoBehaviour
         blurPanel.SetActive(false);
 
         closeButton.onClick.AddListener(HidePopup);
+        dialogPopupPanel.SetActive(false);
+        blurPanel.SetActive(false);
     }
 
     public void ShowPopup()

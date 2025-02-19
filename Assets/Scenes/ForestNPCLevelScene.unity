@@ -952,7 +952,6 @@ MonoBehaviour:
     type: 3}
   bossBarText: {fileID: 2038627001}
   screenFadeImage: {fileID: 1722971023}
-  dialogPopupPanel: {fileID: 1115206072}
   detectionRadius: 3
 --- !u!1001 &572144186
 PrefabInstance:
@@ -1787,11 +1786,11 @@ RectTransform:
   - {fileID: 298640492}
   - {fileID: 968896093}
   - {fileID: 1660209638}
+  - {fileID: 1722971022}
   - {fileID: 1050462108}
   - {fileID: 1115206073}
   - {fileID: 793013284}
   - {fileID: 1133657064}
-  - {fileID: 1722971022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
