@@ -120,19 +120,25 @@ public class PopupManager : MonoBehaviour
         {
             PlayerData.Instance.kills = 0;
 
+            // NPC
             if (PlanetData.Instance.planetElement == "Element: Element: Forest")
                 LoadingScreenManager.LoadScene(2);
-            else
+            else if (PlanetData.Instance.planetElement == "Element: Element: Ancient")
                 LoadingScreenManager.LoadScene(6);
+            else
+                LoadingScreenManager.LoadScene(8);
         }
         else
         {
             PlayerData.Instance.kills = 0;
 
+            // Weaponry
             if (PlanetData.Instance.planetElement == "Element: Element: Forest")
                 LoadingScreenManager.LoadScene(4);
-            else
+            else if (PlanetData.Instance.planetElement == "Element: Element: Ancient")
                 LoadingScreenManager.LoadScene(5);
+            else
+                LoadingScreenManager.LoadScene(7);
         }
     }
 }

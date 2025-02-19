@@ -29,6 +29,7 @@ public static class Planets
     public static string[] elementTypes = new string[]
     {
         "Forest",
-        "Ancient"
+        "Ancient",
+        "Castle"
     };
 }

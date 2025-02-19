@@ -4404,7 +4404,7 @@ MonoBehaviour:
   walkLength: 50
   startRandomlyEachIteration: 1
   safeEnemyRadius: 5
-  enemyPrefab: {fileID: 8910124892176808266, guid: 87f5bf04acb043c46a1b42b13358d678,
+  enemyPrefab: {fileID: 6989699301866915221, guid: 43937a0d497419642b21649939e0f772,
     type: 3}
   enemyCount: 8
 --- !u!4 &1925417964
