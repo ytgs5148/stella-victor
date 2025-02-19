@@ -26,7 +26,7 @@ public class BossFightManager : MonoBehaviour
 
         float distance = Vector3.Distance(playerTransform.position, cavePos);
 
-        if (distance <= detectionRadius && PlayerData.Instance.kills == 8)
+        if (distance <= detectionRadius && PlayerData.Instance.kills >= 8)
         {
             if (!promptUI.activeSelf)
                 promptUI.SetActive(true);

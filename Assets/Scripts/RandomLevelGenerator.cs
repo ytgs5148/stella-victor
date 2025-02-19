@@ -52,6 +52,10 @@ public class RandomLevelGenerator : MonoBehaviour
             safePositions.Remove(wallPosition + Vector2Int.down);
             safePositions.Remove(wallPosition + Vector2Int.left);
             safePositions.Remove(wallPosition + Vector2Int.right);
+            safePositions.Remove(wallPosition + Vector2Int.up + Vector2Int.left);
+            safePositions.Remove(wallPosition + Vector2Int.up + Vector2Int.right);
+            safePositions.Remove(wallPosition + Vector2Int.down + Vector2Int.left);
+            safePositions.Remove(wallPosition + Vector2Int.down + Vector2Int.right);
         }
 
         Debug.Log("Safe positions count final: " + safePositions.Count);
