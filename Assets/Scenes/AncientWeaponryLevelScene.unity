@@ -1184,7 +1184,7 @@ GameObject:
   - component: {fileID: 829669409}
   - component: {fileID: 829669408}
   - component: {fileID: 829669407}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1952,7 +1952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -308.15985, y: 344.00754}
+  m_AnchoredPosition: {x: -308.15982, y: 344.00754}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050462109

@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 9006498122947114640}
   - component: {fileID: 4724548381921646651}
   - component: {fileID: 7857291096331996031}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: FlyingEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
