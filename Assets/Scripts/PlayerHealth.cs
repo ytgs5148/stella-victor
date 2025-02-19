@@ -54,6 +54,11 @@ public class PlayerHealth : MonoBehaviour
         {
             StartCoroutine(flash.FlashRoutine());
         }
+        if (PlayerData.Instance.currentHealth <= 0) {
+            PlayerData.Instance.planetsExplored.Remove(PlanetData.Instance.planetName);
+            FindFirstObjectByType<LoadingScreenManager>().LoadScene(1);
+            return;
+        }
         StartCoroutine(DamageRecoveryRoutine());
         Debug.Log($"Player Health: {PlayerData.Instance.currentHealth}, Armor: {PlayerData.Instance.armourHealth}");
     }
