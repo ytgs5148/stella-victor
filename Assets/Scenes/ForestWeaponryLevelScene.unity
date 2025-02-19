@@ -1751,7 +1751,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1964747519}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -2162,7 +2162,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1964747519}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -3883,7 +3883,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 1964747519}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
