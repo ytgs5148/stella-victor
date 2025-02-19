@@ -58,9 +58,7 @@ public class EnemyHealth : MonoBehaviour
         PlayerData.Instance.kills++;
         PlayerData.Instance.totalKills++;
         PlayerData.Instance.xp += 10 * (PlanetData.Instance.planetDifficulty + 1) / 2;
-
         int xpReward = 10 * (PlanetData.Instance.planetDifficulty + 1) / 2;
-
         if (ActiveWeapon.Instance != null && ActiveWeapon.Instance.CurrentActiveWeapon != null)
         {
             MonoBehaviour currentWeapon = ActiveWeapon.Instance.CurrentActiveWeapon;

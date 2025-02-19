@@ -23,7 +23,7 @@ public class NPCDialogPopupManager : MonoBehaviour
     }
 
     public void ShowPopup()
-    {   
+    {
         Debug.Log("Show Popup");
         blurPanel.SetActive(true);
         dialogPopupPanel.SetActive(true);
@@ -42,9 +42,10 @@ public class NPCDialogPopupManager : MonoBehaviour
         dialogPopupPanel.SetActive(false);
 
         PlayerData.Instance.endingBar -= 0.5f;
-        PlayerData.Instance.xp += 200;
+        PlayerData.Instance.xp += 200 * (PlanetData.Instance.planetDifficulty + 1) / 2;
         PlayerData.Instance.UpdateMaxHealth();
         PlayerData.Instance.UnlockUniqueWeapon();
+        PlayerData.Instance.kills = 0;
         PlayerData.Instance.planetsExplored.Add(FindFirstObjectByType<PlanetData>().planetName);
 
         FindFirstObjectByType<AudioManager>().Play("Steal Sound");
@@ -57,10 +58,18 @@ public class NPCDialogPopupManager : MonoBehaviour
         blurPanel.SetActive(false);
         dialogPopupPanel.SetActive(false);
         PlayerData.Instance.endingBar += 0.5f;
-        PlayerData.Instance.xp += 200;
+        PlayerData.Instance.xp += 200 * (PlanetData.Instance.planetDifficulty + 1) / 2;
         PlayerData.Instance.UpdateMaxHealth();
-        PlayerData.Instance.armourXP += 200;
+        if (PlayerData.Instance.isArmourAvailable)
+        {
+            PlayerData.Instance.armourXP += 200 * (PlanetData.Instance.planetDifficulty + 1) / 2;
+        }
+        else
+        {
+            PlayerData.Instance.isArmourAvailable = true;
+        }
         PlayerData.Instance.UpdateArmourMaxHealth();
+        PlayerData.Instance.kills = 0;
         PlayerData.Instance.planetsExplored.Add(FindFirstObjectByType<PlanetData>().planetName);
 
         FindFirstObjectByType<AudioManager>().Play("Steal Sound");

@@ -56,6 +56,8 @@ public class PlayerHealth : MonoBehaviour
         }
         if (PlayerData.Instance.currentHealth <= 0) {
             PlayerData.Instance.planetsExplored.Remove(PlanetData.Instance.planetName);
+            PlayerData.Instance.xp /= 2;
+            Destroy(gameObject);
             FindFirstObjectByType<LoadingScreenManager>().LoadScene(1);
             return;
         }
