@@ -7,7 +7,6 @@ public class NPCDialogPopupManager : MonoBehaviour
 
     public GameObject dialogPopupPanel;
     public GameObject blurPanel;
-    public Button closeButton;
     public Button killBtn;
     public Button pardonBtn;
     public LoadingScreenManager LoadingScreenManager;
@@ -21,12 +20,11 @@ public class NPCDialogPopupManager : MonoBehaviour
 
         dialogPopupPanel.SetActive(false);
         blurPanel.SetActive(false);
-
-        closeButton.onClick.AddListener(HidePopup);
     }
 
     public void ShowPopup()
     {   
+        Debug.Log("Show Popup");
         blurPanel.SetActive(true);
         dialogPopupPanel.SetActive(true);
     }
@@ -39,6 +37,7 @@ public class NPCDialogPopupManager : MonoBehaviour
 
     public void KillBtn()
     {
+        Debug.Log("Kill");
         blurPanel.SetActive(false);
         dialogPopupPanel.SetActive(false);
 
