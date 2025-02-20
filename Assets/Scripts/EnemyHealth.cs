@@ -95,7 +95,7 @@ public class EnemyHealth : MonoBehaviour
         {
             PlayerData.Instance.armourXP += 10 * (PlanetData.Instance.planetDifficulty + 1) / 2;
         }
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.24f);
         Destroy(gameObject);
     }
 }

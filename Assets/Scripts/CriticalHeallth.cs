@@ -10,7 +10,7 @@ public class CriticalHeallth : MonoBehaviour
         EnemyHealth enemyHealth = FindFirstObjectByType<EnemyHealth>();
         if (enemyHealth == null) return;
 
-        if (enemyHealth.currentHealth / enemyHealth.startingHealth <= 0.2)
+        if (enemyHealth.currentHealth / enemyHealth.startingHealth <= 0.1)
         {
             bossDialogueDone = true;
             PlayerData.Instance.xp += 50 * (PlanetData.Instance.planetDifficulty + 1) / 2;
@@ -49,7 +49,7 @@ public class CriticalHeallth : MonoBehaviour
             }
             if (PlayerData.Instance.isArmourAvailable)
             {
-                PlayerData.Instance.armourXP += 10 * (PlanetData.Instance.planetDifficulty + 1) / 2;
+                PlayerData.Instance.armourXP += 50 * (PlanetData.Instance.planetDifficulty + 1) / 2;
             }
             FindFirstObjectByType<BossFightManager>().StartBossDialog();
             Destroy(gameObject);

@@ -4462,7 +4462,7 @@ MonoBehaviour:
   tileMapVisualiser: {fileID: 1958549152}
   startPosition: {x: 0, y: 0}
   iterations: 10
-  walkLength: 100
+  walkLength: 50
   startRandomlyEachIteration: 1
   safeEnemyRadius: 5
   enemyPrefab: {fileID: 6989699301866915221, guid: 43937a0d497419642b21649939e0f772,
