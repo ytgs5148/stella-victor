@@ -250,6 +250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 322428402}
+  - component: {fileID: 322428403}
   m_Layer: 0
   m_Name: Ending Manager
   m_TagString: Untagged
@@ -272,6 +273,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &322428403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322428401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64a557e2aa44d9e48bba2209768e3dcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ending1: {fileID: 0}
+  ending2: {fileID: 0}
+  ending3: {fileID: 0}
+  ending4: {fileID: 0}
+  ending5: {fileID: 0}
 --- !u!1 &467286826
 GameObject:
   m_ObjectHideFlags: 0

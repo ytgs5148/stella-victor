@@ -17,7 +17,7 @@ public class PlayerData : MonoBehaviour
     public int armourXP = 0;
     public bool isArmourAvailable = true;
     public List<string> planetsExplored;
-    public float endingBar = 0f;
+    public float endingBar = 0f; // emperor - neutral - saviour
     public int kills = 0;
     public int totalKills = 0;
     public int lightSaberKills = 0;
