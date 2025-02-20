@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &70575543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1416,7 +1416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textMeshPro: {fileID: 1645999580}
   stringArray:
-  - "Right Hand of the Emperor                                                                        
+  - "Epilogue(1/5) Right Hand of the Emperor                                             
     You stood by the emperor until the end, proving your loyalty time and time again.
     Your victories secured the empire\u2019s rule over the galaxy, and in return,
     the emperor made you their most trusted ally. Your name is known across the stars
@@ -1574,7 +1574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textMeshPro: {fileID: 1778146533}
   stringArray:
-  - "A Quiet Life                                                                                
+  - "Epilogue(3/5) A Quiet Life                                                 
     The battles, the choices, the power struggles\u2014you walked away from it all.
     Leaving the empire and the war behind, you returned home to live a peaceful life.
     The galaxy kept turning, empires rose and fell, but none of it mattered to you
@@ -1601,10 +1601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A Quiet Life\nThe battles, the choices, the power struggles\u2014you walked
-    away from it all. Leaving the empire and the war behind, you returned home to
-    live a peaceful life. The galaxy kept turning, empires rose and fell, but none
-    of it mattered to you anymore. For the first time in years, you were free.\n"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1631,7 +1628,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58.25
+  m_fontSize: 40
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1964,7 +1961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textMeshPro: {fileID: 1935262371}
   stringArray:
-  - 'Captain of Your Army                                                                                         
+  - 'Epilogue(2/5) Captain of Your Army                                                                   
     You served the empire well, leading your soldiers with strength and honor. Though
     you sometimes questioned your orders, you never fully turned away. In the end,
     you became a respected captain, guiding your troops and shaping the future of

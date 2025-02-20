@@ -61,7 +61,7 @@ public class DialogPopupManager : MonoBehaviour
         blurPanel.SetActive(false);
         dialogPopupPanel.SetActive(false);
         PlayerData.Instance.endingBar -= 0.5f;
-        PlayerData.Instance.xp += 400 * (PlanetData.Instance.planetDifficulty + 1) / 2;
+        PlayerData.Instance.xp += 200 * (PlanetData.Instance.planetDifficulty + 1) / 2;
         PlayerData.Instance.UpdateMaxHealth();
         if (PlayerData.Instance.isArmourAvailable)
         {

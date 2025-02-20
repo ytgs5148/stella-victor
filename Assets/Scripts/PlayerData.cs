@@ -38,12 +38,12 @@ public class PlayerData : MonoBehaviour
 
     public void UpdateMaxHealth()
     {
-        maxHealth = 100 + 25 * (xp / 100);
+        maxHealth = 100 + 10 * (xp / 100);
     }
 
     public void UpdateArmourMaxHealth()
     {
-        armourMaxHealth = 100 + 25 * (armourXP / 100);
+        armourMaxHealth = 100 + 10 * (armourXP / 100);
     }
 
     public void UnlockUniqueWeapon()

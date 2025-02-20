@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70b1605919c3814db205bcc12618c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 200
+  startingHealth: 300
   knockBackThrust: 5
   healthBar: {fileID: 8559765838960926650}
   currentHealth: 0
@@ -336,7 +336,7 @@ MonoBehaviour:
   target: {fileID: 0}
   attackRadius: 1
   attackCooldown: 2
-  attackDamage: 20
+  attackDamage: 25
 --- !u!114 &3795509623952115721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bfb488e0edb48343a335d1c74563755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.5
   chaseRadius: 10
   returnSpeed: 1
 --- !u!114 &5413407334217363945

@@ -761,7 +761,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00065209414}
+  m_AnchoredPosition: {x: 0, y: -0.00002256801}
   m_SizeDelta: {x: 0, y: 640.48}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &467286828
@@ -842,7 +842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textMeshPro: {fileID: 670399654}
   stringArray:
-  - "Outlaw in the Eyes of the Empire                                                  
+  - "Epilogue(4/5) Outlaw in the Eyes of the Empire                                   
     You couldn\u2019t follow the empire\u2019s ways forever. You made choices that
     went against their rule, and now they see you as a traitor. Hunted and forced
     to live in the shadows, you fight to survive, never fully safe but never backing
@@ -1961,7 +1961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textMeshPro: {fileID: 967018745}
   stringArray:
-  - 'Captain of Your Army                                                                                         
+  - 'Epilogue(2/5) Captain of Your Army                                                                      
     You served the empire well, leading your soldiers with strength and honor. Though
     you sometimes questioned your orders, you never fully turned away. In the end,
     you became a respected captain, guiding your troops and shaping the future of
@@ -2304,11 +2304,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textMeshPro: {fileID: 1022754761}
   stringArray:
-  - "Leader of the New Republic                                        You rose against
-    the empire, gathering those who wanted freedom. After countless battles, the
-    emperor was defeated, and the galaxy was free. Now, you stand as the leader of
-    a new republic, shaping a future without the empire\u2019s rule. Your name is
-    written in history as the one who changed\_everything."
+  - "Epilogue(5/5) Leader of the New Republic                                You
+    rose against the empire, gathering those who wanted freedom. After countless
+    battles, the emperor was defeated, and the galaxy was free. Now, you stand as
+    the leader of a new republic, shaping a future without the empire\u2019s rule.
+    Your name is written in history as the one who changed\_everything."
   timeBtwnChars: 0.05
   timeBtwnWords: 0.01
 --- !u!114 &1022754761
@@ -3239,7 +3239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textMeshPro: {fileID: 1402313491}
   stringArray:
-  - "Right Hand of the Emperor                                                                        
+  - "Epilogue(1/5) Right Hand of the Emperor                                                         
     You stood by the emperor until the end, proving your loyalty time and time again.
     Your victories secured the empire\u2019s rule over the galaxy, and in return,
     the emperor made you their most trusted ally. Your name is known across the stars
@@ -3621,11 +3621,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textMeshPro: {fileID: 1688286757}
   stringArray:
-  - "A Quiet Life                                                                                
-    The battles, the choices, the power struggles\u2014you walked away from it all.
-    Leaving the empire and the war behind, you returned home to live a peaceful life.
-    The galaxy kept turning, empires rose and fell, but none of it mattered to you
-    anymore. For the first time in years, you were free. "
+  - "Epilogue(3/5) A Quiet Life                                                 The
+    battles, the choices, the power struggles\u2014you walked away from it all. Leaving
+    the empire and the war behind, you returned home to live a peaceful life. The
+    galaxy kept turning, empires rose and fell, but none of it mattered to you anymore.
+    For the first time in years, you were free. "
   timeBtwnChars: 0.05
   timeBtwnWords: 0.01
 --- !u!114 &1688286757
@@ -3648,10 +3648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A Quiet Life\nThe battles, the choices, the power struggles\u2014you walked
-    away from it all. Leaving the empire and the war behind, you returned home to
-    live a peaceful life. The galaxy kept turning, empires rose and fell, but none
-    of it mattered to you anymore. For the first time in years, you were free.\n"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
