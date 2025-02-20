@@ -17,9 +17,11 @@ public class PlanetSpawner : MonoBehaviour
         canvasRectTransform = GetComponent<RectTransform>();
 
         List<Vector2> markerPositions = new List<Vector2>();
+        HashSet<string> usedPlanetNames = new HashSet<string>();
 
         if (AllMarkersDataHolder.Instance.allMarkersData != null && AllMarkersDataHolder.Instance.allMarkersData.Count > 0)
         {
+            int planetsExploredCount = 0;
             foreach (var markerData in AllMarkersDataHolder.Instance.allMarkersData)
             {
                 GameObject marker = Instantiate(markerPrefab, transform);
@@ -27,6 +29,7 @@ public class PlanetSpawner : MonoBehaviour
                 markerRect.anchoredPosition = markerData.position;
 
                 MarkerManager markerController = marker.GetComponent<MarkerManager>();
+
                 if (markerController != null)
                 {
                     markerController.planetName = markerData.planetName;
@@ -45,6 +48,8 @@ public class PlanetSpawner : MonoBehaviour
                             markerImage.color = customColor;
                             markerData.markerColor = "#604F4F";
                         }
+                        Debug.Log("Planet " + markerData.planetName + " has been explored.");
+                        planetsExploredCount++;
                     }
                     else
                     {
@@ -58,6 +63,9 @@ public class PlanetSpawner : MonoBehaviour
                     }
                 }
             }
+
+            if (planetsExploredCount == 10)
+                TimerManager.Instance.StopTimer();
         }
         else
         {
@@ -71,7 +79,14 @@ public class PlanetSpawner : MonoBehaviour
 
                     GameObject marker = Instantiate(markerPrefab, transform);
 
-                    string randomPlanetName = Planets.planetNames[Random.Range(0, Planets.planetNames.Length)];
+                    string randomPlanetName;
+                    do
+                    {
+                        randomPlanetName = Planets.planetNames[Random.Range(0, Planets.planetNames.Length)];
+                    } while (usedPlanetNames.Contains(randomPlanetName));
+
+                    usedPlanetNames.Add(randomPlanetName);
+
                     string randomDescription = Planets.planetDescriptions[Random.Range(0, Planets.planetDescriptions.Length)];
                     string randomElement = Planets.elementTypes[Random.Range(0, Planets.elementTypes.Length)];
                     int randomDifficultyLevel = Random.Range(1, 5);

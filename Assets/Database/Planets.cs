@@ -10,7 +10,8 @@ public static class Planets
         "Saturn",
         "Uranus",
         "Neptune",
-        "Pluto"
+        "Pluto",
+        "Planet X"
     };
 
     public static string[] planetDescriptions = new string[]

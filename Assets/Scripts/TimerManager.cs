@@ -38,4 +38,9 @@ public class TimerManager : MonoBehaviour
         isTimerRunning = true;
         timeRemaining = startTime;
     }
+
+    public void StopTimer()
+    {
+        timeRemaining = 1f;
+    }
 }
