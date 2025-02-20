@@ -74,4 +74,27 @@ public class PlayerData : MonoBehaviour
             Availability.Instance.UpdateBowAvailability();
         }
     }
+
+    public void Reset()
+    {
+        xp = 0;
+        currentHealth = 100;
+        maxHealth = 100;
+        armourHealth = 100;
+        armourMaxHealth = 100;
+        lightSaberXP = 0;
+        bowXP = 0;
+        isBowPurchased = false;
+        laserGunXP = 0;
+        isLaserGunPurchased = false;
+        armourXP = 0;
+        isArmourAvailable = true;
+        planetsExplored = new List<string>();
+        kills = 0;
+        totalKills = 0;
+        lightSaberKills = 0;
+        bowKills = 0;
+        laserGunKills = 0;
+        chestPosition = Vector2Int.zero;
+    }
 }
