@@ -32,7 +32,7 @@ public class PlayerController : Singleton<PlayerController>
     }
     private void Start()
     {
-        moveSpeed *= 1 + (float) PlayerData.Instance.xp / 1000;
+        moveSpeed *= 1 + (float) PlayerData.Instance.xp / 2000;
         playerControl.Combat.Dash.performed += _ => Dash();
         startingMoveSpeed = moveSpeed;
     }
