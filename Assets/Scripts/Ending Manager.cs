@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class EndingManager : MonoBehaviour
 {
-    public GameObject ending1;
+    public GameObject ending1; //emperor
     public GameObject ending2;
     public GameObject ending3;
     public GameObject ending4;
-    public GameObject ending5;
+    public GameObject ending5; //savior
 
     public void OnButtonClick()
     {
@@ -14,21 +14,16 @@ public class EndingManager : MonoBehaviour
 
         float endingBar = PlayerData.Instance.endingBar;
 
-        if (endingBar > 2f)
-            endingBar = 2f;
-        else if (endingBar < -2f)
-            endingBar = -2f;
-
-        if (Mathf.Abs(endingBar - 2) < 0.5f)
-            ending1.SetActive(true);
-        else if (Mathf.Abs(endingBar - 1) < 0.5f)
-            ending2.SetActive(true);
-        else if (Mathf.Abs(endingBar) < 0.5f)
-            ending3.SetActive(true);
-        else if (Mathf.Abs(endingBar + 1) < 0.5f)
-            ending4.SetActive(true);
-        else if (Mathf.Abs(endingBar + 2) < 0.5f)
+        if (endingBar >= 3.5f)
             ending5.SetActive(true);
+        else if (endingBar >= 1.5f && endingBar < 3.5f)
+            ending4.SetActive(true);
+        else if (endingBar > -1.5f && endingBar < 1.5f)
+            ending3.SetActive(true);
+        else if (endingBar > -3.5f && endingBar <= -1.5f)
+            ending2.SetActive(true);
+        else if (endingBar <= -3.5f)
+            ending1.SetActive(true);
         else
             Debug.LogWarning("Invalid endingBar value");
     }

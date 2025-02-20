@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      A_pixel_art_style_2D_game_scene_featuring_a_space__0: 773313117554082887
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
