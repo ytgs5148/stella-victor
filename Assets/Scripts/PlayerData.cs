@@ -17,7 +17,7 @@ public class PlayerData : MonoBehaviour
     public int armourXP = 0;
     public bool isArmourAvailable = true;
     public List<string> planetsExplored;
-    public float endingBar = 0f;
+    public float endingBar = 0f; // emperor - neutral - saviour
     public int kills = 0;
     public int totalKills = 0;
     public int lightSaberKills = 0;
@@ -73,5 +73,28 @@ public class PlayerData : MonoBehaviour
             Debug.Log("You obtained Bow");
             Availability.Instance.UpdateBowAvailability();
         }
+    }
+
+    public void Reset()
+    {
+        xp = 0;
+        currentHealth = 100;
+        maxHealth = 100;
+        armourHealth = 100;
+        armourMaxHealth = 100;
+        lightSaberXP = 0;
+        bowXP = 0;
+        isBowPurchased = false;
+        laserGunXP = 0;
+        isLaserGunPurchased = false;
+        armourXP = 0;
+        isArmourAvailable = true;
+        planetsExplored = new List<string>();
+        kills = 0;
+        totalKills = 0;
+        lightSaberKills = 0;
+        bowKills = 0;
+        laserGunKills = 0;
+        chestPosition = Vector2Int.zero;
     }
 }
