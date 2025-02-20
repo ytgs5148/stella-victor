@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
-
 
 public class TextAnim : MonoBehaviour
 {
@@ -28,6 +25,11 @@ public class TextAnim : MonoBehaviour
             _textMeshPro.text = stringArray[i];
             StartCoroutine(TextVisible());
         }
+        else
+        {
+            PlayerData.Instance.endingBar = 0f;
+            FindFirstObjectByType<LoadingScreenManager>().LoadScene(0);
+        }
     }
 
     private IEnumerator TextVisible()
@@ -50,9 +52,6 @@ public class TextAnim : MonoBehaviour
 
             counter += 1;
             yield return new WaitForSeconds(timeBtwnChars);
-
-
         }
     }
-
 }
